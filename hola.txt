@@ -1,1 +1,22 @@
-Hola caracola
+TENEMOS: 
+	-MockUp
+	-Clases de uso
+	-Diagrama de clases
+	-Entidad relación
+FALTA:
+	-Diagrama Gantt
+	-¿¿¿¿Despliegue de la página web????
+	-Guía de estilos
+	-Infografía (carteles de clase)
+	-Fotos
+	-Página entera :`-(
+	-Video Tutorial
+	-
+
+
+ENLACES DE INTERÉS:
+https://developers.google.com/codelabs/building-a-web-app-with-angular-and-firebase#0
+https://dev.to/edisonsanchez/primeros-pasos-angular-10-con-firebase-1484
+https://code.visualstudio.com/docs/nodejs/angular-tutorial
+https://abdelmajid-baco.medium.com/learn-angular-for-back-end-developer-part-2-typescript-fundamentals-3f235c2a103c
+
