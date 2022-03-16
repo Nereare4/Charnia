@@ -9,10 +9,14 @@ import { ConexionService } from 'src/app/servicios/conexion.service';
 export class NavbarComponent implements OnInit {
 
   animal:any;
+  cuidador:any;
 
   constructor(private conexion:ConexionService) { 
     this.conexion.listaAnimal().subscribe(anima=>{
       this.animal = anima;
+    })
+    this.conexion.listaCuidador().subscribe(cuidado=>{
+      this.cuidador = cuidado;
     })
   }
 
