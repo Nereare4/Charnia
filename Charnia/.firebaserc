@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "charnia-b944f"
+  },
+  "targets": {
+    "charnia-b944f": {
+      "hosting": {
+        "Charnia": [
+          "charnia-b944f"
+        ]
+      }
+    }
+  }
+}
