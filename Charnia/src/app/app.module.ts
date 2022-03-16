@@ -7,10 +7,15 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
+import { ConexionService } from './servicios/conexion.service';
+import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { FooterComponent } from './componentes/footer/footer.component'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +24,7 @@ import { environment } from '../environments/environment';
     AngularFireAnalyticsModule,
     AngularFirestoreModule
   ],
-  providers: [],
+  providers: [ConexionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
