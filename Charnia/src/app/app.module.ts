@@ -9,13 +9,15 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
 import { ConexionService } from './servicios/conexion.service';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
-import { FooterComponent } from './componentes/footer/footer.component'
+import { FooterComponent } from './componentes/footer/footer.component';
+import { MostrarDATOSComponent } from './componentes/mostrar-datos/mostrar-datos.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    MostrarDATOSComponent
   ],
   imports: [
     BrowserModule,

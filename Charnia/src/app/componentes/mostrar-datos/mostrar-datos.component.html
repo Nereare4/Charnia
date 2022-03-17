@@ -1,0 +1,23 @@
+<h1>DATOS ANIMALES</h1>
+<div *ngFor="let anima of animal">
+    Nombre Animal: {{anima.nombre}} - Especie Animal: {{anima.especie}} - ID Animal: {{anima.id}} - ID Cuidador:{{anima.cuidadoPor}} 
+
+    <div *ngFor="let cuidado of cuidador">
+        <div *ngIf="anima.cuidadoPor == cuidado.id">Nombre Cuidador: {{cuidado.nombre}}</div>
+    </div>
+    - ID Residencia: {{anima.recintoResidencia}}
+    <div *ngFor="let recint of recinto">
+        <div *ngIf="anima.recintoResidencia == recint.id">Tamaño Recinto: {{recint.tamanyo}}</div>
+    </div>
+</div>
+<br>
+
+<h1>DATOS CUIDADORES</h1>
+<div *ngFor="let cuidado of cuidador">
+    {{cuidado.nombre}} - {{cuidado.apellido}} - {{cuidado.id}}
+</div>
+
+<h1>DATOS RECINTOS</h1>
+<div *ngFor="let recint of recinto">
+    {{recint.tamanyo}} - {{recint.id}}
+</div>

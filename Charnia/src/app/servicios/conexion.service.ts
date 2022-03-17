@@ -4,8 +4,9 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-export interface variable { nombre: string; especie:string; cuidadoPor:Reference;}
-export interface variable2 { nombre: string; apellido:string;}
+export interface variable { nombre:string; especie:string; cuidadoPor:string; recintoResidencia:string; }
+export interface variable2 { nombre:string; apellido:string; }
+export interface variable3 { tamanyo:number; }
 
 
 @Injectable({
@@ -18,6 +19,9 @@ export class ConexionService {
 
   private cuidadorCollection: AngularFirestoreCollection<variable2>;
   cuidador: Observable<variable2[]>;
+
+  private recintoCollection: AngularFirestoreCollection<variable3>;
+  recinto: Observable<variable3[]>;
 
   constructor(private afs: AngularFirestore) {
     this.animalCollection = afs.collection<variable>('animal');
@@ -37,11 +41,24 @@ export class ConexionService {
         return { id, ...data };
       }))
     );
+
+    this.recintoCollection = afs.collection<variable3>('recinto');
+    this.recinto = this.recintoCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as variable3;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
   }
-  listaAnimal(){
+  listaAnimales(){
     return this.animal;
   }
-  listaCuidador(){
+  listaCuidadores(){
     return this.cuidador;
   }
+  listaRecintos(){
+    return this.recinto;
+  }
+  
 }
