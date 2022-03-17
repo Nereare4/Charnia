@@ -1,10 +1,66 @@
 <!-- BARRA DE NAVEGACIÓN :)  -->
-<div *ngFor="let anima of animal">
-    {{anima.nombre}} - {{anima.especie}} - {{anima.id}} <!--{{anima.cuidadoPor}} -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+        <div class="d-flex justify-content-center">
+            <img class="w-75 h-75" src="../../../assets/LOGOHORIZONTAL.png" id="logo" alt="logo">
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Descubre Charnia</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Prepara tu visita
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Comprar</a>
+                </li>
+            </ul>
+           
+        </div>
+        <div class="d-flex align-items-center">
+            <div>
+                <div class="form-inline my-2 my-lg-0">
+                    <button class="btn btn-light my-2 my-sm-0 fas fa-search btn-lg" type="submit"
+                        data-bs-toggle="collapse" data-bs-target="#desplegarBarra" aria-expanded="false"
+                        aria-controls="collapseExample" alt="buscar" id="lupa"></button>
+                </div>
+            </div>
+           
+            <div>
+                <button id="usuario" class="btn btn-lg fas fa-user btn-light" alt="iniciar sesion"></button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="d-flex justify-content-end">
+    <div class="collapse w-50" id="desplegarBarra">
+        <input id="barraProducto" class="form-control mr-sm-2 col-sm-10 d-inline w-75" type="search"
+            placeholder="Buscar producto..." aria-label="Search">
+        <button id="buscar" class="btn btn-light my-2 my-sm-0 fas fa-search tamanyo btn-lg col-sm-1 d-inline"
+            type="submit"></button>
+        <button id="microfono" class="btn btn-light my-2 my-sm-0 fas fa-microphone tamanyo btn-lg col-sm-1 d-inline"
+            type="submit"></button>
+    </div>
 </div>
 
-<div *ngFor="let cuidado of cuidador">
-    {{cuidado.nombre}} - {{cuidado.apellido}} - {{cuidado.id}}
-
-</div>
-<!-- <p>navbar works!</p> -->
