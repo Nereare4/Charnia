@@ -8,18 +8,18 @@ import { ConexionService } from 'src/app/servicios/conexion.service';
 })
 export class MostrarDATOSComponent implements OnInit {
 
-  animal:any;
-  cuidador:any;
-  recinto:any;
+  animal: any;
+  cuidador: any;
+  recinto: any;
 
-  constructor(private conexion:ConexionService) { 
-    this.conexion.listaAnimales().subscribe(anima=>{
+  constructor(private conexion: ConexionService) {
+    this.conexion.listaAnimales().subscribe(anima => {
       this.animal = anima;
     })
-    this.conexion.listaCuidadores().subscribe(cuidado=>{
+    this.conexion.listaCuidadores().subscribe(cuidado => {
       this.cuidador = cuidado;
     })
-    this.conexion.listaRecintos().subscribe(recint=>{
+    this.conexion.listaRecintos().subscribe(recint => {
       this.recinto = recint;
     })
   }

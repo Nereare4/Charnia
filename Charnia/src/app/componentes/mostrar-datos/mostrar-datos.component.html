@@ -3,7 +3,7 @@
     Nombre Animal: {{anima.nombre}}<br>
     Especie Animal: {{anima.especie}}<br>
     ID Animal: {{anima.id}}<br>
-    ID Cuidador:{{anima.cuidadoPor}} 
+    ID Cuidador:{{anima.cuidadoPor}}
 
     <div *ngFor="let cuidado of cuidador">
         <div *ngIf="anima.cuidadoPor == cuidado.id">Nombre Cuidador: {{cuidado.nombre}}</div>

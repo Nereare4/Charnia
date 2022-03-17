@@ -4,9 +4,9 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-export interface variable { nombre:string; especie:string; cuidadoPor:string; recintoResidencia:string; }
-export interface variable2 { nombre:string; apellido:string; }
-export interface variable3 { tamanyo:number; }
+export interface variable { nombre: string; especie: string; cuidadoPor: string; recintoResidencia: string; }
+export interface variable2 { nombre: string; apellido: string; }
+export interface variable3 { tamanyo: number; }
 
 
 @Injectable({
@@ -51,14 +51,14 @@ export class ConexionService {
       }))
     );
   }
-  listaAnimales(){
+  listaAnimales() {
     return this.animal;
   }
-  listaCuidadores(){
+  listaCuidadores() {
     return this.cuidador;
   }
-  listaRecintos(){
+  listaRecintos() {
     return this.recinto;
   }
-  
+
 }
