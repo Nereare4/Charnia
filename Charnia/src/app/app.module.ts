@@ -10,21 +10,26 @@ import { environment } from '../environments/environment';
 import { ConexionService } from './servicios/conexion.service';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { FooterComponent } from './componentes/footer/footer.component';
-import { MostrarDATOSComponent } from './componentes/mostrar-datos/mostrar-datos.component'
+import { MostrarDATOSComponent } from './componentes/mostrar-datos/mostrar-datos.component';
+import { InicioComponent } from './componentes/inicio/inicio.component'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    MostrarDATOSComponent
+    MostrarDATOSComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    BrowserAnimationsModule
   ],
   providers: [ConexionService],
   bootstrap: [AppComponent]
