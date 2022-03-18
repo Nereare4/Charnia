@@ -27,3 +27,19 @@
 <div *ngFor="let recint of recinto">
     {{recint.tamanyo}} - {{recint.id}}
 </div>
+
+<h1>OPNIONES</h1>
+<div *ngFor="let opinio of opinion">
+    <div *ngFor="let usu of usuario">
+        <div *ngIf="opinio.opinionDe == usu.id">Usuario: {{usu.nombre}}</div>
+    </div>
+    Comentario: {{opinio.comentario}}<br>
+    Id comentario:{{opinio.id}}
+
+</div>
+<h1>USUARIOS</h1>
+<div *ngFor="let usu of usuario">
+    Nombre: {{usu.nombre}}<br>
+    Correo: {{usu.correo}}
+
+</div>

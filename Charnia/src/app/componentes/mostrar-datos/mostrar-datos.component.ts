@@ -11,6 +11,8 @@ export class MostrarDATOSComponent implements OnInit {
   animal: any;
   cuidador: any;
   recinto: any;
+  opinion:any;
+  usuario:any;
 
   constructor(private conexion: ConexionService) {
     this.conexion.listaAnimales().subscribe(anima => {
@@ -21,6 +23,12 @@ export class MostrarDATOSComponent implements OnInit {
     })
     this.conexion.listaRecintos().subscribe(recint => {
       this.recinto = recint;
+    })
+    this.conexion.listaOpiniones().subscribe(opinio => {
+      this.opinion = opinio;
+    })
+    this.conexion.listaUsuarios().subscribe(usu => {
+      this.usuario = usu;
     })
   }
 

@@ -7,6 +7,10 @@ import { map } from 'rxjs/operators';
 export interface variable { nombre: string; especie: string; cuidadoPor: string; recintoResidencia: string; }
 export interface variable2 { nombre: string; apellido: string; }
 export interface variable3 { tamanyo: number; }
+export interface variable4 { comentario: string; opinionDe: string;}
+export interface variable5 { contrasenya: string; correo:string; nombre:string}
+
+
 
 
 @Injectable({
@@ -22,6 +26,12 @@ export class ConexionService {
 
   private recintoCollection: AngularFirestoreCollection<variable3>;
   recinto: Observable<variable3[]>;
+
+  private opinionCollection: AngularFirestoreCollection<variable4>;
+  opinion: Observable<variable4[]>;
+
+  private usuarioCollection: AngularFirestoreCollection<variable5>;
+  usuario: Observable<variable5[]>;
 
   constructor(private afs: AngularFirestore) {
     this.animalCollection = afs.collection<variable>('animal');
@@ -50,6 +60,24 @@ export class ConexionService {
         return { id, ...data };
       }))
     );
+
+    this.opinionCollection = afs.collection<variable4>('opinion');
+    this.opinion = this.opinionCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as variable4;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
+
+    this.usuarioCollection = afs.collection<variable5>('usuario');
+    this.usuario = this.usuarioCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as variable5;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
   }
   listaAnimales() {
     return this.animal;
@@ -59,6 +87,12 @@ export class ConexionService {
   }
   listaRecintos() {
     return this.recinto;
+  }
+  listaOpiniones() {
+    return this.opinion;
+  }
+  listaUsuarios() {
+    return this.usuario;
   }
 
 }
