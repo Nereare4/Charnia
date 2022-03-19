@@ -32,74 +32,62 @@
         </button>
     </div>
 </div>
-<br><br>
+<br><br><br><br>
 <!-- ACTIVIDADES -->
+<div class="container">
+    <div class="row d-flex justify-content-around ">
+        <div class="col-5">
+            <h1>Actividades educativas</h1><br>
+            <h5>Experiencias muy divertidas y en las que conocerás a los wallabys, las aves exóticas, o los delfines.
+                Aprende de nuestros fantásticos animales y connecta con ellos durante las actividades educativas de
+                Charnia.</h5><br>
+            <button type="button" class="btn btn-success">Todas la actividades</button>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-6">
+            <img src="../../../assets/loro.png" class="card-img-top w-75 h-100"
+                style="border-radius: 1rem 1rem 1rem 1rem;" alt="...">
+        </div>
+    </div>
+</div>
+<br><br><br><br>
 <div class="container ">
     <div class="row d-flex justify-content-around ">
-        <div class="col-4">
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Actividad 1</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <button type="button" class="btn btn-outline-success"><i
-                                    class="fas fa-arrow-right"></i></button>
-                            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="../../../assets/actividades/actividad1.png" class="img-fluid rounded-start" alt="...">
-
-                    </div>
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img src="../../../assets/delfin.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h4 class="card-title">Actividad educativa con delfines</h4>
                 </div>
             </div>
         </div>
-
-        <div class="col-4">
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Actividad 2</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <button type="button" class="btn btn-outline-success"><i
-                                    class="fas fa-arrow-right"></i></button>
-
-                            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="../../../assets/actividades/actividad2.png" class="img-fluid rounded-start" alt="...">
-                    </div>
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img src="../../../assets/tucan.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h4 class="card-title">Actividad educativa con aves exóticas</h4>
                 </div>
             </div>
         </div>
-        <div class="col-4">
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Actividad 3</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <button type="button" class="btn btn-outline-success "><i
-                                    class="fas fa-arrow-right"></i></button>
-
-                            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="../../../assets/actividades/actividad3.png" class="img-fluid rounded-start" alt="...">
-                    </div>
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img src="../../../assets/wallaby.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h4 class="card-title">Actividad educativa con wallabys</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img src="../../../assets/burro.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h4 class="card-title">Actividad educativa con animales de granja</h4>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<br>
+<br><br><br><br>
 <!-- ULTIMOS POST -->
 <div class="h2 d-flex justify-content-center">Últimos posts</div>
 <br>
@@ -148,43 +136,33 @@
         </div>
     </div>
 </div>
-<br>
+<br><br><br><br>
 <!-- OPINIONES -->
 <div class="h2 d-flex justify-content-center">Nuestros clientes opinan</div>
 <br>
 <div class="container ">
     <div class="row d-flex justify-content-around ">
-        <div class="col-4">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h6>estrellas</h6>
-                    <h5 class="card-title">Nombre Usuario</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">fecha</h6>
-                    <p class="card-text">Opinión</p>
+        <div *ngFor="let opinio of opinion"><!-- BUCLE FOR PARA RECORRER OPINIONES -->
+            <div class="col-4">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h6>estrellas</h6>
+                        <div *ngFor="let usu of usuario"> <!-- BUCLE FOR PARA RECORRER USUARIOS -->
+                            <div *ngIf="opinio.opinionDe == usu.id"> <!-- CONDICIÓN PARA UNIR OPINIONES CON USUARIOS -->
+                                <h4 class="card-title">{{usu.nombre}}</h4>
+                            </div>
+                        </div>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                                 <!-- FECHA DE PUBLICACIÓN DD/MM/AAAA-->
+                            {{opinio.fecha.toDate().getDate()}}/{{opinio.fecha.toDate().getMonth()}}/{{opinio.fecha.toDate().getFullYear()}}   
+                        </h6>
+                        <p class="card-text">{{opinio.comentario}}</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="col-4">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h6>estrellas</h6>
-                    <h5 class="card-title">Nombre Usuario</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">fecha</h6>
-                    <p class="card-text">Opinión</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h6>estrellas</h6>
-                    <h5 class="card-title">Nombre Usuario</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">fecha</h6>
-                    <p class="card-text">Opinión</p>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
-<br>
+<br><br>
+<!-- COMPRAR ENTRADAS -->

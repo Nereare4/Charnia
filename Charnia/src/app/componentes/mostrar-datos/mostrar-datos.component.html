@@ -34,7 +34,11 @@
         <div *ngIf="opinio.opinionDe == usu.id">Usuario: {{usu.nombre}}</div>
     </div>
     Comentario: {{opinio.comentario}}<br>
-    Id comentario:{{opinio.id}}
+    Id comentario:{{opinio.id}}<br>
+    Fecha: {{opinio.fecha}}<br>
+    Dia: {{opinio.fecha.toDate().getDate()}}<br>
+    Mes: {{opinio.fecha.toDate().getMonth()}}<br>
+    Año: {{opinio.fecha.toDate().getFullYear()}}<br>
 
 </div>
 <h1>USUARIOS</h1>

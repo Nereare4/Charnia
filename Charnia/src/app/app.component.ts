@@ -13,9 +13,15 @@ export class AppComponent {
   animal: Observable<any[]>;
   cuidador: Observable<any[]>;
   recinto: Observable<any[]>;
+  opinion: Observable<any[]>;
+  usuario: Observable<any[]>;
+
   constructor(firestore: AngularFirestore) {
     this.animal = firestore.collection('animal').valueChanges();
     this.cuidador = firestore.collection('cuidador').valueChanges();
     this.recinto = firestore.collection('recinto').valueChanges();
+    this.opinion = firestore.collection('opinion').valueChanges();
+    this.usuario = firestore.collection('usuario').valueChanges();
+
   }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ConexionService } from 'src/app/servicios/conexion.service';
+
 // import {trigger,state,style,animate,transition,} from '@angular/animations';
 
 @Component({
@@ -21,8 +23,17 @@ import { Component, OnInit } from '@angular/core';
   // ]
 })
 export class InicioComponent implements OnInit {
+  opinion:any;
+  usuario:any;
 
-  constructor() { }
+   constructor(private conexion: ConexionService) {
+    this.conexion.listaOpiniones().subscribe(opinio => {
+      this.opinion = opinio;
+    })
+    this.conexion.listaUsuarios().subscribe(usu => {
+      this.usuario = usu;
+    })
+  }
 
   ngOnInit(): void {
   }

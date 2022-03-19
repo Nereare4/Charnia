@@ -1,13 +1,13 @@
 import { Reference } from '@angular/compiler/src/render3/r3_ast';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
+import { Observable, Timestamp } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface variable { nombre: string; especie: string; cuidadoPor: string; recintoResidencia: string; }
 export interface variable2 { nombre: string; apellido: string; }
 export interface variable3 { tamanyo: number; }
-export interface variable4 { comentario: string; opinionDe: string;}
+export interface variable4 { comentario: string; opinionDe: string; }
 export interface variable5 { contrasenya: string; correo:string; nombre:string}
 
 
