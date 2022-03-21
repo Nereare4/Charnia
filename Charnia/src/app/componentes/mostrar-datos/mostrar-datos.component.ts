@@ -13,6 +13,7 @@ export class MostrarDATOSComponent implements OnInit {
   recinto: any;
   opinion:any;
   usuario:any;
+  individual:any;
 
   constructor(private conexion: ConexionService) {
     this.conexion.listaAnimales().subscribe(anima => {
@@ -29,6 +30,9 @@ export class MostrarDATOSComponent implements OnInit {
     })
     this.conexion.listaUsuarios().subscribe(usu => {
       this.usuario = usu;
+    })
+    this.conexion.listaIndividual().subscribe(indiv => {
+      this.individual = indiv;
     })
   }
 
