@@ -4,13 +4,12 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { Observable, Timestamp } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-export interface variable { nombre: string; especie: string; cuidadoPor: string; recintoResidencia: string; }
-export interface variable2 { nombre: string; apellido: string; }
-export interface variable3 { tamanyo: number; }
-export interface variable4 { comentario: string; opinionDe: string; }
-export interface variable5 { contrasenya: string; correo:string; nombre:string}
-
-
+export interface variable { nombre: string; especie: string; cuidadoPor: string; recintoResidencia: string; }//ANIMAL
+export interface variable2 { nombre: string; apellido: string; }//CUIDADOR
+export interface variable3 { tamanyo: number; }//RECINTO
+export interface variable4 { comentario: string; opinionDe: string; }//OPINION
+export interface variable5 { contrasenya: string; correo:string; nombre:string}//USUARIO
+export interface variable6 { descripcion: string; horario:string; titulo:string}//ACTIVIDAD-INDIVIDUAL
 
 
 @Injectable({
@@ -32,6 +31,9 @@ export class ConexionService {
 
   private usuarioCollection: AngularFirestoreCollection<variable5>;
   usuario: Observable<variable5[]>;
+
+  private actividadesIndividualCollection: AngularFirestoreCollection<variable6>;
+  individual: Observable<variable6[]>;
 
   constructor(private afs: AngularFirestore) {
     this.animalCollection = afs.collection<variable>('animal');
@@ -78,6 +80,14 @@ export class ConexionService {
         return { id, ...data };
       }))
     );
+    this.actividadesIndividualCollection = afs.collection<variable6>('actividadIndividual');
+    this.individual = this.actividadesIndividualCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as variable6;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
   }
 
   listaAnimales() {
@@ -96,6 +106,9 @@ export class ConexionService {
   }
   listaUsuarios() {
     return this.usuario;
+  }
+  listaIndividual() {
+    return this.individual;
   }
 
 }
