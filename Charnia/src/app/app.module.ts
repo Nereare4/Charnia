@@ -27,6 +27,7 @@ import { ActividadesComponent } from './componentes/actividades/actividades.comp
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,

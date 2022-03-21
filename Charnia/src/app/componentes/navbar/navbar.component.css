@@ -1,0 +1,8 @@
+.loginRegistro{
+    overflow: hidden;
+    position: absolute;
+    z-index: 2;
+    margin: auto;
+    width: 100vw;
+    max-height: 100vh;
+}

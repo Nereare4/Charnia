@@ -79,12 +79,15 @@ export class ConexionService {
       }))
     );
   }
+
   listaAnimales() {
     return this.animal;
   }
+  
   listaCuidadores() {
     return this.cuidador;
   }
+  
   listaRecintos() {
     return this.recinto;
   }
