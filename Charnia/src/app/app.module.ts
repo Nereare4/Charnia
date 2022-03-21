@@ -13,6 +13,7 @@ import { FooterComponent } from './componentes/footer/footer.component';
 import { MostrarDATOSComponent } from './componentes/mostrar-datos/mostrar-datos.component';
 import { InicioComponent } from './componentes/inicio/inicio.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ActividadesComponent } from './componentes/actividades/actividades.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NavbarComponent,
     FooterComponent,
     MostrarDATOSComponent,
-    InicioComponent
+    InicioComponent,
+    ActividadesComponent
   ],
   imports: [
     BrowserModule,
