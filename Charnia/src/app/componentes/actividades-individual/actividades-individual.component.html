@@ -1,10 +1,12 @@
 <div *ngFor="let indiv of individual">
-    <div class="container">
-        <h1>{{indiv.titulo}}</h1>
-        Horarios: <br>
-        <ul>
-            <li type="disk">{{indiv.horario}}</li>
-        </ul>
-         {{indiv.descripcion}}
+   <div *ngIf="indiv.nombre == nombre"> <!-- FALTA PONER EL ID/NOMBRE O ALGO CON LO QUE PODER COMPARARLO -->
+        <div class="container">
+            <h1>{{indiv.titulo}}</h1>
+            Horarios: <br>
+            <ul>
+                <li type="disk">{{indiv.horario}}</li>
+            </ul>
+            {{indiv.descripcion}}
+        </div>
     </div>
 </div>

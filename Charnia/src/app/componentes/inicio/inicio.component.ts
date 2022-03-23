@@ -25,6 +25,7 @@ import { ConexionService } from 'src/app/servicios/conexion.service';
 export class InicioComponent implements OnInit {
   opinion:any;
   usuario:any;
+  individual:any;
 
    constructor(private conexion: ConexionService) {
     this.conexion.listaOpiniones().subscribe(opinio => {
@@ -32,6 +33,9 @@ export class InicioComponent implements OnInit {
     })
     this.conexion.listaUsuarios().subscribe(usu => {
       this.usuario = usu;
+    })
+    this.conexion.listaIndividual().subscribe(indiv => {
+      this.individual = indiv;
     })
   }
 

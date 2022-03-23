@@ -59,6 +59,7 @@
                 <img src="../../../assets/delfin.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h4 class="card-title">Actividad educativa con delfines</h4>
+                    <button type="button" class="btn btn-success" [routerLink]="['/actividad', 'actividad-educativa-con-delfines']">Ver más</button>
                 </div>
             </div>
         </div>
@@ -67,6 +68,8 @@
                 <img src="../../../assets/tucan.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h4 class="card-title">Actividad educativa con aves exóticas</h4>
+                    <button type="button" class="btn btn-success"
+                        [routerLink]="['/actividad', 'actividad-educativa-con-aves-exoticas']">Ver más</button>
                 </div>
             </div>
         </div>
@@ -74,7 +77,9 @@
             <div class="card" style="width: 18rem;">
                 <img src="../../../assets/wallaby.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h4 class="card-title">Actividad educativa con wallabys</h4>
+                    <h4 class="card-title">Actividad educativa con wallabies</h4>
+                    <button type="button" class="btn btn-success"
+                        [routerLink]="['/actividad', 'actividad-educativa-con-wallabies']">Ver más</button>
                 </div>
             </div>
         </div>
@@ -83,6 +88,8 @@
                 <img src="../../../assets/burro.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h4 class="card-title">Actividad educativa con animales de granja</h4>
+                    <button type="button" class="btn btn-success"
+                        [routerLink]="['/actividad', 'actividad-educativa-con-animales-de-granja']">Ver más</button>
                 </div>
             </div>
         </div>
@@ -143,19 +150,22 @@
 <br>
 <div class="container ">
     <div class="row d-flex justify-content-around ">
-        <div *ngFor="let opinio of opinion"><!-- BUCLE FOR PARA RECORRER OPINIONES -->
+        <div *ngFor="let opinio of opinion">
+            <!-- BUCLE FOR PARA RECORRER OPINIONES -->
             <div class="col-4">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <h6>estrellas</h6>
-                        <div *ngFor="let usu of usuario"> <!-- BUCLE FOR PARA RECORRER USUARIOS -->
-                            <div *ngIf="opinio.opinionDe == usu.id"> <!-- CONDICIÓN PARA UNIR OPINIONES CON USUARIOS -->
+                        <div *ngFor="let usu of usuario">
+                            <!-- BUCLE FOR PARA RECORRER USUARIOS -->
+                            <div *ngIf="opinio.opinionDe == usu.id">
+                                <!-- CONDICIÓN PARA UNIR OPINIONES CON USUARIOS -->
                                 <h4 class="card-title">{{usu.nombre}}</h4>
                             </div>
                         </div>
                         <h6 class="card-subtitle mb-2 text-muted">
-                                 <!-- FECHA DE PUBLICACIÓN DD/MM/AAAA-->
-                            {{opinio.fecha.toDate().getDate()}}/{{opinio.fecha.toDate().getMonth()}}/{{opinio.fecha.toDate().getFullYear()}}   
+                            <!-- FECHA DE PUBLICACIÓN DD/MM/AAAA-->
+                            {{opinio.fecha.toDate().getDate()}}/{{opinio.fecha.toDate().getMonth()}}/{{opinio.fecha.toDate().getFullYear()}}
                         </h6>
                         <p class="card-text">{{opinio.comentario}}</p>
                     </div>

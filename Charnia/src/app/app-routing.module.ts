@@ -6,7 +6,7 @@ import { ActividadesIndividualComponent } from './componentes/actividades-indivi
 
 const routes: Routes = [
   { path: 'actividad', component: ActividadesComponent },
-  { path: 'actividad/:titulo', component: ActividadesIndividualComponent },
+  { path: 'actividad/:nombre', component: ActividadesIndividualComponent },
   { path: '', component: InicioComponent }, //no se pone ninguna ruta
   { path: '**', redirectTo: '/' } //se indica una ruta que no existe
 

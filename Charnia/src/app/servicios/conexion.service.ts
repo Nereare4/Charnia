@@ -9,7 +9,9 @@ export interface variable2 { nombre: string; apellido: string; }//CUIDADOR
 export interface variable3 { tamanyo: number; }//RECINTO
 export interface variable4 { comentario: string; opinionDe: string; }//OPINION
 export interface variable5 { contrasenya: string; correo:string; nombre:string}//USUARIO
-export interface variable6 { descripcion: string; horario:string; titulo:string}//ACTIVIDAD-INDIVIDUAL
+export interface variable6 { descripcion: string; horario:string; titulo:string; nombre:string}//ACTIVIDAD-INDIVIDUAL
+export interface variable7 { nombre:string}//ACTIVIDADES
+
 
 
 @Injectable({
@@ -35,7 +37,12 @@ export class ConexionService {
   private actividadesIndividualCollection: AngularFirestoreCollection<variable6>;
   individual: Observable<variable6[]>;
 
+  private actividadCollection: AngularFirestoreCollection<variable7>;
+  actividad: Observable<variable7[]>;
+  paramMap: any;
+
   constructor(private afs: AngularFirestore) {
+    
     this.animalCollection = afs.collection<variable>('animal');
     this.animal = this.animalCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
@@ -88,6 +95,14 @@ export class ConexionService {
         return { id, ...data };
       }))
     );
+    this.actividadCollection = afs.collection<variable7>('actividad');
+    this.actividad = this.actividadCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as variable7;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
   }
 
   listaAnimales() {
@@ -109,6 +124,9 @@ export class ConexionService {
   }
   listaIndividual() {
     return this.individual;
+  }
+  listaActividad() {
+    return this.actividad;
   }
 
 }
