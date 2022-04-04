@@ -1,0 +1,20 @@
+<div class="displayTable">
+    <div class="displayTableCell">
+      <div class="authBlock">
+        <h3>Restablecer contraseña</h3>
+        <p class="text-center">Por favor introduzca su correo para enviar una petición de restablecimiento de contraseña.</p>
+        <div class="formGroup">
+          <input type="email" class="formControl" placeholder="Correo electrónico" #correoResetClave required>
+        </div>
+        <!-- Calling ForgotPassword from AuthService Api -->
+        <div class="formGroup">
+          <input type="submit" class="btn btnPrimary" value="Reset Password" (click)="autentifService.contrasenyaOlvidada(correoResetClave.value)">
+        </div>
+      </div>
+      <div class="redirectToLogin">
+        <span>¿Volver al <span class="redirect" routerLink="/login">Inicio de sesión</span>?</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- habría que darle una vuelta a como se ve -->
