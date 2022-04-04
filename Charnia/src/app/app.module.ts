@@ -15,6 +15,7 @@ import { InicioComponent } from './componentes/inicio/inicio.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ActividadesComponent } from './componentes/actividades/actividades.component';
 import { ActividadesIndividualComponent } from './componentes/actividades-individual/actividades-individual.component';
+import { DescubrezooComponent } from './componentes/descubrezoo/descubrezoo.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ActividadesIndividualComponent } from './componentes/actividades-indivi
     MostrarDATOSComponent,
     InicioComponent,
     ActividadesComponent,
-    ActividadesIndividualComponent
+    ActividadesIndividualComponent,
+    DescubrezooComponent
   ],
   imports: [
     BrowserModule,

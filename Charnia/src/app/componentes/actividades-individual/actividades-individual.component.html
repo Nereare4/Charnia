@@ -1,12 +1,36 @@
 <div *ngFor="let indiv of individual">
-   <div *ngIf="indiv.nombre == nombre"> <!-- FALTA PONER EL ID/NOMBRE O ALGO CON LO QUE PODER COMPARARLO -->
+    <div *ngIf="indiv.nombre == nombre">
         <div class="container">
-            <h1>{{indiv.titulo}}</h1>
-            Horarios: <br>
+            <h2>{{indiv.titulo}}</h2><br>
+            <h5><u>Horarios:</u></h5>
             <ul>
-                <li type="disk">{{indiv.horario}}</li>
+                <li type="disk"><strong>Lunes a Viernes: </strong>{{indiv.diario}}</li>
+                <li type="disk"><strong>Fines de semana y festivos: </strong>{{indiv.finsemana}}</li>
             </ul>
             {{indiv.descripcion}}
         </div>
     </div>
 </div>
+<br><br>
+
+
+<div class="container ">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 d-flex justify-content-around ">
+        <div *ngFor="let indiv of individual">
+            <div *ngIf="indiv.nombre != nombre">
+                <div class="col">
+                    <div class="card" style="width: 20rem;">
+                        <img src="../../../assets/{{indiv.imagen}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h4 class="card-title">{{indiv.tituloCarta}}</h4>
+                            <button type="button" class="btn btn-success"
+                                [routerLink]="['/actividad', '{{indiv.nombre}}']">Ver más</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br>

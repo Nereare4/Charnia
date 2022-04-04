@@ -51,7 +51,9 @@
 <h1>ACTIVIDADES INDIVIDUALES</h1>
 <div *ngFor="let indiv of individual">
     Titulo: {{indiv.titulo}}<br>
-    Horario: {{indiv.horario}}<br>
+    Horario: 
+    -Lunes a VIernes: {{indiv.diario}}<br>
+    -Fines de semana: {{indiv.finsemana}}
     Descripción: {{indiv.descripcion}}<br>
     Nombre ruta: {{indiv.nombre}}
 </div>

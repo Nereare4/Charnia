@@ -3,9 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { ActividadesComponent } from './componentes/actividades/actividades.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { ActividadesIndividualComponent } from './componentes/actividades-individual/actividades-individual.component';
+import { DescubrezooComponent } from './componentes/descubrezoo/descubrezoo.component';
 
 const routes: Routes = [
   { path: 'actividad', component: ActividadesComponent },
+  { path: 'descubre-el-zoo', component: DescubrezooComponent },
   { path: 'actividad/:nombre', component: ActividadesIndividualComponent },
   { path: '', component: InicioComponent }, //no se pone ninguna ruta
   { path: '**', redirectTo: '/' } //se indica una ruta que no existe
