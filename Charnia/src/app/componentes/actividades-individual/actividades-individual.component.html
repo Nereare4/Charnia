@@ -13,12 +13,13 @@
 </div>
 <br><br>
 
-
 <div class="container ">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 d-flex justify-content-around ">
         <div *ngFor="let indiv of individual">
             <div *ngIf="indiv.nombre != nombre">
                 <div class="col">
+            <!-- <div *ngIf="indiv.nombre != nombre; else hueco">
+                <div class="col-4"> -->
                     <div class="card" style="width: 20rem;">
                         <img src="../../../assets/{{indiv.imagen}}" class="card-img-top" alt="...">
                         <div class="card-body">
@@ -29,6 +30,11 @@
                     </div>
                 </div>
             </div>
+            <!-- <ng-template #hueco>
+                <div *ngIf="indiv.nombre == nombre">
+                    <div class="col-1">h</div>
+                </div>
+            </ng-template> -->
         </div>
     </div>
 </div>
