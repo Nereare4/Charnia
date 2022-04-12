@@ -14,23 +14,24 @@
 <br><br>
 
 <div class="container ">
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 d-flex justify-content-around ">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 d-flex justify-content-around" >
         <div *ngFor="let indiv of individual">
             <div *ngFor="let rut of ruta">
                 <div *ngIf="indiv.nombre == rut">
-                    <div *ngIf="indiv.nombre != nombre; else hueco">
+                    <div *ngIf="indiv.nombre != nombre"> <!--; else hueco-->
+                        
                         <div class="col">
-                            <div class="card" style="width: 20rem;">
+                            <div class="card clase" style="width: 20rem;"><!--[@aniCard]="state" (mouseover)="verde()"-->
                                 <img src="../../../assets/{{indiv.imagen}}" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <h4 class="card-title">{{indiv.tituloCarta}}</h4>
+                                    <h4 class="card-title ">{{indiv.tituloCarta}}</h4>
                                     <button type="button" class="btn btn-success" [routerLink]="['/actividad', rut]"
-                                        (click)="ngOnInit()">Ver más</button>
+                                        (click)="ngOnInit()">Ver más</button><!--Primer click: pone ruta, segundo click: va a la ruta-->
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <ng-template #hueco>
+                    <!-- <ng-template #hueco>
                         <div *ngIf="indiv.nombre == nombre">
                             <div class="col">
                                 <div class="card opacidad" style="width: 20rem;">
@@ -43,12 +44,10 @@
                                 </div>
                             </div>
                         </div>
-                    </ng-template>
+                    </ng-template> -->
                 </div>
             </div>
-
         </div>
     </div>
 </div>
-
 <br><br>

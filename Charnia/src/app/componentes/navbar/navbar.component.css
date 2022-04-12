@@ -1,0 +1,39 @@
+/* .subrayado{
+    text-decoration: none;
+    background-image: linear-gradient(#F6C04A, #F6C04A);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size 1s;
+}
+.subrayado:hover, .subrayado:focus {
+    background-size: 75% 2px;
+} */
+*:after,*:before {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.subrayado{
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+    position: relative;
+    outline: none;
+}
+.subrayado::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background: #F6C04A;
+  visibility: hidden;
+  border-radius: 5px;
+  transform: scaleX(0);
+  transition: 1s linear;
+}
+.subrayado:hover::after,.subrayado:focus::after {
+  visibility: visible;
+  transform: scaleX(1);
+}

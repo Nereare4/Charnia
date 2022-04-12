@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConexionService } from 'src/app/servicios/conexion.service';
+import { ActivatedRoute } from '@angular/router';
+
 
 // import {trigger,state,style,animate,transition,} from '@angular/animations';
 
@@ -26,8 +28,10 @@ export class InicioComponent implements OnInit {
   opinion:any;
   usuario:any;
   individual:any;
+  nombre: any;
+  ruta: string[]=[];
 
-   constructor(private conexion: ConexionService) {
+   constructor(private conexion: ConexionService, private route: ActivatedRoute) {
     this.conexion.listaOpiniones().subscribe(opinio => {
       this.opinion = opinio;
     })
@@ -36,10 +40,15 @@ export class InicioComponent implements OnInit {
     })
     this.conexion.listaIndividual().subscribe(indiv => {
       this.individual = indiv;
+      for (let i = 0; i < indiv.length; i++) {
+        this.ruta.push(indiv[i].nombre);
+      }
     })
   }
 
   ngOnInit(): void {
+    this.nombre = this.route.snapshot.paramMap.get("nombre");
+    this.ruta;
   }
 
 }

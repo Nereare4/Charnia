@@ -1,0 +1,6 @@
+.redondo{
+    border-radius: 1rem 1rem 1rem 1rem;
+}
+.redondoMitad{
+    border-radius: 1rem 1rem 0rem 0rem;
+}

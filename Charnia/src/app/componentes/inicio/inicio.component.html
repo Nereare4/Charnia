@@ -12,13 +12,13 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="../../../assets/pajaro.png" class="d-block w-100" alt="...">
+                <img src="../../../assets/pajaro.png" class="d-block w-100 redondo" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="../../../assets/tigre.png" class="d-block w-100" alt="...">
+                <img src="../../../assets/tigre.png" class="d-block w-100 redondo" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="../../../assets/elefante.png" class="d-block w-100" alt="...">
+                <img src="../../../assets/elefante.png" class="d-block w-100 redondo" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -46,52 +46,31 @@
         </div>
         <div class="col-1"></div>
         <div class="col-6">
-            <img src="../../../assets/loro.png" class="card-img-top w-75 h-100"
-                style="border-radius: 1rem 1rem 1rem 1rem;" alt="...">
+            <img src="../../../assets/loro.png" class="card-img-top w-75 h-100 redondo" alt="...">
         </div>
     </div>
 </div>
 <br><br><br><br>
 <div class="container ">
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 d-flex justify-content-around ">
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="../../../assets/delfin.png" class="card-img-top" style="width: 100%; height: auto;" alt="...">
-                <div class="card-body">
-                    <h4 class="card-title">Actividad educativa con delfines</h4>
-                    <button type="button" class="btn btn-success" [routerLink]="['/actividad', 'actividad-educativa-con-delfines']">Ver más</button>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 d-flex justify-content-around">
+        <div *ngFor="let indiv of individual">
+            <div *ngFor="let rut of ruta">
+                <div *ngIf="indiv.nombre == rut">
+                    <div *ngIf="indiv.nombre != nombre">
+                        <div class="col">
+                            <div class="card redondo" style="width: 18rem; ">
+                                <img src="../../../assets/{{indiv.imagen}}" class="card-img-top redondoMitad" alt="...">
+                                <div class="card-body">
+                                    <h4 class="card-title">{{indiv.tituloCarta}}</h4>
+                                    <button type="button" class="btn btn-success" [routerLink]="['/actividad', rut]"
+                                        (click)="ngOnInit()">Ver más</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="../../../assets/tucan.png" class="card-img-top" style="width: 100%; height: auto;" alt="...">
-                <div class="card-body">
-                    <h4 class="card-title">Actividad educativa con aves exóticas</h4>
-                    <button type="button" class="btn btn-success"
-                        [routerLink]="['/actividad', 'actividad-educativa-con-aves-exoticas']">Ver más</button>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="../../../assets/wallaby.png" class="card-img-top" style="width: 100%; height: auto;" alt="...">
-                <div class="card-body">
-                    <h4 class="card-title">Actividad educativa con wallabies</h4>
-                    <button type="button" class="btn btn-success"
-                        [routerLink]="['/actividad', 'actividad-educativa-con-wallabies']">Ver más</button>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="../../../assets/burro.png" class="card-img-top" style="width: 100%; height: auto;" alt="...">
-                <div class="card-body">
-                    <h4 class="card-title">Actividad educativa con animales de granja</h4>
-                    <button type="button" class="btn btn-success"
-                        [routerLink]="['/actividad', 'actividad-educativa-con-animales-de-granja']">Ver más</button>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>
