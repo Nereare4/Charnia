@@ -15,18 +15,26 @@ export class ActividadesIndividualComponent implements OnInit {
   nombre: any;
   ruta: string[]=[];
   state: string = "inactive"; //PROVISIONAL ES PARA ANIMACION DE CARD
+  descripcion: string[] =[];
+  imprimir: string="";
 
   constructor(private conexion: ConexionService, private route: ActivatedRoute) {
     this.conexion.listaIndividual().subscribe(indiv => {
       this.individual = indiv;
       for (let i = 0; i < indiv.length; i++) {
         this.ruta.push(indiv[i].nombre);
+        this.descripcion = indiv[i].descripcion.split("/");
+        console.log(this.descripcion);
+      }
+      for (let i = 0; i < this.descripcion.length; i++) {
+          this.imprimir += this.descripcion[i] + "\n";
       }
     })
   }
   ngOnInit() {
     this.nombre = this.route.snapshot.paramMap.get("nombre");
     this.ruta;
+    this.imprimir;
   }
   // verde(){
   //   this.state = this.state === "active" ? "inactive" : "active";

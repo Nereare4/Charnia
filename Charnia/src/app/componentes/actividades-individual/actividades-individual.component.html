@@ -7,20 +7,19 @@
                 <li type="disk"><strong>Lunes a Viernes: </strong>{{indiv.diario}}</li>
                 <li type="disk"><strong>Fines de semana y festivos: </strong>{{indiv.finsemana}}</li>
             </ul>
-            {{indiv.descripcion}}
+            {{imprimir}}
         </div>
     </div>
 </div>
 <br><br>
 
 <div class="container ">
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 d-flex justify-content-around" >
+    <div class="row  row-cols-1 row-cols-md-2 row-cols-lg-4 d-flex justify-content-center" >
         <div *ngFor="let indiv of individual">
             <div *ngFor="let rut of ruta">
                 <div *ngIf="indiv.nombre == rut">
-                    <div *ngIf="indiv.nombre != nombre"> <!--; else hueco-->
-                        
-                        <div class="col">
+                    <div *ngIf="indiv.nombre != nombre; else hueco"> <!--  -->
+                         <div class="col">
                             <div class="card clase" style="width: 20rem;"><!--[@aniCard]="state" (mouseover)="verde()"-->
                                 <img src="../../../assets/{{indiv.imagen}}" class="card-img-top" alt="...">
                                 <div class="card-body">
@@ -31,8 +30,8 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <ng-template #hueco>
-                        <div *ngIf="indiv.nombre == nombre">
+                    <ng-template #hueco>
+                        <div *ngIf="indiv.nombre == nombre" style="padding: 0% 0%;">
                             <div class="col">
                                 <div class="card opacidad" style="width: 20rem;">
                                     <img src="../../../assets/{{indiv.imagen}}" class="card-img-top " alt="...">
@@ -44,7 +43,7 @@
                                 </div>
                             </div>
                         </div>
-                    </ng-template> -->
+                    </ng-template>
                 </div>
             </div>
         </div>
