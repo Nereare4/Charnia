@@ -16,6 +16,8 @@ export class AppComponent {
   opinion: Observable<any[]>;
   usuario: Observable<any[]>;
   individual: Observable<any[]>;
+  imagenes: Observable<any[]>;
+
     
   constructor(firestore: AngularFirestore) {
     this.animal = firestore.collection('animal').valueChanges();
@@ -24,6 +26,7 @@ export class AppComponent {
     this.opinion = firestore.collection('opinion').valueChanges();
     this.usuario = firestore.collection('usuario').valueChanges();
     this.individual = firestore.collection('actividadIndividual').valueChanges();
+    this.imagenes = firestore.collection('imagenes').valueChanges();
 
   }
 }

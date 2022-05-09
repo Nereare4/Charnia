@@ -9,7 +9,8 @@ export interface variable2 { nombre: string; apellido: string; }//CUIDADOR
 export interface variable3 { tamanyo: number; }//RECINTO
 export interface variable4 { comentario: string; opinionDe: string; }//OPINION
 export interface variable5 { contrasenya: string; correo:string; nombre:string}//USUARIO
-export interface variable6 { descripcion: string; diario:string; titulo:string; nombre:string; finsemana:string, imagen:string, tituloCarta:string}//ACTIVIDAD-INDIVIDUAL
+export interface variable6 { descripcion: string; diario:string; titulo:string; nombre:string; finsemana:string, imagen:string, tituloCarta:string, idAnimal:string}//ACTIVIDAD-INDIVIDUAL
+export interface variable7 { idAnimal: string; imagen:string;}//IMAGENES ANIMALES
 
 
 
@@ -35,6 +36,9 @@ export class ConexionService {
 
   private actividadesIndividualCollection: AngularFirestoreCollection<variable6>;
   individual: Observable<variable6[]>;
+
+  private imagenesCollection: AngularFirestoreCollection<variable7>;
+  imagen: Observable<variable7[]>;
 
  
   paramMap: any;
@@ -93,6 +97,14 @@ export class ConexionService {
         return { id, ...data };
       }))
     );
+    this.imagenesCollection = afs.collection<variable7>('imagenes');
+    this.imagen = this.imagenesCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as variable7;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
     
   }
 
@@ -115,6 +127,9 @@ export class ConexionService {
   }
   listaIndividual() {
     return this.individual;
+  }
+  imagenes() {
+    return this.imagen;
   }
   
 

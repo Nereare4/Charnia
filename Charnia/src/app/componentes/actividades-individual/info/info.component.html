@@ -1,0 +1,17 @@
+<div *ngFor="let indiv of individual">
+    <div *ngIf="indiv.nombre == nombre">
+        <div class="container">
+            <h2>{{indiv.titulo}}</h2><br>
+            <h5><u>Horarios:</u></h5>
+            <ul>
+                <li type="disk"><strong>Lunes a Viernes: </strong>{{indiv.diario}}</li>
+                <li type="disk"><strong>Fines de semana y festivos: </strong>{{indiv.finsemana}}</li>
+            </ul>
+            <div *ngFor="let desc of descripcion">
+                <div *ngIf="indiv.descripcion == desc">
+                    <p id="descripcion" *ngIf="desc" [innerHTML]="desc"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

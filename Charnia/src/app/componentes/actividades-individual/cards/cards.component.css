@@ -1,0 +1,12 @@
+.opacidad{
+    opacity: 0.4;
+}
+.zindex{
+    z-index: -4;
+}
+.redondo{
+    border-radius: 1rem 1rem 1rem 1rem;
+}
+.redondoMitad{
+    border-radius: 1rem 1rem 0rem 0rem;
+}

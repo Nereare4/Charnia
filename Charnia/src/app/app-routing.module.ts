@@ -15,7 +15,6 @@ const routes: Routes = [
   { path: 'actividad', component: ActividadesComponent },
   { path: 'descubre-el-zoo', component: DescubrezooComponent },
   { path: 'actividad/:nombre', component: ActividadesIndividualComponent },
-  { path: 'actividad/:titulo', component: ActividadesIndividualComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'perfil-usuario', component: PerfilUsuarioComponent, canActivate: [AutentifGuard] },

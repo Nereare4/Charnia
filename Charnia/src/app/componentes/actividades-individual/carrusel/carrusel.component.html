@@ -1,0 +1,13 @@
+<div class="container">
+    <input type="radio" name="slider" id="item-0" checked>
+    <input type="radio" name="slider" id="item-1">
+    <input type="radio" name="slider" id="item-2">
+    <input type="radio" name="slider" id="item-3">
+    <div class="cards">
+        <div *ngFor="let fotosnu of fotosnum; index as i">
+            <label class="card" id="song-{{i}}" for="item-{{i}}">
+                <img src="../../../assets/{{fotosnu}}" alt="song">
+            </label>
+        </div>
+    </div>
+</div>

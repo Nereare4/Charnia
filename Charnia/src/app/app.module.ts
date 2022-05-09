@@ -25,7 +25,10 @@ import { VerifCorreoComponent } from './componentes/verif-correo/verif-correo.co
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage'; // de este no estoy muy seguro
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { PerfilUsuarioComponent } from './componentes/perfil-usuario/perfil-usuario.component'; // de este no estoy muy seguro
+import { PerfilUsuarioComponent } from './componentes/perfil-usuario/perfil-usuario.component';
+import { CarruselComponent } from './componentes/actividades-individual/carrusel/carrusel.component';
+import { InfoComponent } from './componentes/actividades-individual/info/info.component';
+import { CardsComponent } from './componentes/actividades-individual/cards/cards.component'; // de este no estoy muy seguro
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { PerfilUsuarioComponent } from './componentes/perfil-usuario/perfil-usua
     RegistroComponent,
     RecuperarContrasenyaComponent,
     VerifCorreoComponent,
-    PerfilUsuarioComponent
+    PerfilUsuarioComponent,
+    CarruselComponent,
+    InfoComponent,
+    CardsComponent
   ],
   imports: [
     AngularFireDatabaseModule, // de este no estoy muy seguro
