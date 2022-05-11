@@ -30,10 +30,17 @@ export class InicioComponent implements OnInit {
   individual:any;
   nombre: any;
   ruta: string[]=[];
+  arrayOpinion: any[] = [];
+  // otroArray:
 
    constructor(private conexion: ConexionService, private route: ActivatedRoute) {
     this.conexion.listaOpiniones().subscribe(opinio => {
       this.opinion = opinio;
+      for (let i = 0; i < opinio.length; i++) {
+        if (opinio[i].valoracion >= 4 && this.arrayOpinion.length < 3) {
+          this.arrayOpinion.push(opinio[i]);
+        }
+      }
     })
     this.conexion.listaUsuarios().subscribe(usu => {
       this.usuario = usu;
@@ -49,6 +56,8 @@ export class InicioComponent implements OnInit {
   ngOnInit(): void {
     this.nombre = this.route.snapshot.paramMap.get("nombre");
     this.ruta;
+    this.arrayOpinion;
+    console.log(this.arrayOpinion)
   }
 
 }

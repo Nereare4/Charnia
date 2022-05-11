@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 export interface variable { nombre: string; especie: string; cuidadoPor: string; recintoResidencia: string; }//ANIMAL
 export interface variable2 { nombre: string; apellido: string; }//CUIDADOR
 export interface variable3 { tamanyo: number; }//RECINTO
-export interface variable4 { comentario: string; opinionDe: string; }//OPINION
+export interface variable4 { comentario: string; opinionDe: string; valoracion: number;}//OPINION
 export interface variable5 { contrasenya: string; correo:string; nombre:string}//USUARIO
 export interface variable6 { descripcion: string; diario:string; titulo:string; nombre:string; finsemana:string, imagen:string, tituloCarta:string, idAnimal:string}//ACTIVIDAD-INDIVIDUAL
 export interface variable7 { idAnimal: string; imagen:string;}//IMAGENES ANIMALES

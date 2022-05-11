@@ -17,6 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ActividadesComponent } from './componentes/actividades/actividades.component';
 import { ActividadesIndividualComponent } from './componentes/actividades-individual/actividades-individual.component';
 import { DescubrezooComponent } from './componentes/descubrezoo/descubrezoo.component';
+import { InfoComponent } from './componentes/info/info.component';
+
 
 import { LoginComponent } from './componentes/login/login.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
@@ -27,8 +29,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage'; // de e
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { PerfilUsuarioComponent } from './componentes/perfil-usuario/perfil-usuario.component';
 import { CarruselComponent } from './componentes/actividades-individual/carrusel/carrusel.component';
-import { InfoComponent } from './componentes/actividades-individual/info/info.component';
 import { CardsComponent } from './componentes/actividades-individual/cards/cards.component'; // de este no estoy muy seguro
+
 
 @NgModule({
   declarations: [

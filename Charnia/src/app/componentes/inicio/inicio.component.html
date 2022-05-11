@@ -1,6 +1,6 @@
-<br>
+<!-- <br> -->
 <!-- CARRUSEL -->
-<div class="w-50 h-10 mx-auto">
+<div class=" tamanyo mx-auto">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -12,13 +12,13 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="../../../assets/pajaro.png" class="d-block w-100 redondo" alt="...">
+                <img src="../../../assets/pajaro.png" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="../../../assets/tigre.png" class="d-block w-100 redondo" alt="...">
+                <img src="../../../assets/tigre.png" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="../../../assets/elefante.png" class="d-block w-100 redondo" alt="...">
+                <img src="../../../assets/elefante.png" class="d-block w-100" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -129,24 +129,71 @@
 <br>
 <div class="container ">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 d-flex justify-content-around ">
-        <div *ngFor="let opinio of opinion">
+        <!-- <div *ngFor="let opinio of opinion"> -->
+        <div *ngFor="let opinio of arrayOpinion">
             <!-- BUCLE FOR PARA RECORRER OPINIONES -->
             <div class="col">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 22rem;">
                     <div class="card-body">
-                        <h6>estrellas</h6>
-                        <div *ngFor="let usu of usuario">
-                            <!-- BUCLE FOR PARA RECORRER USUARIOS -->
-                            <div *ngIf="opinio.opinionDe == usu.id">
-                                <!-- CONDICIÓN PARA UNIR OPINIONES CON USUARIOS -->
-                                <h4 class="card-title">{{usu.nombre}}</h4>
+                        <div *ngIf="opinio.valoracion == 4; else otro">
+                            <div class="row row-cols-2">
+                                <div class="col-7">
+                                    <div *ngFor="let usu of usuario">
+                                        <!-- BUCLE FOR PARA RECORRER USUARIOS -->
+                                        <div *ngIf="opinio.opinionDe == usu.id">
+                                            <!-- CONDICIÓN PARA UNIR OPINIONES CON USUARIOS -->
+                                            <h3 class="card-title">{{usu.nombre}}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-5 d-flex justify-content-end align-self-center">
+                                    <h6>
+                                        <i class="bi bi-star-fill" style="font-size: 1em; color: gold"></i>
+                                        <i class="bi bi-star-fill" style="font-size: 1em; color: gold"></i>
+                                        <i class="bi bi-star-fill" style="font-size: 1em; color: gold"></i>
+                                        <i class="bi bi-star-fill" style="font-size: 1em; color: gold"></i>
+                                    </h6>
+                                </div>
+                                <br>
+                                <h6 class="card-subtitle mb-2 text-muted fs-6">
+                                    <!-- FECHA DE PUBLICACIÓN DD/MM/AAAA-->
+                                    {{opinio.fecha.toDate().getDate()}}/{{opinio.fecha.toDate().getMonth()+1}}/{{opinio.fecha.toDate().getFullYear()}}
+                                </h6>
                             </div>
+                            <p class="card-text">{{opinio.comentario}}</p>
                         </div>
-                        <h6 class="card-subtitle mb-2 text-muted">
-                            <!-- FECHA DE PUBLICACIÓN DD/MM/AAAA-->
-                            {{opinio.fecha.toDate().getDate()}}/{{opinio.fecha.toDate().getMonth()}}/{{opinio.fecha.toDate().getFullYear()}}
-                        </h6>
-                        <p class="card-text">{{opinio.comentario}}</p>
+                        <ng-template #otro>
+                            <div *ngIf="opinio.valoracion == 5">
+                                <div class="row row-cols-2">
+                                    <div class="col-6">
+                                        <div *ngFor="let usu of usuario">
+                                            <!-- BUCLE FOR PARA RECORRER USUARIOS -->
+                                            <div *ngIf="opinio.opinionDe == usu.id">
+                                                <!-- CONDICIÓN PARA UNIR OPINIONES CON USUARIOS -->
+                                                <h3 class="card-title">{{usu.nombre}}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-end align-self-center">
+                                        <h6>
+                                            <i class="bi bi-star-fill" style="font-size: 1em; color: gold"></i>
+                                            <i class="bi bi-star-fill" style="font-size: 1em; color: gold"></i>
+                                            <i class="bi bi-star-fill" style="font-size: 1em; color: gold"></i>
+                                            <i class="bi bi-star-fill" style="font-size: 1em; color: gold"></i>
+                                            <i class="bi bi-star-fill" style="font-size: 1em; color: gold"></i>
+                                        </h6>
+                                    </div>
+                                    <br>
+                                    <h6 class="card-subtitle mb-2 text-muted fs-6">
+                                        <!-- FECHA DE PUBLICACIÓN DD/MM/AAAA-->
+                                        {{opinio.fecha.toDate().getDate()}}/{{opinio.fecha.toDate().getMonth()+1}}/{{opinio.fecha.toDate().getFullYear()}}
+                                    </h6>
+                                </div>
+                                <p class="card-text">{{opinio.comentario}}</p>
+                            </div>
+
+                        </ng-template>
+
                     </div>
                 </div>
             </div>
