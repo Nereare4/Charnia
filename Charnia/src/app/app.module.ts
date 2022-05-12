@@ -17,7 +17,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ActividadesComponent } from './componentes/actividades/actividades.component';
 import { ActividadesIndividualComponent } from './componentes/actividades-individual/actividades-individual.component';
 import { DescubrezooComponent } from './componentes/descubrezoo/descubrezoo.component';
-import { InfoComponent } from './componentes/info/info.component';
+import { InfoZooComponent } from './componentes/info-zoo/info-zoo.component';
+import { InfoComponent } from './componentes/actividades-individual/info/info.component';
+
 
 
 import { LoginComponent } from './componentes/login/login.component';
@@ -29,7 +31,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage'; // de e
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { PerfilUsuarioComponent } from './componentes/perfil-usuario/perfil-usuario.component';
 import { CarruselComponent } from './componentes/actividades-individual/carrusel/carrusel.component';
-import { CardsComponent } from './componentes/actividades-individual/cards/cards.component'; // de este no estoy muy seguro
+import { CardsComponent } from './componentes/actividades-individual/cards/cards.component';
+import { BlogComponent } from './componentes/blog/blog.component';
 
 
 @NgModule({
@@ -48,8 +51,10 @@ import { CardsComponent } from './componentes/actividades-individual/cards/cards
     VerifCorreoComponent,
     PerfilUsuarioComponent,
     CarruselComponent,
+    CardsComponent,
+    InfoZooComponent,
     InfoComponent,
-    CardsComponent
+    BlogComponent
   ],
   imports: [
     AngularFireDatabaseModule, // de este no estoy muy seguro

@@ -9,14 +9,16 @@ import { VerifCorreoComponent } from './componentes/verif-correo/verif-correo.co
 import { RecuperarContrasenyaComponent } from './componentes/recuperar-contrasenya/recuperar-contrasenya.component';
 import { ActividadesIndividualComponent } from './componentes/actividades-individual/actividades-individual.component';
 import { DescubrezooComponent } from './componentes/descubrezoo/descubrezoo.component';
-import { InfoComponent } from './componentes/info/info.component';
+import { InfoZooComponent } from './componentes/info-zoo/info-zoo.component';
 import { AutentifGuard } from './guard/autentif.guard';
+import { BlogComponent } from './componentes/blog/blog.component';
 
 const routes: Routes = [
   { path: 'actividad', component: ActividadesComponent },
   { path: 'descubre-el-zoo', component: DescubrezooComponent },
   { path: 'actividad/:nombre', component: ActividadesIndividualComponent },
-  { path: 'descubre-el-zoo/servicios', component: InfoComponent },
+  { path: 'descubre-el-zoo/servicios', component: InfoZooComponent },
+  { path: 'blog', component: BlogComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'perfil-usuario', component: PerfilUsuarioComponent, canActivate: [AutentifGuard] },
