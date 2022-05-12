@@ -114,14 +114,15 @@ export class AutentifService {
   establecerDatosUsu(usuario: any) {
     const usuarioRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${usuario.usuId}`);
     const usuDatos: Usuario = {
-      usuId: usuario.usuId,
+      //usuId: usuario.usuId,
       correo: usuario.correo,
-      nombre: usuario.nombre,
-      correoVerif: usuario.correoVerif,
+      contrasenya: usuario.contrasenya
+      //nombre: usuario.nombre,
+      //correoVerif: usuario.correoVerif,
     };
-    return usuarioRef.set(usuDatos, {
+    return usuarioRef/*.set(usuDatos, {
       merge: true,
-    });
+    });*/
   }
 
   /* Cerrar sesión */
