@@ -9,6 +9,9 @@
 .subrayado:hover, .subrayado:focus {
     background-size: 75% 2px;
 } */
+.puntero{
+  cursor: pointer;
+}
 *:after,*:before {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -36,4 +39,13 @@
 .subrayado:hover::after,.subrayado:focus::after {
   visibility: visible;
   transform: scaleX(1);
+}
+@media (max-width: 988px){
+  /* .container {
+    overflow: hidden;
+    max-width: 1000px;
+  } */
+  .subrayado::after{
+    width: 10%;
+  }
 }
