@@ -12,12 +12,22 @@ import { DescubrezooComponent } from './componentes/descubrezoo/descubrezoo.comp
 import { InfoZooComponent } from './componentes/info-zoo/info-zoo.component';
 import { AutentifGuard } from './guard/autentif.guard';
 import { BlogComponent } from './componentes/blog/blog.component';
+import { VentaEntradasComponent } from './componentes/venta-entradas/venta-entradas.component';
+// import { VisitantesComponent } from './componentes/venta-entradas/visitantes/visitantes.component';
+// import { FechaComponent } from './componentes/venta-entradas/fecha/fecha.component';
+// import { ExtraComponent } from './componentes/venta-entradas/extra/extra.component';
+// import { PagoComponent } from './componentes/venta-entradas/pago/pago.component';
 
 const routes: Routes = [
   { path: 'actividad', component: ActividadesComponent },
   { path: 'descubre-el-zoo', component: DescubrezooComponent },
   { path: 'actividad/:nombre', component: ActividadesIndividualComponent },
   { path: 'descubre-el-zoo/servicios', component: InfoZooComponent },
+  { path: 'entradas', component: VentaEntradasComponent },
+  // { path: 'entradas/visitantes', component: VisitantesComponent },
+  // { path: 'entradas/fecha', component: FechaComponent },
+  // { path: 'entradas/extras', component: ExtraComponent },
+  // { path: 'entradas/pago', component: PagoComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },

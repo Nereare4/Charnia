@@ -41,10 +41,6 @@
   transform: scaleX(1);
 }
 @media (max-width: 988px){
-  /* .container {
-    overflow: hidden;
-    max-width: 1000px;
-  } */
   .subrayado::after{
     width: 10%;
   }
