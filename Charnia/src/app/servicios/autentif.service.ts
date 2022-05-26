@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
 })
 export class AutentifService {
   usuDatos: any; // Save logged in user data
+  //errorCorreo: string;
+  /*errorClave: string;
+  errorGenerico: string;*/
 
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
@@ -41,7 +44,7 @@ export class AutentifService {
         this.establecerDatosUsu(result.user);
       })
       .catch((error) => {
-        window.alert(error.message);
+        this.manejarErrores(error.code);
       });
   }
 
@@ -55,7 +58,7 @@ export class AutentifService {
         this.establecerDatosUsu(result.user);
       })
       .catch((error) => {
-        window.alert(error.message);
+        this.manejarErrores(error.code);
       });
   }
 
@@ -76,7 +79,7 @@ export class AutentifService {
         window.alert('Correo de cambio de contraseña enviado, compruebe su bandeja de entrada.');
       })
       .catch((error) => {
-        window.alert(error);
+        this.manejarErrores(error.code);
       });
   }
 
@@ -106,7 +109,7 @@ export class AutentifService {
         this.establecerDatosUsu(result.user);
       })
       .catch((error) => {
-        window.alert(error);
+        this.manejarErrores(error.code);
       });
   }
 
@@ -125,11 +128,195 @@ export class AutentifService {
     });*/
   }
 
+
+  /*
+  FirebaseError: [code=invalid-argument]: Function DocumentReference.set() called with invalid data.
+  Unsupported field value: undefined (found in field correo in document users/undefined)
+  */
+
+
   /* Cerrar sesión */
   cerrarSesion() {
     return this.afAutentif.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
     });
+  }
+
+  manejarErrores(errorId: string) {
+    switch (errorId) {
+      case "auth/email-already-exists":
+        //errorCorreo = "tonto";
+        break;
+      case "":
+
+        break;
+      case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+        case "":
+
+        break;
+
+    }
   }
 }
