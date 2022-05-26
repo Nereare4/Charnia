@@ -1,1 +1,16 @@
-<p>fecha works!</p>
+<div class="calendars">
+  <div class="calendar-container">
+    <span class="subtitle">
+      Fecha seleccionada: {{ date | date }}
+    </span>
+    <nb-calendar [(date)]="date" [boundingMonth]="true">
+    </nb-calendar>
+  </div>
+
+  <div class="calendar-container">
+    <span class="subtitle">
+      Fecha seleccionada: {{ date2 | date }}
+    </span>
+    <nb-calendar [(date)]="date2" [dayCellComponent]="dayCellComponent"></nb-calendar>
+  </div>
+</div>

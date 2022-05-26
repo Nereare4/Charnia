@@ -1,3 +1,91 @@
+<div class="container">
+    <h1 class="d-flex justify-content-center">Bienvenido: usuario</h1>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+        <!-- ACTIVIDAD INDIVIDUAL -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 d-flex justify-content-around mt-3">
+            <div class="col">
+                <div class="card redondo" style="width: 18rem; ">
+                    <img src="../../../assets/burro.png" class="card-img-top redondoMitad" alt="...">
+                    <div class="card-body">
+                        <h4 class="card-title">Actividad Individual</h4>
+                        <button type="button" class="btn btn-success" (click)="ngOnInit()">Ver más</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ANIMALES -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 d-flex justify-content-around mt-3">
+            <div class="col">
+                <div class="card redondo" style="width: 18rem; ">
+                    <img src="../../../assets/burro.png" class="card-img-top redondoMitad" alt="...">
+                    <div class="card-body">
+                        <h4 class="card-title">Animales</h4>
+                        <button type="button" class="btn btn-success" (click)="ngOnInit()">Ver más</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CUIDADOR -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 d-flex justify-content-around mt-3">
+            <div class="col">
+                <div class="card redondo" style="width: 18rem; ">
+                    <img src="../../../assets/burro.png" class="card-img-top redondoMitad" alt="...">
+                    <div class="card-body">
+                        <h4 class="card-title">Cuidador</h4>
+                        <button type="button" class="btn btn-success" [routerLink]="['/datos/cuidador']" (click)="ngOnInit()">Ver más</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- IMAGENES -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 d-flex justify-content-around mt-3">
+            <div class="col">
+                <div class="card redondo" style="width: 18rem; ">
+                    <img src="../../../assets/burro.png" class="card-img-top redondoMitad" alt="...">
+                    <div class="card-body">
+                        <h4 class="card-title">Imagenes</h4>
+                        <button type="button" class="btn btn-success" (click)="ngOnInit()">Ver más</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- RECINTO -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 d-flex justify-content-around mt-3">
+            <div class="col">
+                <div class="card redondo" style="width: 18rem; ">
+                    <img src="../../../assets/burro.png" class="card-img-top redondoMitad" alt="...">
+                    <div class="card-body">
+                        <h4 class="card-title">Recinto</h4>
+                        <button type="button" class="btn btn-success" (click)="ngOnInit()">Ver más</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- USUARIO -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 d-flex justify-content-around mt-3">
+            <div class="col">
+                <div class="card redondo" style="width: 18rem; ">
+                    <img src="../../../assets/burro.png" class="card-img-top redondoMitad" alt="...">
+                    <div class="card-body">
+                        <h4 class="card-title">Usuario</h4>
+                        <button type="button" class="btn btn-success" (click)="ngOnInit()">Ver más</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br>
 <h1>DATOS ANIMALES</h1>
 <div *ngFor="let anima of animal">
     Nombre Animal: {{anima.nombre}}<br>
@@ -51,7 +139,7 @@
 <h1>ACTIVIDADES INDIVIDUALES</h1>
 <div *ngFor="let indiv of individual">
     Titulo: {{indiv.titulo}}<br>
-    Horario: 
+    Horario:
     -Lunes a VIernes: {{indiv.diario}}<br>
     -Fines de semana: {{indiv.finsemana}}
     Descripción: {{indiv.descripcion}}<br>

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { environment } from '../environments/environment';
 
@@ -12,7 +12,17 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage'; // de este no estoy muy seguro
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-  
+import { HttpClientModule } from '@angular/common/http';
+import {
+  NbChatModule,
+  NbDatepickerModule,
+  NbDialogModule,
+  NbMenuModule,
+  NbSidebarModule,
+  NbToastrModule,
+  NbWindowModule,
+} from '@nebular/theme';
+
 
 //SERVICE
 import { AutentifService } from "./servicios/autentif.service";
@@ -43,6 +53,7 @@ import { ExtraComponent } from './componentes/venta-entradas/extra/extra.compone
 import { PagoComponent } from './componentes/venta-entradas/pago/pago.component';
 import { VentaEntradasComponent } from './componentes/venta-entradas/venta-entradas.component';
 import { DiaComponent } from './componentes/venta-entradas/fecha/dia/dia.component';
+import { CuidadorComponent } from './componentes/mostrar-datos/cuidador/cuidador.component';
 
 
 @NgModule({
@@ -70,7 +81,8 @@ import { DiaComponent } from './componentes/venta-entradas/fecha/dia/dia.compone
     ExtraComponent,
     PagoComponent,
     VentaEntradasComponent,
-    DiaComponent
+    DiaComponent,
+    CuidadorComponent
   ],
   imports: [
     AngularFireDatabaseModule, // de este no estoy muy seguro
@@ -83,9 +95,18 @@ import { DiaComponent } from './componentes/venta-entradas/fecha/dia/dia.compone
     AngularFirestoreModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    NbSidebarModule.forRoot(),
+    NbMenuModule.forRoot(),
+    NbDatepickerModule.forRoot(),
+    NbDialogModule.forRoot(),
+    NbWindowModule.forRoot(),
+    NbToastrModule.forRoot(),
+    NbChatModule.forRoot({ messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',}),
   ],
   providers: [ConexionService, AutentifService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }

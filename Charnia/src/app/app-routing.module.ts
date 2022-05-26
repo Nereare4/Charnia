@@ -13,6 +13,8 @@ import { InfoZooComponent } from './componentes/info-zoo/info-zoo.component';
 import { AutentifGuard } from './guard/autentif.guard';
 import { BlogComponent } from './componentes/blog/blog.component';
 import { VentaEntradasComponent } from './componentes/venta-entradas/venta-entradas.component';
+import { MostrarDATOSComponent } from './componentes/mostrar-datos/mostrar-datos.component';
+import { CuidadorComponent } from './componentes/mostrar-datos/cuidador/cuidador.component';
 // import { VisitantesComponent } from './componentes/venta-entradas/visitantes/visitantes.component';
 // import { FechaComponent } from './componentes/venta-entradas/fecha/fecha.component';
 // import { ExtraComponent } from './componentes/venta-entradas/extra/extra.component';
@@ -24,6 +26,8 @@ const routes: Routes = [
   { path: 'actividad/:nombre', component: ActividadesIndividualComponent },
   { path: 'descubre-el-zoo/servicios', component: InfoZooComponent },
   { path: 'entradas', component: VentaEntradasComponent },
+  { path: 'datos', component: MostrarDATOSComponent },
+  { path: 'datos/cuidador', component: CuidadorComponent },
   // { path: 'entradas/visitantes', component: VisitantesComponent },
   // { path: 'entradas/fecha', component: FechaComponent },
   // { path: 'entradas/extras', component: ExtraComponent },
