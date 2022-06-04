@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { Observable, Timestamp } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-export interface cuidado { nombre: string; apellido: string; }//CUIDADOR
+export interface cuidado { nombre: string; apellido: string; fechaDeContratacion: string}//CUIDADOR
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,8 @@ export class CuidadorService {
 
   private cuidadorCollection: AngularFirestoreCollection<cuidado>;
   cuidador: Observable<cuidado[]>;
+
+  private cuidadorDoc: AngularFirestoreDocument<cuidado> | undefined;
 
   paramMap: any;
 
@@ -36,11 +38,13 @@ export class CuidadorService {
     this.cuidadorCollection.add(item);
   }
 
-  eliminarCuidador(){
-
+  eliminarCuidador(item: any) {
+    this.cuidadorDoc = this.afs.doc<cuidado>(`cuidador/${item.id}`);
+    this.cuidadorDoc.delete();
   }
 
-  modificarCuidador(){
-
+  modificarCuidador(item: any) {
+    this.cuidadorDoc = this.afs.doc<cuidado>(`cuidador/${item.id}`);
+    this.cuidadorDoc.update(item);
   }
 }

@@ -1,0 +1,124 @@
+<div class="container">
+    <h1 class="d-flex justify-content-center">Recintos</h1>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop">Añadir</button><br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Limpiado Por</th>
+                <th scope="col">Tamaño</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let recint of recinto">
+                <th scope="row">{{recint.id}}</th>
+                <td>{{recint.limpiadoPor}}</td>
+                <td>{{recint.tamanyo}}</td>
+                <td>
+                    <button type="button" class="btn btn-outline-warning mx-3" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop2" (click)="editar(recint)"><i class="fas fa-pencil"></i></button>
+                        <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop3"
+                        (click)="eliminar(recint)"><i class="fas fa-trash"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- AÑADIR -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Añadir Recinto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)=" agregar()" #formularioAnyadir="ngForm">
+                    <div class="mb-3">
+                        <label for="limpiadoPor" class="form-label">Limpiado Por</label>
+                        <input type="textarea" class="form-control" id="limpiadoPor" name="limpiadoPor"
+                            #LimpiadoPor="ngModel" pattern="[A-Za-z0-9]{2,}" required 
+                            placeholder="Introduzca el id del cuiador" [(ngModel)]="campos.limpiadoPor">
+                            <span class="alert alert-danger d-block mt-2" *ngIf="LimpiadoPor.touched &&!LimpiadoPor.valid">No puedes dejar este campo vacio</span>
+                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="tamanyo" class="form-label">Tamaño</label>
+                        <input type="text" class="form-control" id="tamanyo" name="tamanyo"
+                            #Tamanyo="ngModel" pattern="[0-9]{2,}" required 
+                            placeholder="Introduzca el tamaño del recinto" [(ngModel)]="campos.tamanyo">
+                        <span class="alert alert-danger d-block mt-2" *ngIf="Tamanyo.touched &&!Tamanyo.valid">No puedes dejar este campo vacio</span>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" [disabled]="!formularioAnyadir.form.valid">Añadir</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODIFICAR -->
+<div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel2">Editar: {{campos.id}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form  (ngSubmit)=" modificarRecinto()" #formularioModificar="ngForm" >
+                    <div class="mb-3">
+                        <label for="limpiadoPor" class="form-label">Limpiado Por</label>
+                        <input type="textarea" class="form-control" id="limpiadoPor" name="limpiadoPor"
+                            #LimpiadoPor="ngModel" pattern="[A-Za-z0-9]{2,}" required 
+                            placeholder="Introduzca el id del cuiador" [(ngModel)]="campos.limpiadoPor">
+                            <span class="alert alert-danger d-block mt-2" *ngIf="LimpiadoPor.touched &&!LimpiadoPor.valid">No puedes dejar este campo vacio</span>
+                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="tamanyo" class="form-label">Tamaño</label>
+                        <input type="text" class="form-control" id="tamanyo" name="tamanyo"
+                            #Tamanyo="ngModel" pattern="[0-9]{2,}" required 
+                            placeholder="Introduzca el tamaño del recinto" [(ngModel)]="campos.tamanyo">
+                        <span class="alert alert-danger d-block mt-2" *ngIf="Tamanyo.touched &&!Tamanyo.valid">No puedes dejar este campo vacio</span>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" [disabled]="!formularioModificar.form.valid">Añadir</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ELIMINAR -->
+<div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel2">Eliminar: {{campos.id}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)=" eliminarDefinitivamente()">
+                    <div id="contFormEliminar" class="mb-4">
+                        <p>Se va a eliminar el elemento seleccionado.
+                            Esta acción no puede deshacerse.¿Desea Continuar?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

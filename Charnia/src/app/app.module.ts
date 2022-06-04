@@ -54,6 +54,11 @@ import { PagoComponent } from './componentes/venta-entradas/pago/pago.component'
 import { VentaEntradasComponent } from './componentes/venta-entradas/venta-entradas.component';
 import { DiaComponent } from './componentes/venta-entradas/fecha/dia/dia.component';
 import { CuidadorComponent } from './componentes/mostrar-datos/cuidador/cuidador.component';
+import { ImagenesComponent } from './componentes/mostrar-datos/imagenes/imagenes.component';
+import { ActividadIndivComponent } from './componentes/mostrar-datos/actividad-indiv/actividad-indiv.component';
+import { AnimalesComponent } from './componentes/mostrar-datos/animales/animales.component';
+import { RecintoComponent } from './componentes/mostrar-datos/recinto/recinto.component';
+import { UsuarioComponent } from './componentes/mostrar-datos/usuario/usuario.component';
 
 
 @NgModule({
@@ -82,7 +87,12 @@ import { CuidadorComponent } from './componentes/mostrar-datos/cuidador/cuidador
     PagoComponent,
     VentaEntradasComponent,
     DiaComponent,
-    CuidadorComponent
+    CuidadorComponent,
+    ImagenesComponent,
+    ActividadIndivComponent,
+    AnimalesComponent,
+    RecintoComponent,
+    UsuarioComponent,
   ],
   imports: [
     AngularFireDatabaseModule, // de este no estoy muy seguro

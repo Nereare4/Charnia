@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CuidadorService } from './cuidador.service';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { Timestamp } from "@firebase/firestore";
 
 @Component({
   selector: 'app-cuidador',
@@ -11,47 +9,42 @@ import { Timestamp } from "@firebase/firestore";
 export class CuidadorComponent implements OnInit {
 
   cuidador: any;
+  // fechaSplit: Array<string> = [];
+  item: any;
   campos: any = {
     nombre: '',
     apellido: '',
-    fecha: ''
+    fechaDeContratacion: '',
   }
-  fechaModif: any;
-  fechaNueva: any;
-  IPOfecha = new Date();
 
-  constructor(private conexion: CuidadorService, private firebase: AngularFirestoreModule, private firestore: Timestamp) {
-
+  constructor(private conexion: CuidadorService) {
     this.conexion.listaCuidador().subscribe(cuid => {
       this.cuidador = cuid;
-    })
-
-    // this.fechaModif = this.campos.fecha.split("-");
-    // this.fechaNueva = new Date( this.fechaModif[2], this.fechaModif[1] - 1, this.fechaModif[0]);
-    // this.campos.fecha = this.fechaNueva;
-    // this.IPOfecha.setTime(Date.parse(this.campos.fecha) / 1000);
-    // var myTimestamp = firebase.firestore.Timestamp.fromDate(this.IPOfecha.setTime(Date.parse(this.campos.fecha)));
-    
-    // var myTimestamp = firebase.firestore
-    this.fechaModif = this.campos.fecha.getTime();
-    this.campos.fecha = this.fechaModif;
-    console.log(this.fechaModif);
-
-    // var myDate = "26-02-2012";
-    // myDate = myDate.split("-");
-    // var newDate = new Date( myDate[2], myDate[1] - 1, myDate[0]);
-    // console.log(newDate.getTime());
-
+    });
   }
 
   ngOnInit(): void {
+    // validacion();
   }
 
   agregar() {
     this.conexion.agregarCuidador(this.campos);
     this.campos.nombre = '';
     this.campos.apellido = '';
-    this.campos.fecha = '';
+    this.campos.fechaDeContratacion = '';
+  }
+  eliminar(item: any) {
+    this.item = item;
+  }
+  eliminarDefinitivamente() {
+    this.conexion.eliminarCuidador(this.item);
+  }
+  editar(item: any) {
+    this.campos = item;
+  }
+  modificarCuidador() {
+    this.conexion.modificarCuidador(this.campos);
   }
 
 }
+

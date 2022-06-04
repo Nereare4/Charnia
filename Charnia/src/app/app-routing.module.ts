@@ -15,6 +15,11 @@ import { BlogComponent } from './componentes/blog/blog.component';
 import { VentaEntradasComponent } from './componentes/venta-entradas/venta-entradas.component';
 import { MostrarDATOSComponent } from './componentes/mostrar-datos/mostrar-datos.component';
 import { CuidadorComponent } from './componentes/mostrar-datos/cuidador/cuidador.component';
+import { ImagenesComponent } from './componentes/mostrar-datos/imagenes/imagenes.component';
+import { ActividadIndivComponent } from './componentes/mostrar-datos/actividad-indiv/actividad-indiv.component';
+import { AnimalesComponent } from './componentes/mostrar-datos/animales/animales.component';
+import { RecintoComponent } from './componentes/mostrar-datos/recinto/recinto.component';
+import { UsuarioComponent } from './componentes/mostrar-datos/usuario/usuario.component';
 // import { VisitantesComponent } from './componentes/venta-entradas/visitantes/visitantes.component';
 // import { FechaComponent } from './componentes/venta-entradas/fecha/fecha.component';
 // import { ExtraComponent } from './componentes/venta-entradas/extra/extra.component';
@@ -28,6 +33,11 @@ const routes: Routes = [
   { path: 'entradas', component: VentaEntradasComponent },
   { path: 'datos', component: MostrarDATOSComponent },
   { path: 'datos/cuidador', component: CuidadorComponent },
+  { path: 'datos/imagenes', component: ImagenesComponent },
+  { path: 'datos/actividad-individual', component: ActividadIndivComponent },
+  { path: 'datos/animales', component: AnimalesComponent },
+  { path: 'datos/recinto', component: RecintoComponent },
+  { path: 'datos/usuario', component: UsuarioComponent },
   // { path: 'entradas/visitantes', component: VisitantesComponent },
   // { path: 'entradas/fecha', component: FechaComponent },
   // { path: 'entradas/extras', component: ExtraComponent },

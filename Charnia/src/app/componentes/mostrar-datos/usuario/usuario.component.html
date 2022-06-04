@@ -1,0 +1,183 @@
+<div class="container">
+    <h1 class="d-flex justify-content-center">Usuarios</h1>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop">Añadir</button><br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Mail</th>
+                <th scope="col">Contraseña</th>
+                <th scope="col">Tipo</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usu of usuario">
+                <th scope="row">{{usu.id}}</th>
+                <td>{{usu.nombre}}</td>
+                <td>{{usu.apellidos}}</td>
+                <td>{{usu.correo}}</td>
+                <td>{{usu.contrasenya}}</td>
+                <td>{{usu.tipo}}</td>
+                <td>
+                    <button type="button" class="btn btn-outline-warning mx-3" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop2" (click)="editar(usu)"><i class="fas fa-pencil"></i></button>
+                    <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop3"
+                        (click)="eliminar(usu)"><i class="fas fa-trash"></i></button>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- AÑADIR -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Añadir Recinto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)=" agregar()" #formularioAnyadir="ngForm">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="textarea" class="form-control" id="nombre" name="nombre" #Nombre="ngModel"
+                            pattern="[A-Za-z]{2,}" required placeholder="Introduzca el nombre del usuario"
+                            [(ngModel)]="campos.nombre">
+                        <span class="alert alert-danger d-block mt-2" *ngIf="Nombre.touched &&!Nombre.valid">No puedes
+                            dejar este campo vacio</span>
+                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="apellidos" class="form-label">Apellidos</label>
+                        <input type="text" class="form-control" id="apellidos" name="apellidos" #Apellidos="ngModel"
+                            pattern="[A-Za-z]{2,}" required placeholder="Introduzca el apellido del usuario"
+                            [(ngModel)]="campos.apellidos">
+                        <span class="alert alert-danger d-block mt-2" *ngIf="Apellidos.touched &&!Apellidos.valid">No
+                            puedes dejar este campo vacio</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="correo" class="form-label">correo</label>
+                        <input type="text" class="form-control" id="correo" name="correo" #Correo="ngModel"
+                            pattern="\S+@\S+\.\S+" required placeholder="Introduzca el correo del usuario"
+                            [(ngModel)]="campos.correo">
+                        <span class="alert alert-danger d-block mt-2" *ngIf="Correo.touched &&!Correo.valid">No puedes
+                            dejar este campo vacio</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contrasenya" class="form-label">Contraseña</label>
+                        <input type="text" class="form-control" id="contrasenya" name="contrasenya"
+                            #Contrasenya="ngModel" pattern="[A-Za-z0-9]{2,}" required
+                            placeholder="Introduzca la contraseña del usuario" [(ngModel)]="campos.contrasenya">
+                        <span class="alert alert-danger d-block mt-2"
+                            *ngIf="Contrasenya.touched &&!Contrasenya.valid">No puedes dejar este campo vacio</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tipo" class="form-label">Tipo:</label>
+                        <select name="tipo" class="mx-3" #Tipo="ngModel" [(ngModel)]="campos.tipo">
+                            <option value="cuidador">Cuidador</option>
+                            <option value="usuario" selected>Usuario</option>
+                        </select>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
+                            [disabled]="!formularioAnyadir.form.valid">Añadir</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODIFICAR -->
+<div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel2">Editar: {{campos.id}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)=" modificarUsuario()" #formularioModificar="ngForm">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="textarea" class="form-control" id="nombre" name="nombre" #Nombre="ngModel"
+                            pattern="[A-Za-z]{2,}" required placeholder="Introduzca el nombre del usuario"
+                            [(ngModel)]="campos.nombre">
+                        <span class="alert alert-danger d-block mt-2" *ngIf="Nombre.touched &&!Nombre.valid">No puedes
+                            dejar este campo vacio</span>
+                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="apellidos" class="form-label">Apellidos</label>
+                        <input type="text" class="form-control" id="apellidos" name="apellidos" #Apellidos="ngModel"
+                            pattern="[A-Za-z]{2,}" required placeholder="Introduzca el apellido del usuario"
+                            [(ngModel)]="campos.apellidos">
+                        <span class="alert alert-danger d-block mt-2" *ngIf="Apellidos.touched &&!Apellidos.valid">No
+                            puedes dejar este campo vacio</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="correo" class="form-label">correo</label>
+                        <input type="text" class="form-control" id="correo" name="correo" #Correo="ngModel"
+                            pattern="\S+@\S+\.\S+" required placeholder="Introduzca el correo del usuario"
+                            [(ngModel)]="campos.correo">
+                        <span class="alert alert-danger d-block mt-2" *ngIf="Correo.touched &&!Correo.valid">No puedes
+                            dejar este campo vacio</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contrasenya" class="form-label">Contraseña</label>
+                        <input type="text" class="form-control" id="contrasenya" name="contrasenya"
+                            #Contrasenya="ngModel" pattern="[A-Za-z0-9]{2,}" required
+                            placeholder="Introduzca la contraseña del usuario" [(ngModel)]="campos.contrasenya">
+                        <span class="alert alert-danger d-block mt-2"
+                            *ngIf="Contrasenya.touched &&!Contrasenya.valid">No puedes dejar este campo vacio</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tipo" class="form-label">Tipo:</label>
+                        <select name="tipo" class="mx-3" #Tipo="ngModel" [(ngModel)]="campos.tipo">
+                            <option value="cuidador">Cuidador</option>
+                            <option value="usuario" selected>Usuario</option>
+                        </select>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
+                            [disabled]="!formularioModificar.form.valid">Añadir</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ELIMINAR -->
+<div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel2">Eliminar: {{campos.id}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)=" eliminarDefinitivamente()">
+                    <div id="contFormEliminar" class="mb-4">
+                        <p>Se va a eliminar el elemento seleccionado.
+                            Esta acción no puede deshacerse.¿Desea Continuar?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

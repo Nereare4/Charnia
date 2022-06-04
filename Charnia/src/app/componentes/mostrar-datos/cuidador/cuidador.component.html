@@ -1,4 +1,5 @@
 <div class="container">
+    <h1 class="d-flex justify-content-center">Cuidadores</h1>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
         data-bs-target="#staticBackdrop">Añadir</button><br>
     <table class="table table-striped">
@@ -16,10 +17,15 @@
                 <td>{{cuidado.nombre}}</td>
                 <td>{{cuidado.apellido}}</td>
                 <td>
-                    {{cuidado.fechaDeContratacion.toDate().getDate()}}/{{cuidado.fechaDeContratacion.toDate().getMonth()+1}}/{{cuidado.fechaDeContratacion.toDate().getFullYear()}}
+                    {{cuidado.fechaDeContratacion}}
+                    <!-- {{fecha2}} -->
+                    <!-- {{cuidado.fechaDeContratacion.toDate().getDate()}}/{{cuidado.fechaDeContratacion.toDate().getMonth()+1}}/{{cuidado.fechaDeContratacion.toDate().getFullYear()}} -->
                 </td>
                 <td>
-                    botones
+                    <button type="button" class="btn btn-outline-warning mx-3" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop2" (click)="editar(cuidado)"><i class="fas fa-pencil"></i></button>
+                    <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop3"
+                        (click)="eliminar(cuidado)"><i class="fas fa-trash"></i></button>
                 </td>
             </tr>
         </tbody>
@@ -37,34 +43,106 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form (ngSubmit)=" agregar()">
+                <form (ngSubmit)=" agregar()" #formularioAnyadir = "ngForm">
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Introduzca el nombre"
-                                [(ngModel)] = "campos.nombre">
+                        <input type="text" class="form-control" id="nombre" name="nombre"
+                            #NombreCuidador="ngModel" pattern="[A-Za-z]{3,20}" required
+                             [(ngModel)]="campos.nombre" placeholder="Añade el nombre del cuidador">
+                             <span class="alert alert-danger d-block mt-2" *ngIf="NombreCuidador.touched &&!NombreCuidador.valid">No puedes dejar este campo vacio</span>
                         <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                     </div>
                     <div class="mb-3">
                         <label for="apellido" class="form-label">Apellido</label>
-                        <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Introduzca el apellido" 
-                        [(ngModel)] = "campos.apellido">
+                        <input type="text" class="form-control" id="apellido" name="apellido"
+                            #Apellido="ngModel" pattern="[A-Za-z]{3,20}" required
+                            placeholder="Introduzca el apellido" [(ngModel)]="campos.apellido">
+                        <span class="alert alert-danger d-block mt-2" *ngIf="Apellido.touched &&!Apellido.valid">No puedes dejar este campo vacio</span>
                     </div>
                     <div class="mb-4">
-                        <label for="fecha" class="form-label">Fecha de Contratacion</label><br>
-                        <input type="date" class="form-control" id="fecha" name="fecha" [(ngModel)] = "campos.fecha">
-
+                        <label for="Fecha" class="form-label">Fecha de contratacion</label>
+                        <input type="date" class="form-control" id="fecha" name="fecha" 
+                            #Fecha="ngModel" required [(ngModel)]="campos.fechaDeContratacion">
+                        <span class="alert alert-danger d-block mt-2" *ngIf="Fecha.touched &&!Fecha.valid">No puedes dejar este campo vacio</span>
                     </div>
                     <div class="d-flex justify-content-around">
-                        <button type="submit" class="btn btn-primary">Añadir</button>
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" [disabled]="!formularioAnyadir.form.valid">Añadir</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
-                    
+
                     <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
                 </form>
             </div>
             <!-- <div class="modal-footer"> -->
-               
+
             <!-- </div> -->
+        </div>
+    </div>
+</div>
+<!-- MODIFICAR -->
+<div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel2">Editar: {{campos.id}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)=" modificarCuidador()" #formularioModificar="ngForm">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre"
+                            #NombreCuidador="ngModel" pattern="[A-Za-z]{3,20}" required
+                             [(ngModel)]="campos.nombre" placeholder="Añade el nombre del cuidador">
+                             <span class="alert alert-danger d-block mt-2" *ngIf="NombreCuidador.touched &&!NombreCuidador.valid">No puedes dejar este campo vacio</span>
+                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="apellido" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" id="apellido" name="apellido"
+                            #Apellido="ngModel" pattern="[A-Za-z]{3,20}" required
+                            placeholder="Introduzca el apellido" [(ngModel)]="campos.apellido">
+                        <span class="alert alert-danger d-block mt-2" *ngIf="Apellido.touched &&!Apellido.valid">No puedes dejar este campo vacio</span>
+                    </div>
+                    <div class="mb-4">
+                        <label for="Fecha" class="form-label">Fecha de contratacion</label>
+                        <input type="date" class="form-control" id="fecha" name="fecha" 
+                            #Fecha="ngModel" required
+                            [(ngModel)]="campos.fechaDeContratacion">
+                        <span class="alert alert-danger d-block mt-2" *ngIf="Fecha.touched &&!Fecha.valid">No puedes dejar este campo vacio</span>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" [disabled]="!formularioModificar.form.valid">Añadir</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ELIMINAR -->
+<div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel2">Eliminar: {{campos.id}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)=" eliminarDefinitivamente()">
+                    <div id="contFormEliminar" class="mb-4">
+                        <p>Se va a eliminar el elemento seleccionado.
+                            Esta acción no puede deshacerse.¿Desea Continuar?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>

@@ -1,0 +1,134 @@
+<div class="container">
+    <h1 class="d-flex justify-content-center">Imágenes</h1>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop">Añadir</button><br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Id Animal</th>
+                <th scope="col">Imagen</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let img of imagen">
+                <th scope="row">{{img.id}}</th>
+                <td>{{img.idAnimal}}</td>
+                <td style="width: 20%;"><img style="width: 50%; height: 50%;" src="../../../assets/{{img.imagen}}"></td>
+                <td>
+                    <button type="button" class="btn btn-outline-warning mx-3" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop2" (click)="editar(img)"><i class="fas fa-pencil"></i></button>
+                    <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop3"
+                        (click)="eliminar(img)"><i class="fas fa-trash"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<!-- AÑADIR -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true" bsModal #childModal>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Añadir Imagen</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)=" agregar()" #formularioAnyadir="ngForm">
+                    <div class="mb-3">
+                        <label for="idAnimal" class="form-label">Id animal</label>
+                        <input type="text" class="form-control" id="idAnimal" name="idAnimal" 
+                            #IdAnimal="ngModel" pattern="[A-Za-z0-9]{2,}" required 
+                            placeholder="Introduzca el id del animal" [(ngModel)]="campos.idAnimal">
+                        <span class="alert alert-danger d-block mt-2" *ngIf="IdAnimal.touched &&!IdAnimal.valid">No puedes dejar este campo vacio</span>
+                        <!-- <span class="alert alert-danger d-block mt-2" *ngIf="err == 1 || err == 2">No puedes dejar este
+                            campo vacio</span> -->
+                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="imagen" class="form-label">Imagen</label>
+                        <input type="text" class="form-control" id="imagen" name="imagen" #Imagen="ngModel"
+                            pattern="[A-Za-z0-9]{1,60}\.(png|jpg)" required placeholder="Introduzca la imagen" 
+                            [(ngModel)]="campos.imagen">
+                        <span class="alert alert-danger d-block mt-2" *ngIf="Imagen.touched &&!Imagen.valid">No puedes dejar este campo vacio</span>
+                        <!-- <span class="alert alert-danger d-block mt-2" *ngIf="err == 1 || err == 3">No puedes dejar este
+                            campo vacio</span> -->
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <button type="submit" class="btn btn-primary" id="anyadir" data-bs-dismiss="modal" [disabled]="!formularioAnyadir.form.valid">Añadir</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODIFICAR -->
+<div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel2">Editar: {{campos.id}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)=" modificarImagen()" #formularioModificar="ngForm">
+                    <div class="mb-3">
+                        <label for="idAnimal" class="form-label">Id animal</label>
+                        <input type="text" class="form-control" id="idAnimal" name="idAnimal" 
+                            #IdAnimal="ngModel" pattern="[A-Za-z0-9]{2,}" required 
+                            placeholder="Introduzca el id del animal" [(ngModel)]="campos.idAnimal">
+                        <span class="alert alert-danger d-block mt-2" *ngIf="IdAnimal.touched &&!IdAnimal.valid">No puedes dejar este campo vacio</span>
+                        <!-- <span class="alert alert-danger d-block mt-2" *ngIf="err == 1 || err == 2">No puedes dejar este -->
+                            <!-- campo vacio</span> -->
+                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="imagen" class="form-label">Imagen</label>
+                        <input type="text" class="form-control" id="imagen" name="imagen" #Imagen="ngModel"
+                            pattern="[A-Za-z0-9]{1,60}\.(png|jpg)" required placeholder="Introduzca la imagen" 
+                            [(ngModel)]="campos.imagen">
+                        <span class="alert alert-danger d-block mt-2" *ngIf="Imagen.touched &&!Imagen.valid">No puedes dejar este campo vacio</span>
+                       
+                        <!-- <span class="alert alert-danger d-block mt-2" *ngIf="err == 1 || err == 3">No puedes dejar este
+                            campo vacio</span> -->
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" [disabled]="!formularioModificar.form.valid">Añadir</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ELIMINAR -->
+<div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel2">Eliminar: {{campos.id}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)=" eliminarDefinitivamente()">
+                    <div id="contFormEliminar" class="mb-4">
+                        <p>Se va a eliminar el elemento seleccionado.
+                            Esta acción no puede deshacerse.¿Desea Continuar?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
