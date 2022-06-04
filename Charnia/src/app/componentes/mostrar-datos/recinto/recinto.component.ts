@@ -39,4 +39,70 @@ export class RecintoComponent implements OnInit {
   modificarRecinto(){
     this.conexion.modificarRecinto(this.campos);
   }
+  porIdDerecho(){
+    this.recinto.sort((a: { id: number; },b: { id: number; }) =>{
+      if(a.id < b.id){
+        return -1;
+      }
+      if (a.id > b.id) {
+        return 1;
+      }
+      return 0;
+    })
+  }
+  porIdReves(){
+    this.recinto.sort((a: { id: number; },b: { id: number; }) =>{
+      if(a.id > b.id){
+        return -1;
+      }
+      if (a.id < b.id) {
+        return 1;
+      }
+      return 0;
+    })
+  }
+  porLimpiadoPorDerecho(){
+    this.recinto.sort((a: { limpiadoPor: string; },b: { limpiadoPor: string; }) =>{
+      if(a.limpiadoPor < b.limpiadoPor){
+        return -1;
+      }
+      if (a.limpiadoPor > b.limpiadoPor) {
+        return 1;
+      }
+      return 0;
+    })
+  }
+  porLimpiadoPorReves(){
+    this.recinto.sort((a: { limpiadoPor: string; },b: { limpiadoPor: string; }) =>{
+      if(a.limpiadoPor > b.limpiadoPor){
+        return -1;
+      }
+      if (a.limpiadoPor < b.limpiadoPor) {
+        return 1;
+      }
+      return 0;
+    })
+  }
+  porTamanyoDerecho(){
+    this.recinto.sort((a: { tamanyo: string; },b: { tamanyo: string; }) =>{
+      if(a.tamanyo < b.tamanyo){
+        return -1;
+      }
+      if (a.tamanyo > b.tamanyo) {
+        return 1;
+      }
+      return 0;
+    })
+  }
+  porTamanyoReves(){
+    this.recinto.sort((a: { tamanyo: string; },b: { tamanyo: string; }) =>{
+      if(a.tamanyo > b.tamanyo){
+        return -1;
+      }
+      if (a.tamanyo < b.tamanyo) {
+        return 1;
+      }
+      return 0;
+    })
+  }
 }

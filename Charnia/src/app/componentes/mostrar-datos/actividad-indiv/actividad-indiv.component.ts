@@ -50,5 +50,93 @@ export class ActividadIndivComponent implements OnInit {
   modificarActividad(){
     this.conexion.modificarActividadIndividual(this.campos);
   }
+  porIdDerecho(){
+    this.actividadIndividual.sort((a: { id: number; },b: { id: number; }) =>{
+      if(a.id < b.id){
+        return -1;
+      }
+      if (a.id > b.id) {
+        return 1;
+      }
+      return 0;
+    })
+  }
+  porIdReves(){
+    this.actividadIndividual.sort((a: { id: number; },b: { id: number; }) =>{
+      if(a.id > b.id){
+        return -1;
+      }
+      if (a.id < b.id) {
+        return 1;
+      }
+      return 0;
+    })
+  }
+  porRutaDerecho(){
+    this.actividadIndividual.sort((a: { nombre: string; },b: { nombre: string; }) =>{
+      if(a.nombre < b.nombre){
+        return -1;
+      }
+      if (a.nombre > b.nombre) {
+        return 1;
+      }
+      return 0;
+    })
+  }
+  porRutaReves(){
+    this.actividadIndividual.sort((a: { nombre: string; },b: { nombre: string; }) =>{
+      if(a.nombre > b.nombre){
+        return -1;
+      }
+      if (a.nombre < b.nombre) {
+        return 1;
+      }
+      return 0;
+    })
+  }
+  porTituloDerecho(){
+    this.actividadIndividual.sort((a: { titulo: string; },b: { titulo: string; }) =>{
+      if(a.titulo < b.titulo){
+        return -1;
+      }
+      if (a.titulo > b.titulo) {
+        return 1;
+      }
+      return 0;
+    })
+  }
+  porTituloReves(){
+    this.actividadIndividual.sort((a: { titulo: string; },b: { titulo: string; }) =>{
+      if(a.titulo > b.titulo){
+        return -1;
+      }
+      if (a.titulo < b.titulo) {
+        return 1;
+      }
+      return 0;
+    })
+  }
+  porTituloCartaDerecho(){
+    this.actividadIndividual.sort((a: { tituloCarta: string; },b: { tituloCarta: string; }) =>{
+      if(a.tituloCarta < b.tituloCarta){
+        return -1;
+      }
+      if (a.tituloCarta > b.tituloCarta) {
+        return 1;
+      }
+      return 0;
+    })
+  }
+  porTituloCartaReves(){
+    this.actividadIndividual.sort((a: { tituloCarta: string; },b: { tituloCarta: string; }) =>{
+      if(a.tituloCarta > b.tituloCarta){
+        return -1;
+      }
+      if (a.tituloCarta < b.tituloCarta) {
+        return 1;
+      }
+      return 0;
+    })
+  }
 
 }

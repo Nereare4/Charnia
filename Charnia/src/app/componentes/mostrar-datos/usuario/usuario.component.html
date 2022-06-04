@@ -5,12 +5,24 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellidos</th>
+                <th scope="col">Id
+                    <i class="fas fa-arrow-down-a-z mx-2" (click)="porIdDerecho()"></i>
+                    <i class="fas fa-arrow-up-a-z" (click)="porIdReves()"></i>
+                </th>
+                <th scope="col">Nombre
+                    <i class="fas fa-arrow-down-a-z mx-2" (click)="porNombreDerecho()"></i>
+                    <i class="fas fa-arrow-up-a-z" (click)="porNombreReves()"></i>
+                </th>
+                <th scope="col">Apellidos
+                    <i class="fas fa-arrow-down-a-z mx-2" (click)="porApellidosDerecho()"></i>
+                    <i class="fas fa-arrow-up-a-z" (click)="porApellidosReves()"></i>
+                </th>
                 <th scope="col">Mail</th>
                 <th scope="col">Contraseña</th>
-                <th scope="col">Tipo</th>
+                <th scope="col">Tipo
+                    <i class="fas fa-arrow-down-a-z mx-2" (click)="porTipoDerecho()"></i>
+                    <i class="fas fa-arrow-up-a-z" (click)="porTipoReves()"></i>
+                </th>
                 <th scope="col"></th>
             </tr>
         </thead>

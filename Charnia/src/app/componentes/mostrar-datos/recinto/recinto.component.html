@@ -5,9 +5,18 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Limpiado Por</th>
-                <th scope="col">Tamaño</th>
+                <th scope="col">Id
+                    <i class="fas fa-arrow-down-a-z mx-2" (click)="porIdDerecho()"></i>
+                    <i class="fas fa-arrow-up-a-z" (click)="porIdReves()"></i>
+                </th>
+                <th scope="col">Limpiado Por
+                    <i class="fas fa-arrow-down-a-z mx-2" (click)="porLimpiadoPorDerecho()"></i>
+                    <i class="fas fa-arrow-up-a-z" (click)="porLimpiadoPorReves()"></i>
+                </th>
+                <th scope="col">Tamaño
+                    <i class="fas fa-arrow-down-1-9 mx-2" (click)="porTamanyoDerecho()"></i>
+                    <i class="fas fa-arrow-up-1-9" (click)="porTamanyoReves()"></i>
+                </th>
                 <th scope="col"></th>
             </tr>
         </thead>

@@ -51,5 +51,114 @@ export class AnimalesComponent implements OnInit {
   modificarAnimal(){
     this.conexion.modificarAnimal(this.campos);
   }
-
+  porIdDerecho(){
+    this.animales.sort((a: { id: number; },b: { id: number; }) =>{
+      if(a.id < b.id){
+        return -1;
+      }
+      if (a.id > b.id) {
+        return 1;
+      }
+      return 0;
+    })
+  }
+  porIdReves(){
+    this.animales.sort((a: { id: number; },b: { id: number; }) =>{
+      if(a.id > b.id){
+        return -1;
+      }
+      if (a.id < b.id) {
+        return 1;
+      }
+      return 0;
+    })
+  }
+  porNombreDerecho(){
+    this.animales.sort((a: { nombre: string; },b: { nombre: string; }) =>{
+      if(a.nombre < b.nombre){
+        return -1;
+      }
+      if (a.nombre > b.nombre) {
+        return 1;
+      }
+      return 0;
+    })
+  }
+  porNombreReves(){
+    this.animales.sort((a: { nombre: string; },b: { nombre: string; }) =>{
+      if(a.nombre > b.nombre){
+        return -1;
+      }
+      if (a.nombre < b.nombre) {
+        return 1;
+      }
+      return 0;
+    })
+  }
+  porEspecieDerecho(){
+    this.animales.sort((a: { especie: string; },b: { especie: string; }) =>{
+      if(a.especie < b.especie){
+        return -1;
+      }
+      if (a.especie > b.especie) {
+        return 1;
+      }
+      return 0;
+    })
+  }
+  porEspecieReves(){
+    this.animales.sort((a: { especie: string; },b: { especie: string; }) =>{
+      if(a.especie > b.especie){
+        return -1;
+      }
+      if (a.especie < b.especie) {
+        return 1;
+      }
+      return 0;
+    })
+  }
+  porCuidadoPorDerecho(){
+    this.animales.sort((a: { cuidadoPor: string; },b: { cuidadoPor: string; }) =>{
+      if(a.cuidadoPor < b.cuidadoPor){
+        return -1;
+      }
+      if (a.cuidadoPor > b.cuidadoPor) {
+        return 1;
+      }
+      return 0;
+    })
+  }
+  porCuidadoPorReves(){
+    this.animales.sort((a: { cuidadoPor: string; },b: { cuidadoPor: string; }) =>{
+      if(a.cuidadoPor > b.cuidadoPor){
+        return -1;
+      }
+      if (a.cuidadoPor < b.cuidadoPor) {
+        return 1;
+      }
+      return 0;
+    })
+  }
+  porRecintoResidenciaDerecho(){
+    this.animales.sort((a: { recintoResidencia: string; },b: { recintoResidencia: string; }) =>{
+      if(a.recintoResidencia < b.recintoResidencia){
+        return -1;
+      }
+      if (a.recintoResidencia > b.recintoResidencia) {
+        return 1;
+      }
+      return 0;
+    })
+  }
+  porRecintoResidenciaReves(){
+    this.animales.sort((a: { recintoResidencia: string; },b: { recintoResidencia: string; }) =>{
+      if(a.recintoResidencia > b.recintoResidencia){
+        return -1;
+      }
+      if (a.recintoResidencia < b.recintoResidencia) {
+        return 1;
+      }
+      return 0;
+    })
+  }
 }
