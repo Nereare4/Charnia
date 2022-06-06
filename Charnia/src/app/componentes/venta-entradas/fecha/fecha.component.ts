@@ -9,17 +9,10 @@ import { DiaComponent } from './dia/dia.component';
 })
 export class FechaComponent implements OnInit {
 
-  date: any;
-  date2: any;
-
-  dayCellComponent = DiaComponent;
+  selected: Date | null | undefined;
 
   constructor() {
-    // console.log(this.date.getDate())
-    // this.date.getDate();
-    this.date = new Date();
-    this.date2 = new Date();
-    // console.log(this.date + "---------------------------" + this.date2)
+    
   }
   ngOnInit(): void {
 

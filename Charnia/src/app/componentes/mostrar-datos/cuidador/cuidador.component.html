@@ -1,7 +1,16 @@
 <div class="container">
     <h1 class="d-flex justify-content-center">Cuidadores</h1>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-        data-bs-target="#staticBackdrop">Añadir</button><br>
+    <div class="d-flex flex-row align-items-center mb-3">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop">Añadir</button><br>
+        <form id="form">
+            <label class="mx-2">Buscar:</label>
+            <input type="text" id="buscar" name="buscar">
+            <!--(onkeyup)="hola()"-->
+            <button (click)="buscar()" class="mx-2 btn btn-light"><i class="fas fa-search"></i></button>
+            <!--(click)="buscarImagen()"-->
+        </form>
+    </div>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -21,7 +30,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let cuidado of cuidador">
+            <tr *ngFor="let cuidado of cuidador | slice:desde:hasta">
                 <th scope="row">{{cuidado.id}}</th>
                 <td>{{cuidado.nombre}}</td>
                 <td>{{cuidado.apellido}}</td>
@@ -39,6 +48,12 @@
             </tr>
         </tbody>
     </table>
+    <!-- PAGINACION -->
+    <mat-paginator 
+        [length]="cuidador.length" 
+        [pageSize]="pageSize" 
+        (page)="cambiarPagina($event)">
+    </mat-paginator>
 </div>
 
 

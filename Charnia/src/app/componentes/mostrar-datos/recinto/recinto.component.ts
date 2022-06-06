@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecintoService } from './recinto.service';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-recinto',
@@ -8,8 +9,14 @@ import { RecintoService } from './recinto.service';
 })
 export class RecintoComponent implements OnInit {
 
-  recinto: any;
+  recinto: any[] = [];
   item: any;
+  palabra: any;
+  aux: any[] = [];
+  aux2: any[] = [];
+  pageSize = 5;
+  desde: number = 0;
+  hasta: number = 5;
   campos: any = {
     limpiadoPor: '',
     tamanyo: '',
@@ -17,6 +24,9 @@ export class RecintoComponent implements OnInit {
   constructor(private conexion: RecintoService) {
     this.conexion.listarRecinto().subscribe(recint => {
       this.recinto = recint;
+      for (let i = 0; i < recint.length; i++) {
+        this.aux2.push(recint[i]);
+      }
     });
   }
 
@@ -38,6 +48,26 @@ export class RecintoComponent implements OnInit {
   }
   modificarRecinto(){
     this.conexion.modificarRecinto(this.campos);
+  }
+  // MIRAR EL TAMAÑO!!!!
+  buscar() {
+    this.palabra = document.forms[0]["buscar"].value;
+    this.recinto.length = 0;
+    for (let i = 0; i < this.aux2.length; i++) {
+      this.item = this.aux2[i];
+      var limpiadoPor = this.item.limpiadoPor;
+      var tamanyo = this.item.tamanyo;
+      if (this.palabra.length != 0 && this.aux2.length != 0) {
+        if (limpiadoPor.toLowerCase().search(this.palabra.toLowerCase()) != -1 || tamanyo.search(this.palabra) != -1) {
+          this.aux.push(this.aux2[i]);
+        }
+      }
+    }
+    this.recinto = this.aux;
+  }
+  cambiarPagina(e: PageEvent) {
+    this.desde = e.pageIndex * e.pageSize;
+    this.hasta = this.desde + e.pageSize;
   }
   porIdDerecho(){
     this.recinto.sort((a: { id: number; },b: { id: number; }) =>{

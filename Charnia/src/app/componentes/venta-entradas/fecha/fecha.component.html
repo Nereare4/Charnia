@@ -1,4 +1,4 @@
-<div class="calendars">
+<!-- <div class="calendars">
   <div class="calendar-container">
     <span class="subtitle">
       Fecha seleccionada: {{ date | date }}
@@ -13,4 +13,8 @@
     </span>
     <nb-calendar [(date)]="date2" [dayCellComponent]="dayCellComponent"></nb-calendar>
   </div>
-</div>
+</div> -->
+<mat-card class="demo-inline-calendar-card">
+  <mat-calendar [(selected)]="selected"></mat-calendar>
+</mat-card>
+<p>Selected date: {{selected}}</p>

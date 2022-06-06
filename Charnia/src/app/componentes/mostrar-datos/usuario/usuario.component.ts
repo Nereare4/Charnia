@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from './usuario.service';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-usuario',
@@ -8,8 +9,14 @@ import { UsuarioService } from './usuario.service';
 })
 export class UsuarioComponent implements OnInit {
 
-  usuario: any;
+  usuario: any[] = [];
   item: any;
+  palabra: any;
+  aux: any[] = [];
+  aux2: any[] = [];
+  pageSize = 5;
+  desde: number = 0;
+  hasta: number = 5;
   campos: any = {
     contrasenya: '',
     correo: '',
@@ -21,6 +28,9 @@ export class UsuarioComponent implements OnInit {
   constructor(private conexion: UsuarioService) {
     this.conexion.listaUsuario().subscribe(usu => {
       this.usuario = usu;
+      for (let i = 0; i < usu.length; i++) {
+        this.aux2.push(usu[i]);
+      }
     });
   }
 
@@ -45,6 +55,32 @@ export class UsuarioComponent implements OnInit {
   }
   modificarUsuario(){
     this.conexion.modificarUsuario(this.campos);
+  }
+  buscar() {
+    this.palabra = document.forms[0]["buscar"].value;
+    this.usuario.length = 0;
+    for (let i = 0; i < this.aux2.length; i++) {
+      this.item = this.aux2[i];
+      var contrasenya = this.item.contrasenya;
+      var correo = this.item.correo;
+      var nombre = this.item.nombre;
+      var apellidos = this.item.apellidos;
+      var tipo = this.item.tipo;
+      if (this.palabra.length != 0 && this.aux2.length != 0) {
+        if (contrasenya.toLowerCase().search(this.palabra.toLowerCase()) != -1 || 
+            correo.toLowerCase().search(this.palabra.toLowerCase()) != -1 || 
+            nombre.toLowerCase().search(this.palabra.toLowerCase()) != -1 ||
+            apellidos.toLowerCase().search(this.palabra.toLowerCase()) != -1 || 
+            tipo.toLowerCase().search(this.palabra.toLowerCase()) != -1) {
+              this.aux.push(this.aux2[i]);
+        }
+      }
+    }
+    this.usuario = this.aux;
+  }
+  cambiarPagina(e: PageEvent) {
+    this.desde = e.pageIndex * e.pageSize;
+    this.hasta = this.desde + e.pageSize;
   }
   porIdDerecho(){
     this.usuario.sort((a: { id: number; },b: { id: number; }) =>{

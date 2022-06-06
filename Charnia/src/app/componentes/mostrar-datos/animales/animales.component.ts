@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AnimalesService } from './animales.service';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-animales',
@@ -8,9 +9,15 @@ import { AnimalesService } from './animales.service';
 })
 export class AnimalesComponent implements OnInit {
 
-  animales: any;
+  animales: any[] = [];
   // fechaSplit: Array<string> = [];
   item: any;
+  palabra: any;
+  aux: any[] = [];
+  aux2: any[] = [];
+  pageSize = 5;
+  desde: number = 0;
+  hasta: number = 5;
   campos: any = {
     nombre: '',
     especie: '',
@@ -19,13 +26,16 @@ export class AnimalesComponent implements OnInit {
     fechaDeLlegada: '',
   }
 
-  constructor(private conexion: AnimalesService) { 
+  constructor(private conexion: AnimalesService) {
     this.conexion.listarAnimal().subscribe(anim => {
       // for (let i = 0; i < anim.length; i++) {
       //   this.fechaSplit = anim[i].fechaDeLlegada.split("-");
       //   anim[i].fechaDeLlegada = this.fechaSplit[2]+"/"+this.fechaSplit[1]+"/"+this.fechaSplit[0];
       // }
-      this.animales = anim;     
+      this.animales = anim;
+      for (let i = 0; i < anim.length; i++) {
+        this.aux2.push(anim[i]);
+      }
     });
   }
 
@@ -38,22 +48,46 @@ export class AnimalesComponent implements OnInit {
     this.campos.cuidadoPor = '';
     this.campos.recintoResidencia = '';
     this.campos.fechaDeLlegada = '';
- }
-  eliminar(item : any){
+  }
+  eliminar(item: any) {
     this.item = item;
   }
-  eliminarDefinitivamente(){
+  eliminarDefinitivamente() {
     this.conexion.eliminarAnimal(this.item);
   }
-  editar(item: any){
+  editar(item: any) {
     this.campos = item;
   }
-  modificarAnimal(){
+  modificarAnimal() {
     this.conexion.modificarAnimal(this.campos);
   }
-  porIdDerecho(){
-    this.animales.sort((a: { id: number; },b: { id: number; }) =>{
-      if(a.id < b.id){
+  buscar() {
+    this.palabra = document.forms[0]["buscar"].value
+    this.animales.length = 0;
+    for (let i = 0; i < this.aux2.length; i++) {
+      this.item = this.aux2[i];
+      var nombre = this.item.nombre;
+      var especie = this.item.especie;
+      var cuidadoPor = this.item.especie;
+      var recintoResidencia = this.item.recintoResidencia;
+      if (this.palabra.length != 0 && this.aux2.length != 0) {
+        if (nombre.toLowerCase().search(this.palabra.toLowerCase()) != -1 || 
+        especie.toLowerCase().search(this.palabra.toLowerCase()) != -1 || 
+        cuidadoPor.toLowerCase().search(this.palabra.toLowerCase()) != -1|| 
+        recintoResidencia.toLowerCase().search(this.palabra.toLowerCase()) != -1) {
+          this.aux.push(this.aux2[i]);
+        }
+      }
+    }
+    this.animales = this.aux;
+  }
+  cambiarPagina(e: PageEvent) {
+    this.desde = e.pageIndex * e.pageSize;
+    this.hasta = this.desde + e.pageSize;
+  }
+  porIdDerecho() {
+    this.animales.sort((a: { id: number; }, b: { id: number; }) => {
+      if (a.id < b.id) {
         return -1;
       }
       if (a.id > b.id) {
@@ -62,9 +96,9 @@ export class AnimalesComponent implements OnInit {
       return 0;
     })
   }
-  porIdReves(){
-    this.animales.sort((a: { id: number; },b: { id: number; }) =>{
-      if(a.id > b.id){
+  porIdReves() {
+    this.animales.sort((a: { id: number; }, b: { id: number; }) => {
+      if (a.id > b.id) {
         return -1;
       }
       if (a.id < b.id) {
@@ -73,9 +107,9 @@ export class AnimalesComponent implements OnInit {
       return 0;
     })
   }
-  porNombreDerecho(){
-    this.animales.sort((a: { nombre: string; },b: { nombre: string; }) =>{
-      if(a.nombre < b.nombre){
+  porNombreDerecho() {
+    this.animales.sort((a: { nombre: string; }, b: { nombre: string; }) => {
+      if (a.nombre < b.nombre) {
         return -1;
       }
       if (a.nombre > b.nombre) {
@@ -84,9 +118,9 @@ export class AnimalesComponent implements OnInit {
       return 0;
     })
   }
-  porNombreReves(){
-    this.animales.sort((a: { nombre: string; },b: { nombre: string; }) =>{
-      if(a.nombre > b.nombre){
+  porNombreReves() {
+    this.animales.sort((a: { nombre: string; }, b: { nombre: string; }) => {
+      if (a.nombre > b.nombre) {
         return -1;
       }
       if (a.nombre < b.nombre) {
@@ -95,9 +129,9 @@ export class AnimalesComponent implements OnInit {
       return 0;
     })
   }
-  porEspecieDerecho(){
-    this.animales.sort((a: { especie: string; },b: { especie: string; }) =>{
-      if(a.especie < b.especie){
+  porEspecieDerecho() {
+    this.animales.sort((a: { especie: string; }, b: { especie: string; }) => {
+      if (a.especie < b.especie) {
         return -1;
       }
       if (a.especie > b.especie) {
@@ -106,9 +140,9 @@ export class AnimalesComponent implements OnInit {
       return 0;
     })
   }
-  porEspecieReves(){
-    this.animales.sort((a: { especie: string; },b: { especie: string; }) =>{
-      if(a.especie > b.especie){
+  porEspecieReves() {
+    this.animales.sort((a: { especie: string; }, b: { especie: string; }) => {
+      if (a.especie > b.especie) {
         return -1;
       }
       if (a.especie < b.especie) {
@@ -117,9 +151,9 @@ export class AnimalesComponent implements OnInit {
       return 0;
     })
   }
-  porCuidadoPorDerecho(){
-    this.animales.sort((a: { cuidadoPor: string; },b: { cuidadoPor: string; }) =>{
-      if(a.cuidadoPor < b.cuidadoPor){
+  porCuidadoPorDerecho() {
+    this.animales.sort((a: { cuidadoPor: string; }, b: { cuidadoPor: string; }) => {
+      if (a.cuidadoPor < b.cuidadoPor) {
         return -1;
       }
       if (a.cuidadoPor > b.cuidadoPor) {
@@ -128,9 +162,9 @@ export class AnimalesComponent implements OnInit {
       return 0;
     })
   }
-  porCuidadoPorReves(){
-    this.animales.sort((a: { cuidadoPor: string; },b: { cuidadoPor: string; }) =>{
-      if(a.cuidadoPor > b.cuidadoPor){
+  porCuidadoPorReves() {
+    this.animales.sort((a: { cuidadoPor: string; }, b: { cuidadoPor: string; }) => {
+      if (a.cuidadoPor > b.cuidadoPor) {
         return -1;
       }
       if (a.cuidadoPor < b.cuidadoPor) {
@@ -139,9 +173,9 @@ export class AnimalesComponent implements OnInit {
       return 0;
     })
   }
-  porRecintoResidenciaDerecho(){
-    this.animales.sort((a: { recintoResidencia: string; },b: { recintoResidencia: string; }) =>{
-      if(a.recintoResidencia < b.recintoResidencia){
+  porRecintoResidenciaDerecho() {
+    this.animales.sort((a: { recintoResidencia: string; }, b: { recintoResidencia: string; }) => {
+      if (a.recintoResidencia < b.recintoResidencia) {
         return -1;
       }
       if (a.recintoResidencia > b.recintoResidencia) {
@@ -150,9 +184,9 @@ export class AnimalesComponent implements OnInit {
       return 0;
     })
   }
-  porRecintoResidenciaReves(){
-    this.animales.sort((a: { recintoResidencia: string; },b: { recintoResidencia: string; }) =>{
-      if(a.recintoResidencia > b.recintoResidencia){
+  porRecintoResidenciaReves() {
+    this.animales.sort((a: { recintoResidencia: string; }, b: { recintoResidencia: string; }) => {
+      if (a.recintoResidencia > b.recintoResidencia) {
         return -1;
       }
       if (a.recintoResidencia < b.recintoResidencia) {

@@ -22,7 +22,10 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatPaginatorModule} from '@angular/material/paginator';
 
 //SERVICE
 import { AutentifService } from "./servicios/autentif.service";
@@ -107,6 +110,10 @@ import { UsuarioComponent } from './componentes/mostrar-datos/usuario/usuario.co
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatDatepickerModule,
+    MatNativeDateModule, 
+    MatMomentDateModule,
+    MatPaginatorModule,
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
     NbDatepickerModule.forRoot(),
