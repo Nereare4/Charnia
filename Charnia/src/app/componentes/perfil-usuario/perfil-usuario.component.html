@@ -28,13 +28,11 @@
                 <div class="row" *ngIf="autentifService.usuDatos as usuario">
                     <div class="col-md-12">
                         <div class="media">
-                            <img class="align-self-start mr-5 img-thumbnail rounded-circle"
+                            <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{usuario.photoURL}}"
                                 alt="{{usuario.displayName}}">
                             <div class="media-body">
-                                <h1>Hello: <strong>{{(usuario.displayName) ? usuario.displayName : 'User'}}</strong></h1>
-                                <p>User ID: <strong>{{usuario.usuId}}</strong></p>
-                                <p>Email: <strong>{{usuario.email}}</strong></p>
-                                <p>Email Verified: <strong>{{usuario.correoVerif}}</strong></p>
+                                <h1><strong>{{(usuario.displayName) ? usuario.displayName : 'User'}}</strong></h1>
+                                <p>Correo: <strong>{{usuario.email}}</strong></p>
                             </div>
                         </div>
                     </div>

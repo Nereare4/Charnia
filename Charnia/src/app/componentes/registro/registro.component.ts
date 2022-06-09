@@ -11,6 +11,9 @@ export class RegistroComponent implements OnInit {
   constructor(public autentifService: AutentifService) { }
 
   ngOnInit(): void {
+    this.autentifService.errorClave = "";
+    this.autentifService.errorCorreo = "";
+    this.autentifService.errorGenerico = "";
   }
 
 }

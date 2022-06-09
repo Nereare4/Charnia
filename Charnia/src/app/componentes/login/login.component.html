@@ -81,13 +81,13 @@
                                         <input type="email" id="form2Example17" class="form-control form-control-lg"
                                             placeholder="Correo electrónico" #usuCorreo required />
                                     </div>
-                                    <!-- <div class="error" [innerHTML]="errorCorreo"> -->
+                                    <div class="error" [innerHTML]="autentifService.errorCorreo"></div>
                                     <div class="form-outline mb-4">
                                         <!-- <label class="form-label" for="form2Example27">Contraseña</label> -->
                                         <input type="password" id="form2Example27" class="form-control form-control-lg"
                                             placeholder="Contraseña" #usuClave required />
                                     </div>
-                                    <!-- <div class="error" [innerHTML]="errorClave"></div> -->
+                                    <div class="error" [innerHTML]="autentifService.errorClave"></div>
                                     <div class="pt-1 mb-4 row-cols-1">
                                         <button class="btn btn-dark btn-lg btn-block col" type="button"
                                             (click)="autentifService.login(usuCorreo.value, usuClave.value)">
@@ -102,7 +102,7 @@
                                             Iniciar sesión con Google
                                         </button>
                                     </div>
-                                    <!-- <div class="error" [innerHTML]="errorGenerico"></div> -->
+                                    <div class="error" [innerHTML]="autentifService.errorGenerico"></div>
                                     <!-- <a class="small text-muted" href="#!">Forgot password?</a> -->
                                     <p class="mb-2 pb-lg-2" style="color: #393f81;">
                                         ¿No tiene una cuenta?

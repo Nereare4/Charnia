@@ -10,9 +10,9 @@ import { Router } from '@angular/router';
 })
 export class AutentifService {
   usuDatos: any; // Save logged in user data
-  //errorCorreo: string;
-  /*errorClave: string;
-  errorGenerico: string;*/
+  errorCorreo: string;
+  errorClave: string;
+  errorGenerico: string;
 
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
@@ -20,6 +20,10 @@ export class AutentifService {
     public router: Router,
     public ngZone: NgZone // NgZone service to remove outside scope warning
   ) {
+    this.errorCorreo = "";
+    this.errorClave = "";
+    this.errorGenerico = "";
+
     /* Guardar los datos del usuario en localstorage cuando haya iniciado sesión y cambiar esos datos a null cuando cierre sesión */
     this.afAutentif.authState.subscribe((usuario) => {
       if (usuario) {
@@ -146,177 +150,53 @@ export class AutentifService {
   manejarErrores(errorId: string) {
     switch (errorId) {
       case "auth/email-already-exists":
-        //errorCorreo = "tonto";
+        this.errorCorreo = "El correo ya está en uso";
+        //alert("El correo ya existe");
         break;
-      case "":
-
+      case "auth/id-token-expired":
+        this.errorGenerico = "El token de sesión ha expirado";
+        //alert("El token de sesión ha expirado");
         break;
-      case "":
-
+      case "auth/id-token-revoked":
+        this.errorGenerico = "El token de sesión se ha revocado";
+        //alert("El token de sesión se ha revocado");
         break;
-        case "":
-
+      case "auth/insufficient-permission":
+        this.errorGenerico = "No tienes suficientes permisos";
+        //alert("No tienes suficientes permisos");
         break;
-        case "":
-
+      case "auth/internal-error":
+        this.errorGenerico = "Error interno";
+        //alert("Error interno");
         break;
-        case "":
-
+      case "auth/invalid-argument":
+        this.errorGenerico = "Argumento invalido";
+        //alert("Argumento invalido");
         break;
-        case "":
-
+      case "auth/invalid-continue-uri":
+        this.errorGenerico = "URL de continuación invalida";
+        //alert("URL de continuación invalida");
         break;
-        case "":
-
+      case "auth/invalid-email":
+        this.errorGenerico = "Correo o contraseña invalidos";
+        //alert("Correo o contraseña invalidos");
         break;
-        case "":
-
+      case "auth/invalid-password":
+        this.errorGenerico = "Correo o contraseña invalidos";
+        //alert("Correo o contraseña invalidos");
         break;
-        case "":
-
+      case "auth/operation-not-allowed":
+        this.errorGenerico = "El proveedor de acceso no está habilitado";
+        //alert("El proveedor de acceso no está habilitado");
         break;
-        case "":
-
+      case "auth/weak-password":
+        this.errorClave = "La contraseña es debil";
+        //alert("La contraseña es debil");
         break;
-        case "":
-
+      case "auth/already-initialized":
+        this.errorGenerico = "Ya has iniciado sesión";
+        //alert("Ya has iniciado sesión");
         break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-        case "":
-
-        break;
-
     }
   }
 }
