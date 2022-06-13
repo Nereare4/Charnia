@@ -1,16 +1,7 @@
 import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { ConexionService } from 'src/app/servicios/conexion.service';
 import { ActivatedRoute } from '@angular/router';
-import { DomSanitizer } from '@angular/platform-browser';
 
-@Pipe({name: 'safeHtml'})
-export class SafeHtmlPipe implements PipeTransform {
-    constructor(private sanitized: DomSanitizer) {
-    }
-    transform(value: string) {
-        return this.sanitized.bypassSecurityTrustHtml(value);
-    }
-}
 
 @Component({
   selector: 'app-carrusel',
@@ -25,7 +16,7 @@ export class CarruselComponent implements OnInit {
   imagen: any;
   fotosnum: any[] = [];
 
-  constructor(private conexion: ConexionService, private route: ActivatedRoute, private sanitized: DomSanitizer) {
+  constructor(private conexion: ConexionService, private route: ActivatedRoute) {
     this.conexion.listaIndividual().subscribe(indiv => {
       this.individual = indiv;
       this.conexion.imagenes().subscribe(img => {
@@ -45,7 +36,6 @@ export class CarruselComponent implements OnInit {
 
   ngOnInit() {
     this.nombre = this.route.snapshot.paramMap.get("nombre");
-    this.fotosnum;
   }
 
 }

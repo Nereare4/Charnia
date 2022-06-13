@@ -1,6 +1,6 @@
 <!-- <br> -->
 <!-- CARRUSEL -->
-<div class=" container tamanyoContainer">
+<!-- <div class=" container tamanyoContainer">
     <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -12,7 +12,7 @@
         </div>
         <div class="carousel-inner tamantoImagenes">
             <div class="carousel-item active tamanyoImagen">
-                <img src="../../../assets/cabra.png" class="d-block" alt="...">
+                <img src="../../../assets/osoPardo.png" class="d-block" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>First slide label</h5>
                     <p>Some representative placeholder content for the third slide.</p>
@@ -43,6 +43,12 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
+    </div>
+</div> -->
+<div class=" container tamanyoContainer d-flex align-items-end" style="background-image: url('../../../assets/leopardo1.png'); background-repeat: no-repeat; background-position: center; background-size: 100%;">
+    <div class="ms-5 text-white" style="text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);">
+        <div class="h1">Bienvenido a CHARNIA</div>
+        <div class="h3">Disfrute de su visita en el ZOO de todos</div>
     </div>
 </div>
 <br><br><br>
@@ -87,47 +93,60 @@
     </div>
 </div>
 <br><br><br><br>
+<!-- POSTS -->
+<div class="container">
+    <div class="row d-flex justify-content-around ">
+        <div class="col-6">
+            <img src="../../../assets/lince.png" class="card-img-top w-75 h-100 redondo" alt="...">
+        </div>
+        <!-- <div class="col-1"></div> -->
+        <div class="col-6">
+            <h1>Descubre nuestros programas</h1><br>
+            <h5>¿Sabías que con cada visita nos ayudas a conservar más especies autóctonas? En Charnia nos esforzamos en cuidar y 
+                conservar especies en peligro de extinción.
+            </h5><br>
+            <button type="button" class="btn btn-success" [routerLink]="['/conservacion']">¡Muestrame más!</button>
+        </div>
+        
+    </div>
+</div>
+<br><br><br><br>
 <!-- ULTIMOS POST -->
 <div class="h2 d-flex justify-content-center">Últimos posts</div>
 <br>
 <div class="container">
     <div class="row d-flex justify-content-around ">
         <div class="col-6">
-            <div class="card mb-3" style="max-width: 540px;">
+            <div class="card mb-3" style="max-width: 740px;">
                 <div class="row g-0">
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <div class="card-body">
-                            <h5 class="card-title">Post 1</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <button type="button" class="btn btn-outline-success"><i
-                                    class="fas fa-arrow-right"></i></button>
-                            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                            <h5 class="card-title">Quebrantahuesos</h5>
+                            <p class="card-text">Descubre lo maravilloso que es este ave y por qué está en peligro de extinción</p>
+                            <br><br>
+                            <button type="button" class="btn btn-success" [routerLink]="['/conservacion', 'quebrantahuesos']"><i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <img src="../../../assets/actividades/actividad1.png" class="img-fluid rounded-start" alt="...">
+                    <div class="col-md-6">
+                        <img src="../../../assets/quebrantahuesos.png" class="img-fluid rounded-start" alt="..." style="height: 100%; width: 120%">
 
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-6">
-            <div class="card mb-3" style="max-width: 540px;">
+            <div class="card mb-3" style="max-width: 740px;">
                 <div class="row g-0">
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <div class="card-body">
-                            <h5 class="card-title">Post 2</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <button type="button" class="btn btn-outline-success"><i
-                                    class="fas fa-arrow-right"></i></button>
-
-                            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                            <h5 class="card-title">Cigüeña Negra</h5>
+                            <p class="card-text">Descubre lo maravilloso que es este ave y por qué está en peligro de extinción</p>
+                            <br><br>
+                            <button type="button" class="btn btn-success" [routerLink]="['/conservacion', 'ciguena-negra']"><i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <img src="../../../assets/actividades/actividad2.png" class="img-fluid rounded-start" alt="...">
+                    <div class="col-md-6">
+                        <img src="../../../assets/ciguenanegra.png" class="img-fluid rounded-start" alt="..." style="height: 100%; width: 120%">
                     </div>
                 </div>
             </div>

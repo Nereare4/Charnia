@@ -20,6 +20,10 @@ import { ActividadIndivComponent } from './componentes/mostrar-datos/actividad-i
 import { AnimalesComponent } from './componentes/mostrar-datos/animales/animales.component';
 import { RecintoComponent } from './componentes/mostrar-datos/recinto/recinto.component';
 import { UsuarioComponent } from './componentes/mostrar-datos/usuario/usuario.component';
+import { MapaComponent } from './componentes/mapa/mapa.component';
+import { PostsComponent } from './componentes/posts/posts.component';
+import { PostsIndividualComponent } from './componentes/posts-individual/posts-individual.component';
+import { ConservacionComponent } from './componentes/mostrar-datos/conservacion/conservacion.component';
 // import { VisitantesComponent } from './componentes/venta-entradas/visitantes/visitantes.component';
 // import { FechaComponent } from './componentes/venta-entradas/fecha/fecha.component';
 // import { ExtraComponent } from './componentes/venta-entradas/extra/extra.component';
@@ -29,7 +33,10 @@ const routes: Routes = [
   { path: 'actividad', component: ActividadesComponent },
   { path: 'descubre-el-zoo', component: DescubrezooComponent },
   { path: 'actividad/:nombre', component: ActividadesIndividualComponent },
+  { path: 'conservacion', component: PostsComponent },
+  { path: 'conservacion/:nombre', component: PostsIndividualComponent },
   { path: 'descubre-el-zoo/servicios', component: InfoZooComponent },
+  { path: 'descubre-el-zoo/mapa', component: MapaComponent },
   { path: 'entradas', component: VentaEntradasComponent },
   { path: 'datos', component: MostrarDATOSComponent },
   { path: 'datos/cuidador', component: CuidadorComponent },
@@ -38,6 +45,7 @@ const routes: Routes = [
   { path: 'datos/animales', component: AnimalesComponent },
   { path: 'datos/recinto', component: RecintoComponent },
   { path: 'datos/usuario', component: UsuarioComponent },
+  { path: 'datos/conservacion', component: ConservacionComponent },
   // { path: 'entradas/visitantes', component: VisitantesComponent },
   // { path: 'entradas/fecha', component: FechaComponent },
   // { path: 'entradas/extras', component: ExtraComponent },

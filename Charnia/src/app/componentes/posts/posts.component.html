@@ -1,0 +1,25 @@
+<div class="container mb-5">
+    <h1>Conservación</h1>
+    <h6>Con estos programas nos comprometemos con el bienestar de los animales</h6>
+    <p>El objetivo principal de Charnia con estos proyectos es <strong>cuidar y conservar</strong> especies de
+        <strong>animales en peligro de extinción</strong>.
+        Por ello, <br>hemos creado diferentes programas de conservación, Charnia se centra principalmete en la
+        conervación de especies
+        en peligro de extinción de la península Ibérica como el quebrantahuesos, el oso pardo o el lince ibérico entre
+        otros.
+    </p>
+    <p>Infórmate sobre nuestros proyectos de conservación animal de la península ibérica.</p>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 d-flex justify-content-around mt-4">
+        <div *ngFor="let con of conservacion">
+            <div class="card" style="width: 18rem;">
+                <img src="../../../assets/{{con.imagen}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{con.titulo}}</h5>
+                    <p class="card-text">{{con.miniDescripcion}}</p>
+                    <button type="button" class="btn btn-success" [routerLink]="['/conservacion', con.ruta]">Ver
+                        más</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

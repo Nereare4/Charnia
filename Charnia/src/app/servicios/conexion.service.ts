@@ -10,7 +10,7 @@ export interface variable4 { comentario: string; opinionDe: string; valoracion: 
 export interface variable5 { contrasenya: string; correo:string; nombre:string}//USUARIO
 export interface variable6 { descripcion: string; diario:string; titulo:string; nombre:string; finsemana:string, imagen:string, tituloCarta:string, idAnimal:string}//ACTIVIDAD-INDIVIDUAL
 export interface variable7 { idAnimal: string; imagen:string;}//IMAGENES ANIMALES
-
+export interface variable8 { descripcion: string; imagen:string; miniDescripcion: string; ruta:string; titulo: string;}//CONSERVACION
 
 
 @Injectable({
@@ -38,6 +38,9 @@ export class ConexionService {
 
   private imagenesCollection: AngularFirestoreCollection<variable7>;
   imagen: Observable<variable7[]>;
+
+  private conservacionCollection: AngularFirestoreCollection<variable8>;
+  conservacion: Observable<variable8[]>;
 
  
   paramMap: any;
@@ -104,6 +107,14 @@ export class ConexionService {
         return { id, ...data };
       }))
     );
+    this.conservacionCollection = afs.collection<variable8>('conservacion');
+    this.conservacion = this.conservacionCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as variable8;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
     
   }
 
@@ -130,6 +141,10 @@ export class ConexionService {
   imagenes() {
     return this.imagen;
   }
+  listaConservacion() {
+    return this.conservacion;
+  }
+
   
 
 }

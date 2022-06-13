@@ -34,13 +34,17 @@
                     <i class="fas fa-arrow-down-a-z mx-2" (click)="porTituloCartaDerecho()"></i>
                     <i class="fas fa-arrow-up-a-z" (click)="porTituloCartaReves()"></i>
                 </th>
+                <th scope="col">Id Animal
+                    <i class="fas fa-arrow-down-a-z mx-2" (click)="porTituloCartaDerecho()"></i>
+                    <i class="fas fa-arrow-up-a-z" (click)="porTituloCartaReves()"></i>
+                </th>
                 <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let indiv of actividadIndividual | slice:desde:hasta">
+            <tr *ngFor="let indiv of actividadIndividual | slice:desde:hasta" >
                 <th scope="row">{{indiv.id}}</th>
-                <td>{{indiv.descripcion}}</td>
+                <td style="width: 50%; height: 50%;">{{indiv.descripcion}}</td>
                 <td>{{indiv.diario}}</td>
                 <td>{{indiv.finsemana}}</td>
                 <td style="width: 20%;"><img style="width: 50%; height: 50%;" src="../../../assets/{{indiv.imagen}}">
@@ -48,10 +52,11 @@
                 <td>{{indiv.nombre}}</td>
                 <td>{{indiv.titulo}}</td>
                 <td>{{indiv.tituloCarta}}</td>
+                <td>{{indiv.idAnimal}}</td>
                 <td>
                     <button type="button" class="btn btn-outline-warning mx-3" data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop2" (click)="editar(indiv)"><i class="fas fa-pencil"></i></button>
-                    <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop3"
+                    <button type="button" class="btn btn-outline-danger mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop3"
                         (click)="eliminar(indiv)"><i class="fas fa-trash"></i></button>
                 </td>
             </tr>
@@ -79,7 +84,7 @@
                     <div class="mb-3">
                         <label for="descripcion" class="form-label">Descripcion</label>
                         <input type="textarea" class="form-control" id="descripcion" name="descripcion"
-                            #Descripcion="ngModel" pattern="[A-Za-z0-9]{2,}" required
+                            #Descripcion="ngModel" required
                             placeholder="Introduzca la descripcion" [(ngModel)]="campos.descripcion">
                         <span class="alert alert-danger d-block mt-2" *ngIf="Descripcion.touched &&!Descripcion.valid">No puedes dejar este campo vacio</span>
                         <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
@@ -126,6 +131,13 @@
                             placeholder="Introduzca el tituloCarta" [(ngModel)]="campos.tituloCarta">
                         <span class="alert alert-danger d-block mt-2" *ngIf="TituloCarta.touched &&!TituloCarta.valid">No puedes dejar este campo vacio</span>
                     </div>
+                    <div class="mb-3">
+                        <label for="idAnimal" class="form-label">Id Animal</label>
+                        <input type="text" class="form-control" id="idAnimal" name="idAnimal"
+                            #idAnimal="ngModel" pattern="[A-Za-z0-9]{2,}" required
+                            placeholder="Introduzca el id del animal" [(ngModel)]="campos.idAnimal">
+                        <span class="alert alert-danger d-block mt-2" *ngIf="idAnimal.touched &&!idAnimal.valid">No puedes dejar este campo vacio</span>
+                    </div>
                     <div class="d-flex justify-content-around">
                         <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" [disabled]="!formularioAnyadir.form.valid">Añadir</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -150,7 +162,7 @@
                     <div class="mb-3">
                         <label for="descripcion" class="form-label">Descripcion</label>
                         <input type="textarea" class="form-control" id="descripcion" name="descripcion"
-                            #Descripcion="ngModel" pattern="[A-Za-z0-9]{2,}" required
+                            #Descripcion="ngModel" required
                             placeholder="Introduzca la descripcion" [(ngModel)]="campos.descripcion">
                         <span class="alert alert-danger d-block mt-2" *ngIf="Descripcion.touched &&!Descripcion.valid">No puedes dejar este campo vacio</span>
                         <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
@@ -196,6 +208,13 @@
                             #TituloCarta="ngModel" pattern="[A-Za-z0-9]{2,}" required
                             placeholder="Introduzca el tituloCarta" [(ngModel)]="campos.tituloCarta">
                         <span class="alert alert-danger d-block mt-2" *ngIf="TituloCarta.touched &&!TituloCarta.valid">No puedes dejar este campo vacio</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="idAnimal" class="form-label">Id Animal</label>
+                        <input type="text" class="form-control" id="idAnimal" name="idAnimal"
+                            #idAnimal="ngModel" pattern="[A-Za-z0-9]{2,}" required
+                            placeholder="Introduzca el id del animal" [(ngModel)]="campos.idAnimal">
+                        <span class="alert alert-danger d-block mt-2" *ngIf="idAnimal.touched &&!idAnimal.valid">No puedes dejar este campo vacio</span>
                     </div>
                     <div class="d-flex justify-content-around">
                         <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" [disabled]="!formularioModificar.form.valid">Añadir</button>

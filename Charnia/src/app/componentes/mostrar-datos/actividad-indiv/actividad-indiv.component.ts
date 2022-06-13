@@ -14,7 +14,7 @@ export class ActividadIndivComponent implements OnInit {
   palabra: any;
   aux: any[] = [];
   aux2: any[] = [];
-  pageSize = 2;
+  pageSize = 5;
   desde: number = 0;
   hasta: number = 5;
   campos: any = {
@@ -25,6 +25,7 @@ export class ActividadIndivComponent implements OnInit {
     nombre: '',
     titulo: '',
     tituloCarta: '',
+    idAnimal: '',
   }
 
   constructor(private conexion: ActividadIndivService) {
@@ -47,6 +48,7 @@ export class ActividadIndivComponent implements OnInit {
     this.campos.nombre = '';
     this.campos.titulo = '';
     this.campos.tituloCarta = '';
+    this.campos.idAnimal = '';
   }
   eliminar(item: any) {
     this.item = item;
@@ -70,12 +72,14 @@ export class ActividadIndivComponent implements OnInit {
       var nombre = this.item.nombre;
       var titulo = this.item.titulo
       var tituloCarta = this.item.tituloCarta;
+      var idAnimal = this.item.idAnimal;
       if (this.palabra.length != 0 && this.aux2.length != 0) {
         if (descripcion.toLowerCase().search(this.palabra.toLowerCase()) != -1 || 
             img.toLowerCase().search(this.palabra.toLowerCase()) != -1 || 
             nombre.toLowerCase().search(this.palabra.toLowerCase()) != -1 || 
             titulo.toLowerCase().search(this.palabra.toLowerCase()) != -1 || 
-            tituloCarta.toLowerCase().search(this.palabra.toLowerCase()) != -1) {
+            tituloCarta.toLowerCase().search(this.palabra.toLowerCase()) != -1|| 
+            idAnimal.toLowerCase().search(this.palabra.toLowerCase()) != -1) {
               this.aux.push(this.aux2[i]);
         }
       }
@@ -169,6 +173,28 @@ export class ActividadIndivComponent implements OnInit {
         return -1;
       }
       if (a.tituloCarta < b.tituloCarta) {
+        return 1;
+      }
+      return 0;
+    })
+  }
+  porIdAnimalDerecho() {
+    this.actividadIndividual.sort((a: { idAnimal: string; }, b: { idAnimal: string; }) => {
+      if (a.idAnimal < b.idAnimal) {
+        return -1;
+      }
+      if (a.idAnimal > b.idAnimal) {
+        return 1;
+      }
+      return 0;
+    })
+  }
+  porIdAnimalReves() {
+    this.actividadIndividual.sort((a: { idAnimal: string; }, b: { idAnimal: string; }) => {
+      if (a.idAnimal > b.idAnimal) {
+        return -1;
+      }
+      if (a.idAnimal < b.idAnimal) {
         return 1;
       }
       return 0;

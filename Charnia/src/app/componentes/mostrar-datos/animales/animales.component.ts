@@ -10,7 +10,6 @@ import { PageEvent } from '@angular/material/paginator';
 export class AnimalesComponent implements OnInit {
 
   animales: any[] = [];
-  // fechaSplit: Array<string> = [];
   item: any;
   palabra: any;
   aux: any[] = [];
@@ -28,10 +27,6 @@ export class AnimalesComponent implements OnInit {
 
   constructor(private conexion: AnimalesService) {
     this.conexion.listarAnimal().subscribe(anim => {
-      // for (let i = 0; i < anim.length; i++) {
-      //   this.fechaSplit = anim[i].fechaDeLlegada.split("-");
-      //   anim[i].fechaDeLlegada = this.fechaSplit[2]+"/"+this.fechaSplit[1]+"/"+this.fechaSplit[0];
-      // }
       this.animales = anim;
       for (let i = 0; i < anim.length; i++) {
         this.aux2.push(anim[i]);

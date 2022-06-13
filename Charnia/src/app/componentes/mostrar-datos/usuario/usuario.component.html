@@ -6,9 +6,7 @@
         <form id="form">
             <label class="mx-2">Buscar:</label>
             <input type="text" id="buscar" name="buscar">
-            <!--(onkeyup)="hola()"-->
             <button (click)="buscar()" class="mx-2 btn btn-light"><i class="fas fa-search"></i></button>
-            <!--(click)="buscarImagen()"-->
         </form>
     </div>
     <table class="table table-striped">
@@ -67,7 +65,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Añadir Recinto</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Añadir Usuario</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -79,7 +77,6 @@
                             [(ngModel)]="campos.nombre">
                         <span class="alert alert-danger d-block mt-2" *ngIf="Nombre.touched &&!Nombre.valid">No puedes
                             dejar este campo vacio</span>
-                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                     </div>
                     <div class="mb-3">
                         <label for="apellidos" class="form-label">Apellidos</label>
@@ -141,7 +138,6 @@
                             [(ngModel)]="campos.nombre">
                         <span class="alert alert-danger d-block mt-2" *ngIf="Nombre.touched &&!Nombre.valid">No puedes
                             dejar este campo vacio</span>
-                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                     </div>
                     <div class="mb-3">
                         <label for="apellidos" class="form-label">Apellidos</label>
@@ -152,7 +148,7 @@
                             puedes dejar este campo vacio</span>
                     </div>
                     <div class="mb-3">
-                        <label for="correo" class="form-label">correo</label>
+                        <label for="correo" class="form-label">Correo</label>
                         <input type="text" class="form-control" id="correo" name="correo" #Correo="ngModel"
                             pattern="\S+@\S+\.\S+" required placeholder="Introduzca el correo del usuario"
                             [(ngModel)]="campos.correo">
@@ -176,7 +172,7 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
-                            [disabled]="!formularioModificar.form.valid">Añadir</button>
+                            [disabled]="!formularioModificar.form.valid">Modificar</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                 </form>
@@ -184,6 +180,7 @@
         </div>
     </div>
 </div>
+
 <!-- ELIMINAR -->
 <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">

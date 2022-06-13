@@ -1,0 +1,13 @@
+.container {
+  margin-top: 20vh;
+  height: 500px;
+  width: 200vh;
+}
+
+.scroll {
+  height: 100%;
+  overflow-y: scroll;
+}
+.izquierdo{
+  width: 60vh;
+}

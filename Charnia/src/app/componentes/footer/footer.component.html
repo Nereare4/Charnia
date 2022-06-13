@@ -1,63 +1,32 @@
-<!-- Remove the container if you want to extend the Footer to full width. -->
-<!-- <div class="container my-5"> -->
-<!-- Footer -->
 <footer class="text-center text-lg-start text-black fondo">
-  <!-- Grid container -->
   <div class="container p-4 pb-0">
-    <!-- Section: Links -->
     <section class="">
-      <!--Grid row-->
       <div class="row">
-        <!-- Grid column -->
-        <div class="col-md-5 col-lg-5 col-xl-5 mx-auto mt-3">
-          <!-- <h6 class="text-uppercase mb-4 font-weight-bold">
-              Company name
-            </h6> -->
-          <img class=" mb-4" src="../../../assets/LOGOHORIZONTAL.png" style="width:25vw; height: auto;" id="logo"
+        <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-3">
+          <img class=" mb-4" src="../../../assets/logo/LOGOHORIZONTAL.png" style="width:25vw; height: auto;" id="logo"
             alt="logo">
           <p>
             El mejor zoo.
           </p>
         </div>
-        <!-- Grid column -->
-
-        <hr class="w-100 clearfix d-md-none" />
-
-        <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
           <h6 class="text-uppercase mb-4 font-weight-bold">Informacón Corporativa</h6>
           <p>
-            <a class="text-black">Descubre Charnia</a>
+            <a class="text-black" [routerLink]="['/']">Inicio</a>
           </p>
           <p>
-            <a class="text-black">Prepara tu visita</a>
+            <a class="text-black" [routerLink]="['/descubre-el-zoo']">Descubre Charnia</a>
           </p>
           <p>
-            <a class="text-black">Blog</a>
+            <a class="text-black" [routerLink]="['/blog']">Blog</a>
           </p>
           <p>
-            <a class="text-black">Comprar</a>
+            <a class="text-black" [routerLink]="['/entradas']">Entradas</a>
           </p>
         </div>
-        <!-- Grid column -->
-
-        <hr class="w-100 clearfix d-md-none" />
-
-        <!-- Grid column -->
-        <hr class="w-100 clearfix d-md-none" />
-
-        <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-2">
-
-          dkfjgfdsugou
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3 mb-3">
+        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3 mb-3">
           <h6 class="text-uppercase mb-4 font-weight-bold">Contacto</h6>
           <p style="word-wrap: break-word;">
-            <!-- <i class="fas fa-envelope mr-3"></i>  -->
             charnia.web.proyecto@gmail.com
           </p>
           <h6 class="text-uppercase mb-4 font-weight-bold">Síguenos</h6>
@@ -92,21 +61,10 @@
           </a>
         </div>
       </div>
-      <!--Grid row-->
     </section>
-    <!-- Section: Links -->
   </div>
-  <!-- Grid container -->
-
-  <!-- Copyright -->
-
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-    Zoo ficticio creado por: 
+    Zoo ficticio creado por:
     <div class="text-white underline" href="https://mdbootstrap.com/">Nerea Ramos y Juan Carlos Robles</div>
   </div>
-
-  <!-- Copyright -->
 </footer>
-<!-- Footer -->
-<!-- </div> -->
-<!-- End of .container -->

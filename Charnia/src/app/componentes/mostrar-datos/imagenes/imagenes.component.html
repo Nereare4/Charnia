@@ -50,6 +50,7 @@
         (page)="cambiarPagina($event)">
     </mat-paginator>
 </div>
+
 <!-- AÑADIR -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true" bsModal #childModal>
@@ -68,9 +69,6 @@
                             [(ngModel)]="campos.idAnimal">
                         <span class="alert alert-danger d-block mt-2" *ngIf="IdAnimal.touched &&!IdAnimal.valid">No
                             puedes dejar este campo vacio</span>
-                        <!-- <span class="alert alert-danger d-block mt-2" *ngIf="err == 1 || err == 2">No puedes dejar este
-                            campo vacio</span> -->
-                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                     </div>
                     <div class="mb-3">
                         <label for="imagen" class="form-label">Imagen</label>
@@ -79,8 +77,6 @@
                             [(ngModel)]="campos.imagen">
                         <span class="alert alert-danger d-block mt-2" *ngIf="Imagen.touched &&!Imagen.valid">No puedes
                             dejar este campo vacio</span>
-                        <!-- <span class="alert alert-danger d-block mt-2" *ngIf="err == 1 || err == 3">No puedes dejar este
-                            campo vacio</span> -->
                     </div>
                     <div class="d-flex justify-content-around">
                         <button type="submit" class="btn btn-primary" id="anyadir" data-bs-dismiss="modal"

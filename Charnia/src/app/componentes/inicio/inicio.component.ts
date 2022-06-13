@@ -40,7 +40,6 @@ export class InicioComponent implements OnInit {
     this.nombre = this.route.snapshot.paramMap.get("nombre");
     this.ruta;
     this.arrayOpinion;
-    console.log(this.arrayOpinion)
   }
 
 }

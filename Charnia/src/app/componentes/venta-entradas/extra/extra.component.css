@@ -1,0 +1,9 @@
+.container {
+  margin-top: 20vh;
+  height: 500px;
+}
+
+.scroll {
+  height: 100%;
+  overflow-y: scroll;
+}

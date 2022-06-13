@@ -1,14 +1,14 @@
-<div class="container">
-    <h1 class="d-flex justify-content-center">Bienvenido: usuario</h1>
+<div class="container mb-4">
+    <h1 class="d-flex justify-content-center">Bienvenido: </h1>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
         <!-- ACTIVIDAD INDIVIDUAL -->
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 d-flex justify-content-around mt-3">
             <div class="col">
                 <div class="card redondo" style="width: 18rem; ">
-                    <img src="../../../assets/burro.png" class="card-img-top redondoMitad" alt="...">
+                    <img src="../../../assets/iconos/actividad.png" class="card-img-top redondoMitad mx-5" alt="..." style="width: 50%; height: 50%">
                     <div class="card-body">
                         <h4 class="card-title">Actividad Individual</h4>
-                        <button type="button" class="btn btn-success" [routerLink]="['/datos/actividad-individual']" (click)="ngOnInit()">Ver más</button>
+                        <button type="button" class="btn btn-success" [routerLink]="['/datos/actividad-individual']">Ver más</button>
                     </div>
                 </div>
             </div>
@@ -17,10 +17,10 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 d-flex justify-content-around mt-3">
             <div class="col">
                 <div class="card redondo" style="width: 18rem; ">
-                    <img src="../../../assets/burro.png" class="card-img-top redondoMitad" alt="...">
+                    <img src="../../../assets/iconos/jirafa.png" class="card-img-top redondoMitad mx-5" alt="..." style="width: 50%; height: 50%">
                     <div class="card-body">
                         <h4 class="card-title">Animales</h4>
-                        <button type="button" class="btn btn-success" [routerLink]="['/datos/animales']" (click)="ngOnInit()">Ver más</button>
+                        <button type="button" class="btn btn-success" [routerLink]="['/datos/animales']">Ver más</button>
                     </div>
                 </div>
             </div>
@@ -29,10 +29,10 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 d-flex justify-content-around mt-3">
             <div class="col">
                 <div class="card redondo" style="width: 18rem; ">
-                    <img src="../../../assets/burro.png" class="card-img-top redondoMitad" alt="...">
+                    <img src="../../../assets/iconos/cuidador.png" class="card-img-top redondoMitad mx-5" alt="..." style="width: 50%; height: 50%">
                     <div class="card-body">
                         <h4 class="card-title">Cuidador</h4>
-                        <button type="button" class="btn btn-success" [routerLink]="['/datos/cuidador']" (click)="ngOnInit()">Ver más</button>
+                        <button type="button" class="btn btn-success" [routerLink]="['/datos/cuidador']">Ver más</button>
                     </div>
                 </div>
             </div>
@@ -41,10 +41,10 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 d-flex justify-content-around mt-3">
             <div class="col">
                 <div class="card redondo" style="width: 18rem; ">
-                    <img src="../../../assets/burro.png" class="card-img-top redondoMitad" alt="...">
+                    <img src="../../../assets/iconos/imagen.png" class="card-img-top redondoMitad mx-5" alt="..." style="width: 50%; height: 50%">
                     <div class="card-body">
                         <h4 class="card-title">Imagenes</h4>
-                        <button type="button" class="btn btn-success" [routerLink]="['/datos/imagenes']" (click)="ngOnInit()">Ver más</button>
+                        <button type="button" class="btn btn-success" [routerLink]="['/datos/imagenes']">Ver más</button>
                     </div>
                 </div>
             </div>
@@ -53,10 +53,10 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 d-flex justify-content-around mt-3">
             <div class="col">
                 <div class="card redondo" style="width: 18rem; ">
-                    <img src="../../../assets/burro.png" class="card-img-top redondoMitad" alt="...">
+                    <img src="../../../assets/iconos/recinto.png" class="card-img-top redondoMitad mx-5" alt="..." style="width: 50%; height: 50%">
                     <div class="card-body">
                         <h4 class="card-title">Recinto</h4>
-                        <button type="button" class="btn btn-success" [routerLink]="['/datos/recinto']" (click)="ngOnInit()">Ver más</button>
+                        <button type="button" class="btn btn-success" [routerLink]="['/datos/recinto']">Ver más</button>
                     </div>
                 </div>
             </div>
@@ -65,83 +65,25 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 d-flex justify-content-around mt-3">
             <div class="col">
                 <div class="card redondo" style="width: 18rem; ">
-                    <img src="../../../assets/burro.png" class="card-img-top redondoMitad" alt="...">
+                    <img src="../../../assets/iconos/usuarios.png" class="card-img-top redondoMitad mx-5" alt="..." style="width: 50%; height: 50%">
                     <div class="card-body">
                         <h4 class="card-title">Usuario</h4>
-                        <button type="button" class="btn btn-success" [routerLink]="['/datos/usuario']" (click)="ngOnInit()">Ver más</button>
+                        <button type="button" class="btn btn-success" [routerLink]="['/datos/usuario']">Ver más</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CONSERVACIÓN -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 d-flex justify-content-around mt-3">
+            <div class="col">
+                <div class="card redondo" style="width: 18rem; ">
+                    <img src="../../../assets/iconos/conservacion.png" class="card-img-top redondoMitad mx-5" alt="..." style="width: 50%; height: 50%">
+                    <div class="card-body">
+                        <h4 class="card-title">Conservacion</h4>
+                        <button type="button" class="btn btn-success" [routerLink]="['/datos/conservacion']">Ver más</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-<br><br><br><br><br><br>
-<h1>DATOS ANIMALES</h1>
-<div *ngFor="let anima of animal">
-    Nombre Animal: {{anima.nombre}}<br>
-    Especie Animal: {{anima.especie}}<br>
-    ID Animal: {{anima.id}}<br>
-    ID Cuidador:{{anima.cuidadoPor}}
-
-    <div *ngFor="let cuidado of cuidador">
-        <div *ngIf="anima.cuidadoPor == cuidado.id">Nombre Cuidador: {{cuidado.nombre}}</div>
-    </div>
-    ID Residencia: {{anima.recintoResidencia}}
-    <div *ngFor="let recint of recinto">
-        <div *ngIf="anima.recintoResidencia == recint.id">Tamaño Recinto: {{recint.tamanyo}}</div>
-    </div>
-    <br>
-</div>
-
-
-<h1>DATOS CUIDADORES</h1>
-<div *ngFor="let cuidado of cuidador">
-    {{cuidado.nombre}} - {{cuidado.apellido}} - {{cuidado.id}}
-</div>
-
-<br>
-
-<h1>DATOS RECINTOS</h1>
-<div *ngFor="let recint of recinto">
-    {{recint.tamanyo}} - {{recint.id}}
-</div>
-
-<h1>OPNIONES</h1>
-<div *ngFor="let opinio of opinion">
-    <div *ngFor="let usu of usuario">
-        <div *ngIf="opinio.opinionDe == usu.id">Usuario: {{usu.nombre}}</div>
-    </div>
-    Comentario: {{opinio.comentario}}<br>
-    Id comentario:{{opinio.id}}<br>
-    Fecha: {{opinio.fecha}}<br>
-    Dia: {{opinio.fecha.toDate().getDate()}}<br>
-    Mes: {{opinio.fecha.toDate().getMonth()}}<br>
-    Año: {{opinio.fecha.toDate().getFullYear()}}<br>
-
-</div>
-<h1>USUARIOS</h1>
-<div *ngFor="let usu of usuario">
-    Nombre: {{usu.nombre}}<br>
-    Correo: {{usu.correo}}
-
-</div>
-
-<h1>ACTIVIDADES INDIVIDUALES</h1>
-<div *ngFor="let indiv of individual">
-    Titulo: {{indiv.titulo}}<br>
-    Horario:
-    -Lunes a VIernes: {{indiv.diario}}<br>
-    -Fines de semana: {{indiv.finsemana}}
-    Descripción: {{indiv.descripcion}}<br>
-    Nombre ruta: {{indiv.nombre}}
 </div>

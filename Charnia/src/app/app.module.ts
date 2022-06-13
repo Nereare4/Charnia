@@ -26,6 +26,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatPaginatorModule} from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
 
 //SERVICE
 import { AutentifService } from "./servicios/autentif.service";
@@ -55,13 +57,21 @@ import { FechaComponent } from './componentes/venta-entradas/fecha/fecha.compone
 import { ExtraComponent } from './componentes/venta-entradas/extra/extra.component';
 import { PagoComponent } from './componentes/venta-entradas/pago/pago.component';
 import { VentaEntradasComponent } from './componentes/venta-entradas/venta-entradas.component';
-import { DiaComponent } from './componentes/venta-entradas/fecha/dia/dia.component';
 import { CuidadorComponent } from './componentes/mostrar-datos/cuidador/cuidador.component';
 import { ImagenesComponent } from './componentes/mostrar-datos/imagenes/imagenes.component';
 import { ActividadIndivComponent } from './componentes/mostrar-datos/actividad-indiv/actividad-indiv.component';
 import { AnimalesComponent } from './componentes/mostrar-datos/animales/animales.component';
 import { RecintoComponent } from './componentes/mostrar-datos/recinto/recinto.component';
 import { UsuarioComponent } from './componentes/mostrar-datos/usuario/usuario.component';
+import { TodoIncluidoComponent } from './componentes/venta-entradas/extra/dialogos/todo-incluido/todo-incluido.component';
+import { MenuComponent } from './componentes/venta-entradas/extra/dialogos/menu/menu.component';
+import { MenuInfantilComponent } from './componentes/venta-entradas/extra/dialogos/menu-infantil/menu-infantil.component';
+import { FotoEntradaComponent } from './componentes/venta-entradas/extra/dialogos/foto-entrada/foto-entrada.component';
+import { FotoAnimalComponent } from './componentes/venta-entradas/extra/dialogos/foto-animal/foto-animal.component';
+import { MapaComponent } from './componentes/mapa/mapa.component';
+import { PostsComponent } from './componentes/posts/posts.component';
+import { PostsIndividualComponent } from './componentes/posts-individual/posts-individual.component';
+import { ConservacionComponent } from './componentes/mostrar-datos/conservacion/conservacion.component';
 
 
 @NgModule({
@@ -89,13 +99,21 @@ import { UsuarioComponent } from './componentes/mostrar-datos/usuario/usuario.co
     ExtraComponent,
     PagoComponent,
     VentaEntradasComponent,
-    DiaComponent,
     CuidadorComponent,
     ImagenesComponent,
     ActividadIndivComponent,
     AnimalesComponent,
     RecintoComponent,
     UsuarioComponent,
+    TodoIncluidoComponent,
+    MenuComponent,
+    MenuInfantilComponent,
+    FotoEntradaComponent,
+    FotoAnimalComponent,
+    MapaComponent,
+    PostsComponent,
+    PostsIndividualComponent,
+    ConservacionComponent,
   ],
   imports: [
     AngularFireDatabaseModule, // de este no estoy muy seguro
@@ -114,6 +132,8 @@ import { UsuarioComponent } from './componentes/mostrar-datos/usuario/usuario.co
     MatNativeDateModule, 
     MatMomentDateModule,
     MatPaginatorModule,
+    MatDialogModule,
+    MatInputModule,
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
     NbDatepickerModule.forRoot(),

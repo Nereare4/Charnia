@@ -1,1 +1,71 @@
-<p>pago works!</p>
+<div class="container row d-flex w-100">
+    <h1 class="d-flex justify-content-center">Pago</h1><hr>
+    
+    <div class="scroll">
+        <form (ngSubmit)=" pagar()" #formularioAnyadir="ngForm" class="izquierdo mt-3">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre*</label>
+                <input type="textarea" class="form-control" id="nombre" name="nombre" #Nombre="ngModel"
+                    pattern="[A-Za-z]{2,}" required placeholder="Introduzca su nombre" [(ngModel)]="campos.nombre">
+                <span class="alert alert-danger d-block mt-2" *ngIf="Nombre.touched &&!Nombre.valid">No puedes
+                    dejar este campo vacio</span>
+            </div>
+            <div class="mb-3">
+                <label for="apellidos" class="form-label">Apellidos*</label>
+                <input type="text" class="form-control" id="apellidos" name="apellidos" #Apellidos="ngModel"
+                    pattern="[A-Za-z]{2,}" required placeholder="Introduzca su apellido"
+                    [(ngModel)]="campos.apellidos">
+                <span class="alert alert-danger d-block mt-2" *ngIf="Apellidos.touched &&!Apellidos.valid">No
+                    puedes dejar este campo vacio</span>
+            </div>
+            <div class="mb-3">
+                <label for="fecha" class="form-label">Fecha de nacimiento*</label>
+                <input type="date" class="form-control" id="fecha" name="fecha" #fecha="ngModel"
+                    required [(ngModel)]="campos.fecha">
+                <span class="alert alert-danger d-block mt-2" *ngIf="fecha.touched &&!fecha.valid">No
+                    puedes dejar este campo vacio</span>
+            </div>
+            <div class="mb-3">
+                <label for="correo" class="form-label">Email*</label>
+                <input type="text" class="form-control" id="correo" name="correo" #Correo="ngModel"
+                    pattern="\S+@\S+\.\S+" required placeholder="Introduzca su email" [(ngModel)]="campos.correo">
+                <span class="alert alert-danger d-block mt-2" *ngIf="Correo.touched &&!Correo.valid">No puedes
+                    dejar este campo vacio</span>
+            </div>
+            <div class="mb-3">
+                <label for="telefono" class="form-label">Número de teléfono*</label>
+                <input type="text" class="form-control" id="telefono" name="telefono" #telefono="ngModel"
+                    pattern="[0-9]{9}" required placeholder="Introduzca su número de teléfono" [(ngModel)]="campos.telefono">
+                <span class="alert alert-danger d-block mt-2" *ngIf="telefono.touched &&!telefono.valid">No puedes
+                    dejar este campo vacio</span>
+            </div>
+            <div class="mb-3">
+                <label for="numTarjeta" class="form-label">Nº Tarjeta*</label>
+                <input type="text" class="form-control" id="numTarjeta" name="numTarjeta" #numTarjeta="ngModel"
+                    pattern="([0-9]{4}\-){3}[0-9]{4}" required placeholder="1234-1234-1234-1234" [(ngModel)]="campos.numTarjeta">
+                <span class="alert alert-danger d-block mt-2" *ngIf="numTarjeta.touched &&!numTarjeta.valid">No puedes
+                    dejar este campo vacio</span>
+            </div>
+            <div class="mb-3">
+                <label for="caducidad" class="form-label">Caducidad*</label>
+                <input type="text" class="form-control" id="caducidad" name="caducidad" #caducidad="ngModel"
+                    pattern="[0-9]{2}\-[0-9]{2}" required placeholder="01-01"
+                    [(ngModel)]="campos.caducidad">
+                <span class="alert alert-danger d-block mt-2" *ngIf="caducidad.touched &&!caducidad.valid">No puedes
+                    dejar este campo vacio</span>
+            </div>
+            <div class="mb-3">
+                <label for="cvv" class="form-label">CVV*</label>
+                <input type="text" class="form-control" id="cvv" name="cvv" #cvv="ngModel"
+                    pattern="[0-9]{3}" required placeholder="123"
+                    [(ngModel)]="campos.cvv">
+                <span class="alert alert-danger d-block mt-2" *ngIf="cvv.touched &&!cvv.valid">No puedes
+                    dejar este campo vacio</span>
+            </div>
+            <div class="d-flex justify-content-start">
+                <button type="submit" class="btn btn-primary" id="anyadir" data-bs-dismiss="modal"
+                    [disabled]="!formularioAnyadir.form.valid">Pagar</button>
+            </div>
+        </form>
+    </div>
+</div>

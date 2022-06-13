@@ -1,5 +1,5 @@
 <!-- <div class="container"> -->
-<div id="scene">
+<div id="scene" class="mb-5">
     <div id="left-zone">
         <ul class="list">
             <li class="item">
@@ -26,18 +26,98 @@
                 <input type="radio" id="radio_3" name="basic_carousel" />
                 <label class="label_apple" for="radio_3">Extra</label>
                 <div class="content content_apple w-75 d-flex justify-content-center">
-                    <span class="picto"></span>
+                    <!-- <span class="picto"></span>
                     <h1>apple</h1>
-                    <p>Tzlkxfhgkfl.</p>
+                    <p>Tzlkxfhgkfl.</p> -->
+                    <app-extra></app-extra>
                 </div>
             </li>
             <li class="item">
                 <input type="radio" id="radio_4" name="basic_carousel" />
                 <label class="label_orange" for="radio_4">Pago</label>
                 <div class="content content_orange w-75 d-flex justify-content-center">
-                    <span class="picto"></span>
+                    <!-- <span class="picto"></span>
                     <h1>orange</h1>
-                    <p>zçfj</p>
+                    <p>zçfj</p> -->
+                    <app-pago></app-pago>
+                </div>
+            </li>
+            <br>
+            <li class="border border-2">
+                <div class="carrito">
+                    <div class="scroll">
+                        <h4 class="mt-2 d-flex justify-content-center">Resumen Carrito</h4>
+                        <hr>
+                        <div class="contenido w-75 d-flex justify-content-center row row-cols-1">
+                            <!-- <p>Tú carrito está vacío, parece que todavía no has hecho tú elección</p><br> -->
+                            <div class="padin">
+                                <p *ngIf="carritoService.adulto ==0 && carritoService.fecha ==0 && carritoService.infantil ==0 && carritoService.senior ==0"><strong>Tu carrito está vacio</strong> Parece que no has hecho tu elección aún.</p>
+                                <div class="col" *ngIf="carritoService.fecha !=0">
+                                    <div class="d-flex flex-row">Fecha visita:
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div class="d-flex justify-content-end" [innerHTML]="carritoService.fecha">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col" *ngIf="carritoService.adulto !=0">
+                                    <div class="d-flex flex-row">Entrada General
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div [innerHTML]="'x'+carritoService.adulto"></div>
+                                    </div>
+                                </div>
+                                <div class="col" *ngIf="carritoService.infantil !=0">
+                                    <div class="d-flex flex-row">Entrada Infantil
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div [innerHTML]="'x'+carritoService.infantil"></div>
+                                    </div>
+                                </div>
+                                <div class="col" *ngIf="carritoService.senior !=0">
+                                    <div class="d-flex flex-row">Entrada Reducida &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div [innerHTML]="'x'+carritoService.senior"></div>
+                                    </div>
+                                </div>
+                                <div class="col" *ngIf="carritoService.todoIncluidoAdulto !=0">
+                                    <div class="d-flex flex-row">Todo incluido adulto
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div [innerHTML]="'x'+carritoService.todoIncluidoAdulto"></div>
+                                    </div>
+                                </div>
+                                <div class="col" *ngIf="carritoService.todoIncluidoInfantil !=0">
+                                    <div class="d-flex flex-row">Todo incluido infantil: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div [innerHTML]="'x'+carritoService.todoIncluidoInfantil"></div>
+                                    </div>
+                                </div>
+                                <div class="col" *ngIf="carritoService.menu !=0">
+                                    <div class="d-flex flex-row">Menú:
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div [innerHTML]="'x'+carritoService.menu"></div>
+                                    </div>
+                                </div>
+                                <div class="col" *ngIf="carritoService.menuInfantil !=0">
+                                    <div class="d-flex flex-row">Menú infantil: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div [innerHTML]="'x'+carritoService.menuInfantil"></div>
+                                    </div>
+                                </div>
+                                <div class="col" *ngIf="carritoService.fotoEntrada !=0">
+                                    <div class="d-flex flex-row">Foto en la entrada:
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div [innerHTML]="'x'+carritoService.fotoEntrada"></div>
+                                    </div>
+                                </div>
+                                <div class="col" *ngIf="carritoService.fotoAnimal !=0">
+                                    <div class="d-flex flex-row">Foto con animales: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div [innerHTML]="'x'+carritoService.fotoAnimal"></div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="col">
+                                    <div class="d-flex flex-row"><h5>Total:</h5>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div [innerHTML]="carritoService.total+'€'"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </li>
         </ul>
@@ -45,5 +125,3 @@
     <div id="middle-border"></div>
     <div id="right-zone"></div>
 </div>
-<!-- </div> -->
-<br><br><br><br>

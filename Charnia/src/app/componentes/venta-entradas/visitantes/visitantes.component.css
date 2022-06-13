@@ -1,0 +1,28 @@
+.degradado {
+  /* background: rgb(2, 0, 36); */
+  /* background: linear-gradient( */
+      /* 90deg, rgba(2,0,36,1) 0%, */
+      /* rgba(255, 255, 255, 1) 0%,
+      rgba(226, 195, 105, 1) 100%); */
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgb(220, 184, 77) 0%, rgba(242, 227, 186, 1) 57%, rgba(255, 255, 255, 1) 100%);
+}
+
+#codigo {
+  /* width: 80vh; */
+  background: linear-gradient(
+      /* 90deg, rgba(2,0,36,1) 0%, */
+      rgba(255, 255, 255, 1) 0%,
+      rgb(240, 210, 120) 100%);
+}
+
+.redondo {
+  border-radius: 12px;
+}
+
+.prueba {
+  border-radius: 12px 12px 12px 0px;
+}
+.titulo{
+  margin-top: 10vh;
+}

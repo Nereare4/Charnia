@@ -4,16 +4,13 @@
             <div *ngFor="let rut of ruta">
                 <div *ngIf="indiv.nombre == rut">
                     <div *ngIf="indiv.nombre != nombre; else hueco">
-                        <!--  -->
                         <div class="col">
-                            <div class="card clase mb-4 redondo"> <!-- style="width: 20rem;"-->
-                                <!--[@aniCard]="state" (mouseover)="verde()"-->
+                            <div class="card clase mb-4 redondo"> 
                                 <img src="../../../assets/{{indiv.imagen}}" class="card-img-top redondoMitad" alt="...">
                                 <div class="card-body">
                                     <h4 class="card-title ">{{indiv.tituloCarta}}</h4>
                                     <button type="button" class="btn btn-success" [routerLink]="['/actividad', rut]"
                                         (click)="envioRuta(rut)">Ver más</button>
-                                    <!--Primer click: pone ruta, segundo click: va a la ruta-->
                                 </div>
                             </div>
                         </div>
@@ -21,7 +18,7 @@
                     <ng-template #hueco>
                         <div *ngIf="indiv.nombre == nombre" style="padding: 0% 0%;">
                             <div class="col">
-                                <div class="card opacidad mb-4 redondo"> <!-- style="width: 20rem;"-->
+                                <div class="card opacidad mb-4 redondo">
                                     <img src="../../../assets/{{indiv.imagen}}" class="card-img-top redondoMitad " alt="...">
                                     <div class="card-body">
                                         <h4 class="card-title ">{{indiv.tituloCarta}}</h4>

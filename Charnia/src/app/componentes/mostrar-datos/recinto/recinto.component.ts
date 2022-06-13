@@ -58,7 +58,7 @@ export class RecintoComponent implements OnInit {
       var limpiadoPor = this.item.limpiadoPor;
       var tamanyo = this.item.tamanyo;
       if (this.palabra.length != 0 && this.aux2.length != 0) {
-        if (limpiadoPor.toLowerCase().search(this.palabra.toLowerCase()) != -1 || tamanyo.search(this.palabra) != -1) {
+        if (limpiadoPor.toLowerCase().search(this.palabra.toLowerCase()) != -1 || tamanyo == this.palabra) {
           this.aux.push(this.aux2[i]);
         }
       }

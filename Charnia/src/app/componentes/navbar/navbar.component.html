@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <!-- <a class="navbar-brand" href="#">Navbar</a> -->
     <div class="d-flex justify-content-center">
-      <img class="w-75 h-75 puntero" src="../../../assets/LOGOHORIZONTAL.png" id="logo" alt="logo" [routerLink]="['/']">
+      <img class="w-75 h-75 puntero" src="../../../assets/logo/LOGOHORIZONTAL.png" id="logo" alt="logo" [routerLink]="['/']">
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,7 +16,7 @@
           <div class="nav-link active subrayado puntero" aria-current="page" [routerLink]="['descubre-el-zoo']">Descubre Charnia</div>
           <div ></div>
         </li>
-        <li class="nav-item dropdown">
+        <!-- <li class="nav-item dropdown">
           <div class="nav-link active subrayado puntero" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Prepara tu visita
           </div>
@@ -28,12 +28,12 @@
             </li>
             <li><div class="dropdown-item" href="#">Something else here</div></li>
           </ul>
-        </li>
+        </li> -->
         <li class="nav-item">
           <div class="nav-link active subrayado puntero" aria-current="page" [routerLink]="['blog']">Blog</div>
         </li>
         <li class="nav-item">
-          <div class="nav-link active subrayado puntero" aria-current="page" [routerLink]="['entradas']">Comprar</div>
+          <div class="nav-link active subrayado puntero" aria-current="page" [routerLink]="['entradas']">Entradas</div>
         </li>
         <li class="nav-item">
           <div class="nav-link active subrayado puntero" aria-current="page" [routerLink]="['datos']">Datos</div>
@@ -42,13 +42,13 @@
 
     </div>
     <div class="d-flex align-items-center">
-      <div>
+      <!-- <div>
         <div class="form-inline my-2 my-lg-0">
           <button class="btn btn-light my-2 my-sm-0 fas fa-search btn-lg" type="submit" data-bs-toggle="collapse"
             data-bs-target="#desplegarBarra" aria-expanded="false" aria-controls="collapseExample" alt="buscar"
             id="lupa"></button>
         </div>
-      </div>
+      </div> -->
 
       <div>
         <button id="usuario" class="btn btn-lg fas fa-user btn-light" alt="iniciar sesion" [routerLink]="['login']"></button>
@@ -57,7 +57,7 @@
   </div>
 </nav>
 <!-- BARRA DE BÚSQUEDA DESPLEGABLE -->
-<div class="d-flex justify-content-end">
+<!-- <div class="d-flex justify-content-end">
   <div class="collapse w-50" id="desplegarBarra">
     <input id="barraProducto" class="form-control mr-sm-2 col-sm-10 d-inline w-75" type="search"
       placeholder="Buscar producto..." aria-label="Search">
@@ -66,4 +66,4 @@
     <button id="microfono" class="btn btn-light my-2 my-sm-0 fas fa-microphone btn-lg col-sm-1 d-inline"
       type="submit"></button>
   </div>
-</div>
+</div> -->
