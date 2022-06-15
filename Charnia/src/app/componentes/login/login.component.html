@@ -1,43 +1,3 @@
-<!--
-<div class="displayTable">
-    <div class="displayTableCell">
-        <div class="authBlock">
-            <h3>Sign In</h3>
-            <div class="formGroup">
-                <input type="text" class="formControl" placeholder="Nombre de usuario" #usuNombre required>
-            </div>
-            <div class="formGroup">
-                <input type="password" class="formControl" placeholder="Contraseña" #usuClave required>
-            </div>
-            /* Calling SignIn Api from AuthService */
-            <div class="formGroup">
-                <input type="button" class="btn btnPrimary" value="Log in"
-                    (click)="autentifService.login(usuNombre.value, usuClave.value)">
-            </div>
-            <div class="formGroup">
-                <span class="or"><span class="orInner">Or</span></span>
-            </div>
-            /* Calling GoogleAuth Api from AuthService */
-            <div class="formGroup">
-                <button type="button" class="btn googleBtn" (click)="autentifService.googleAutentif()">
-                    <i class="fab fa-google-plus-g"></i>
-                    Log in with Google
-                </button>
-            </div>
-            <div class="forgotPassword">
-                <span routerLink="/recuperar-clave">Forgot Password?</span>
-            </div>
-        </div>
-        <div class="redirectToLogin">
-            <span>Don't have an account?<span class="redirect" routerLink="/registro"> Sign Up</span></span>
-        </div>
-    </div>
-</div>
--->
-
-<!-- habría qeu meter el login de nerea -->
-
-
 <!-- LOGIN -->
 
 <section id="login" class="loginRegistro" style="background-color: #F8BB75;">
@@ -72,7 +32,7 @@
                             <div class="card-body p-4 p-lg-5 text-black">
                                 <form>
                                     <div class="d-flex align-items-center mb-3 pb-1">
-                                        <img class="w-75 h-75" src="../../../assets/LOGOHORIZONTAL.png" id="logo"
+                                        <img class="w-75 h-75" src="../../../assets/logo/LOGOHORIZONTAL.png" id="logo"
                                             alt="logo">
                                     </div>
                                     <h5 class="fw-normal mb-3 pb-3 tex" style="letter-spacing: 1px;">Iniciar Sesión</h5>

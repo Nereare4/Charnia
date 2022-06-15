@@ -1,51 +1,6 @@
-<!-- <br> -->
-<!-- CARRUSEL -->
-<!-- <div class=" container tamanyoContainer">
-    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner tamantoImagenes">
-            <div class="carousel-item active tamanyoImagen">
-                <img src="../../../assets/osoPardo.png" class="d-block" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
-                </div>
-            </div>
-            <div class="carousel-item tamanyoImagen">
-                <img src="../../../assets/iguana2.png" class="d-block" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
-                </div>
-            </div>
-            <div class="carousel-item tamanyoImagen">
-                <img src="../../../assets/delfines3.png" class="d-block" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-</div> -->
-<div class=" container tamanyoContainer d-flex align-items-end" style="background-image: url('../../../assets/leopardo1.png'); background-repeat: no-repeat; background-position: center; background-size: 100%;">
+<!-- FOTO DE INICIO -->
+<div class=" container tamanyoContainer d-flex align-items-end img-fluid"
+    style="background-image: url('../../../assets/leopardo1.png'); background-repeat: no-repeat; background-position: center; background-size: 100%;">
     <div class="ms-5 text-white" style="text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);">
         <div class="h1">Bienvenido a CHARNIA</div>
         <div class="h3">Disfrute de su visita en el ZOO de todos</div>
@@ -54,17 +9,18 @@
 <br><br><br>
 <!-- ACTIVIDADES -->
 <div class="container">
-    <div class="row d-flex justify-content-around ">
-        <div class="col-5">
-            <h1>Actividades educativas</h1><br>
-            <h5>Experiencias muy divertidas y en las que conocerás a los wallabys, las aves exóticas, o los delfines.
-                Aprende de nuestros fantásticos animales y connecta con ellos durante las actividades educativas de
-                Charnia.</h5><br>
-            <button type="button" class="btn btn-success" [routerLink]="['/actividad']">Todas la actividades</button>
+    <div class="row d-flex justify-content-around row-cols-1 row-cols-md-2 row-cols-lg-2">
+        <div class="col d-flex justify-content-center mt-2">
+            <div>
+                <h1>Actividades educativas</h1><br>
+                <h5>Experiencias muy divertidas y en las que conocerás a los wallabys, las aves exóticas, o los delfines.
+                    Aprende de nuestros fantásticos animales y connecta con ellos durante las actividades educativas de
+                    Charnia.</h5><br>
+                <button type="button" class="btn btn-success" [routerLink]="['/actividad']">Todas la actividades</button>
+            </div>
         </div>
-        <div class="col-1"></div>
-        <div class="col-6">
-            <img src="../../../assets/loro.png" class="card-img-top w-75 h-100 redondo" alt="...">
+        <div class="col d-flex justify-content-center mt-2">
+            <img src="../../../assets/loro.png" class="card-img-top w-75 h-100 redondo img-fluid" alt="...">
         </div>
     </div>
 </div>
@@ -75,8 +31,7 @@
             <div *ngFor="let rut of ruta">
                 <div *ngIf="indiv.nombre == rut">
                     <div *ngIf="indiv.nombre != nombre">
-                        <div class="col">
-                            <!-- <div class="card redondo mb-4"> -->
+                        <div class="col d-flex justify-content-center mt-4">
                             <div class="card redondo" style="width: 18rem; ">
                                 <img src="../../../assets/{{indiv.imagen}}" class="card-img-top redondoMitad" alt="...">
                                 <div class="card-body">
@@ -95,19 +50,21 @@
 <br><br><br><br>
 <!-- POSTS -->
 <div class="container">
-    <div class="row d-flex justify-content-around ">
-        <div class="col-6">
-            <img src="../../../assets/lince.png" class="card-img-top w-75 h-100 redondo" alt="...">
+    <div class="row d-flex justify-content-around row-cols-1 row-cols-md-2 row-cols-lg-2">
+        <div class="col d-flex justify-content-center mt-2">
+            <img src="../../../assets/lince.png" class="card-img-top w-75 h-100 img-fluid redondo" alt="...">
         </div>
-        <!-- <div class="col-1"></div> -->
-        <div class="col-6">
-            <h1>Descubre nuestros programas</h1><br>
-            <h5>¿Sabías que con cada visita nos ayudas a conservar más especies autóctonas? En Charnia nos esforzamos en cuidar y 
-                conservar especies en peligro de extinción.
-            </h5><br>
-            <button type="button" class="btn btn-success" [routerLink]="['/conservacion']">¡Muestrame más!</button>
+        <div class="col d-flex justify-content-center mt-2">
+            <div>
+                <h1>Descubre nuestros programas</h1><br>
+                <h5>¿Sabías que con cada visita nos ayudas a conservar más especies autóctonas? En Charnia nos
+                    esforzamos en cuidar y
+                    conservar especies en peligro de extinción.
+                </h5><br>
+                <button type="button" class="btn btn-success" [routerLink]="['/conservacion']">¡Muestrame más!</button>
+            </div>
         </div>
-        
+
     </div>
 </div>
 <br><br><br><br>
@@ -115,38 +72,46 @@
 <div class="h2 d-flex justify-content-center">Últimos posts</div>
 <br>
 <div class="container">
-    <div class="row d-flex justify-content-around ">
-        <div class="col-6">
+    <div class="row d-flex justify-content-around row-cols-1 row-cols-md-2 row-cols-lg-2">
+        <div class="col d-flex justify-content-center mt-4">
             <div class="card mb-3" style="max-width: 740px;">
                 <div class="row g-0">
                     <div class="col-md-6">
                         <div class="card-body">
                             <h5 class="card-title">Quebrantahuesos</h5>
-                            <p class="card-text">Descubre lo maravilloso que es este ave y por qué está en peligro de extinción</p>
+                            <p class="card-text">Descubre lo maravilloso que es este ave y por qué está en peligro de
+                                extinción</p>
                             <br><br>
-                            <button type="button" class="btn btn-success" [routerLink]="['/conservacion', 'quebrantahuesos']"><i class="fas fa-arrow-right"></i></button>
+                            <button type="button" class="btn btn-success"
+                                [routerLink]="['/conservacion', 'quebrantahuesos']"><i
+                                    class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <img src="../../../assets/quebrantahuesos.png" class="img-fluid rounded-start" alt="..." style="height: 100%; width: 120%">
+                        <img src="../../../assets/quebrantahuesos.png" class="img-fluid rounded-start " alt="..."
+                            style="height: 100%; width: 120%">
 
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col d-flex justify-content-center mt-4">
             <div class="card mb-3" style="max-width: 740px;">
                 <div class="row g-0">
                     <div class="col-md-6">
                         <div class="card-body">
                             <h5 class="card-title">Cigüeña Negra</h5>
-                            <p class="card-text">Descubre lo maravilloso que es este ave y por qué está en peligro de extinción</p>
+                            <p class="card-text">Descubre lo maravilloso que es este ave y por qué está en peligro de
+                                extinción</p>
                             <br><br>
-                            <button type="button" class="btn btn-success" [routerLink]="['/conservacion', 'ciguena-negra']"><i class="fas fa-arrow-right"></i></button>
+                            <button type="button" class="btn btn-success"
+                                [routerLink]="['/conservacion', 'ciguena-negra']"><i
+                                    class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <img src="../../../assets/ciguenanegra.png" class="img-fluid rounded-start" alt="..." style="height: 100%; width: 120%">
+                        <img src="../../../assets/ciguenanegra.png" class="img-fluid rounded-start " alt="..."
+                            style="height: 100%; width: 120%">
                     </div>
                 </div>
             </div>
@@ -162,7 +127,7 @@
         <!-- <div *ngFor="let opinio of opinion"> -->
         <div *ngFor="let opinio of arrayOpinion">
             <!-- BUCLE FOR PARA RECORRER OPINIONES -->
-            <div class="col">
+            <div class="col d-flex justify-content-center mt-4">
                 <div class="card" style="width: 22rem;">
                     <div class="card-body">
                         <div *ngIf="opinio.valoracion == 4; else otro">

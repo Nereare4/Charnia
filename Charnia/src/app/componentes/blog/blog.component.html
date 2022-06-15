@@ -1,5 +1,63 @@
-<div class="container">
+<div class="container mb-5">
     <h1 class="">Blog</h1>
     <h5 class="mt-4 mb-4">¿Buscas las ultimas noticias sobre nuestro zoo?</h5>
-    <p>Estás en el blog del zoo de Charnia, en este espacio encontrarás noticias actuales sobre los animales y <br>eventos del zoo</p>
+    <p>Estás en el blog del zoo de Charnia, en este espacio encontrarás noticias actuales sobre los animales y
+        <br>eventos del zoo
+    </p>
+    <div>
+        <div class="row d-flex justify-content-around row-cols-1 row-cols-md-2 row-cols-lg-2">
+            <div class="col d-flex justify-content-center mt-2">
+                <img src="../../../assets/lince.png" class="card-img-top w-75 h-100" alt="...">
+            </div>
+            <div class="col d-flex justify-content-center mt-2">
+                <div>
+                    <h1>Descubre nuestros programas</h1><br>
+                    <h5>¿Sabías que con cada visita nos ayudas a conservar más especies autóctonas? En Charnia nos
+                        esforzamos en cuidar y
+                        conservar especies en peligro de extinción.
+                    </h5><br>
+                    <button type="button" class="btn btn-success" [routerLink]="['/conservacion']">¡Muestrame
+                        más!</button>
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="row d-flex justify-content-around row-cols-1 row-cols-md-2 row-cols-lg-2">
+            <div class="col d-flex justify-content-center mt-2">
+                <div>
+                    <h1>Actividades educativas</h1><br>
+                    <h5>Experiencias muy divertidas y en las que conocerás a los wallabys, las aves exóticas, o los
+                        delfines.
+                        Aprende de nuestros fantásticos animales y connecta con ellos durante las actividades educativas
+                        de
+                        Charnia.</h5><br>
+                    <button type="button" class="btn btn-success" [routerLink]="['/actividad']">Todas la
+                        actividades</button>
+                </div>
+            </div>
+            <div class="col d-flex justify-content-center mt-2">
+                <img src="../../../assets/loro.png" class="card-img-top w-75 h-100" alt="...">
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="row d-flex justify-content-around row-cols-1 row-cols-md-2 row-cols-lg-2">
+            <div class="col d-flex justify-content-center mt-2">
+                <img src="../../../assets/mapa/webp/mapaCharnia4Modificada.webp" class="card-img-top" alt="...">
+            </div>
+            <div class="col d-flex justify-content-center mt-2">
+                <div>
+                    <h1>Investiga Charnia</h1><br>
+                    <h5>Descubre dónde están los pingüinos, leones, cabras... Y disfruta de la deliciosa comida de
+                        nuestros restaurantes
+                    </h5><br>
+                    <button type="button" class="btn btn-success" [routerLink]="['/descubre-el-zoo/mapa']">¡Muestrame
+                        más!</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
