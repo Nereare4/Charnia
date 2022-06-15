@@ -1,4 +1,3 @@
-<!-- <div class="container"> -->
 <div id="scene" class="mb-5">
     <div id="left-zone">
         <ul class="list">
@@ -6,29 +5,20 @@
                 <input type="radio" id="radio_1" name="basic_carousel" checked />
                 <label class="label_strawberry" for="radio_1">Visitantes</label>
                 <div class="content content_strawb w-75 d-flex justify-content-center" id="dentro">
-                    <!-- <span class="picto"></span> -->
-                    <!-- <h1>VISITANTES</h1> -->
                     <app-visitantes></app-visitantes>
-                    <!-- <p>zñkldfxnvñdfkn</p> -->
                 </div>
             </li>
             <li class="item">
                 <input type="radio" id="radio_2" name="basic_carousel" />
                 <label class="label_banana" for="radio_2">Fecha</label>
                 <div class="content content_banana w-75 d-flex justify-content-center">
-                    <!-- <span class="picto"></span>
-                    <h1>FECHA</h1> -->
                     <app-fecha></app-fecha>
-                    <!-- <p>xñkfcngdfñ</p> -->
                 </div>
             </li>
             <li class="item">
                 <input type="radio" id="radio_3" name="basic_carousel" />
                 <label class="label_apple" for="radio_3">Extra</label>
                 <div class="content content_apple w-75 d-flex justify-content-center">
-                    <!-- <span class="picto"></span>
-                    <h1>apple</h1>
-                    <p>Tzlkxfhgkfl.</p> -->
                     <app-extra></app-extra>
                 </div>
             </li>
@@ -36,9 +26,6 @@
                 <input type="radio" id="radio_4" name="basic_carousel" />
                 <label class="label_orange" for="radio_4">Pago</label>
                 <div class="content content_orange w-75 d-flex justify-content-center">
-                    <!-- <span class="picto"></span>
-                    <h1>orange</h1>
-                    <p>zçfj</p> -->
                     <app-pago></app-pago>
                 </div>
             </li>
@@ -49,7 +36,6 @@
                         <h4 class="mt-2 d-flex justify-content-center">Resumen Carrito</h4>
                         <hr>
                         <div class="contenido w-75 d-flex justify-content-center row row-cols-1">
-                            <!-- <p>Tú carrito está vacío, parece que todavía no has hecho tú elección</p><br> -->
                             <div class="padin">
                                 <p *ngIf="carritoService.adulto ==0 && carritoService.fecha ==0 && carritoService.infantil ==0 && carritoService.senior ==0"><strong>Tu carrito está vacio</strong> Parece que no has hecho tu elección aún.</p>
                                 <div class="col" *ngIf="carritoService.fecha !=0">

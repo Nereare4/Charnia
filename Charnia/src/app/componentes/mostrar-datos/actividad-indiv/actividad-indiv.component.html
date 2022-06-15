@@ -6,9 +6,7 @@
         <form id="form">
             <label class="mx-2">Buscar:</label>
             <input type="text" id="buscar" name="buscar">
-            <!--(onkeyup)="hola()"-->
             <button (click)="buscar()" class="mx-2 btn btn-light"><i class="fas fa-search"></i></button>
-            <!--(click)="buscarImagen()"-->
         </form>
     </div>
     <table class="table table-striped">
@@ -87,7 +85,6 @@
                             #Descripcion="ngModel" required
                             placeholder="Introduzca la descripcion" [(ngModel)]="campos.descripcion">
                         <span class="alert alert-danger d-block mt-2" *ngIf="Descripcion.touched &&!Descripcion.valid">No puedes dejar este campo vacio</span>
-                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                     </div>
                     <div class="mb-3">
                         <label for="diario" class="form-label">Dia de diario</label>
@@ -165,7 +162,6 @@
                             #Descripcion="ngModel" required
                             placeholder="Introduzca la descripcion" [(ngModel)]="campos.descripcion">
                         <span class="alert alert-danger d-block mt-2" *ngIf="Descripcion.touched &&!Descripcion.valid">No puedes dejar este campo vacio</span>
-                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                     </div>
                     <div class="mb-3">
                         <label for="diario" class="form-label">Dia de diario</label>

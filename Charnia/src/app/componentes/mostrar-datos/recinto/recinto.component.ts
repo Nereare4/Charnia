@@ -49,7 +49,6 @@ export class RecintoComponent implements OnInit {
   modificarRecinto(){
     this.conexion.modificarRecinto(this.campos);
   }
-  // MIRAR EL TAMAÑO!!!!
   buscar() {
     this.palabra = document.forms[0]["buscar"].value;
     this.recinto.length = 0;

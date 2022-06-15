@@ -6,7 +6,6 @@
         <form id="form">
             <label class="mx-2">Buscar:</label>
             <input type="text" id="buscar" name="buscar">
-            <!--(onkeyup)="hola()"-->
             <button (click)="buscar()" class="mx-2 btn btn-light"><i class="fas fa-search"></i></button>
         </form>
     </div>
@@ -107,9 +106,6 @@
                             [(ngModel)]="campos.idAnimal">
                         <span class="alert alert-danger d-block mt-2" *ngIf="IdAnimal.touched &&!IdAnimal.valid">No
                             puedes dejar este campo vacio</span>
-                        <!-- <span class="alert alert-danger d-block mt-2" *ngIf="err == 1 || err == 2">No puedes dejar este -->
-                        <!-- campo vacio</span> -->
-                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                     </div>
                     <div class="mb-3">
                         <label for="imagen" class="form-label">Imagen</label>
@@ -118,9 +114,6 @@
                             [(ngModel)]="campos.imagen">
                         <span class="alert alert-danger d-block mt-2" *ngIf="Imagen.touched &&!Imagen.valid">No puedes
                             dejar este campo vacio</span>
-
-                        <!-- <span class="alert alert-danger d-block mt-2" *ngIf="err == 1 || err == 3">No puedes dejar este
-                            campo vacio</span> -->
                     </div>
                     <div class="d-flex justify-content-around">
                         <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"

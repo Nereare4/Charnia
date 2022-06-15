@@ -1,14 +1,3 @@
-/* .subrayado{
-    text-decoration: none;
-    background-image: linear-gradient(#F6C04A, #F6C04A);
-    background-position: 0% 100%;
-    background-repeat: no-repeat;
-    background-size: 0% 2px;
-    transition: background-size 1s;
-}
-.subrayado:hover, .subrayado:focus {
-    background-size: 75% 2px;
-} */
 .puntero{
   cursor: pointer;
 }

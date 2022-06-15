@@ -24,10 +24,6 @@ import { MapaComponent } from './componentes/mapa/mapa.component';
 import { PostsComponent } from './componentes/posts/posts.component';
 import { PostsIndividualComponent } from './componentes/posts-individual/posts-individual.component';
 import { ConservacionComponent } from './componentes/mostrar-datos/conservacion/conservacion.component';
-// import { VisitantesComponent } from './componentes/venta-entradas/visitantes/visitantes.component';
-// import { FechaComponent } from './componentes/venta-entradas/fecha/fecha.component';
-// import { ExtraComponent } from './componentes/venta-entradas/extra/extra.component';
-// import { PagoComponent } from './componentes/venta-entradas/pago/pago.component';
 
 const routes: Routes = [
   { path: 'actividad', component: ActividadesComponent },
@@ -46,10 +42,6 @@ const routes: Routes = [
   { path: 'datos/recinto', component: RecintoComponent },
   { path: 'datos/usuario', component: UsuarioComponent },
   { path: 'datos/conservacion', component: ConservacionComponent },
-  // { path: 'entradas/visitantes', component: VisitantesComponent },
-  // { path: 'entradas/fecha', component: FechaComponent },
-  // { path: 'entradas/extras', component: ExtraComponent },
-  // { path: 'entradas/pago', component: PagoComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },

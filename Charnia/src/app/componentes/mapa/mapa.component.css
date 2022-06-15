@@ -3,7 +3,6 @@
     height: 80%;
 }
 .container2 {
-    /* max-width: 1044px; */
     max-width: 200vh;
     margin: 0 auto;
     padding: 0 20px;
@@ -138,10 +137,6 @@
     display: flex;
     margin: 0 -10px;
 }
-/* .scroll {
-    width: 100%;
-    overflow-x: scroll;
-  } */
 .carousel__slides + .carousel__thumbnails {
     margin-top: 20px;
 }
@@ -167,9 +162,6 @@
     left: 0;
     right: 0;
     bottom: 0;
-    /* margin-left: 3px;
-    width: 30vh;
-    height: 30vh; */
     width: 100%;
 	height: 100%;
 }

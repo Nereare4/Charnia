@@ -29,10 +29,6 @@ export class CardsComponent implements OnInit {
   }
   envioRuta(rut: string) {
     let currentUrl = "/actividad/" + rut;
-    // this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    // this.router.onSameUrlNavigation = 'reload';
-    // this.router.navigate([currentUrl]);
-    
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.router.navigate([currentUrl]);
     });

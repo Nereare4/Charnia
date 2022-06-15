@@ -6,9 +6,7 @@
         <form id="form">
             <label class="mx-2">Buscar:</label>
             <input type="text" id="buscar" name="buscar">
-            <!--(onkeyup)="hola()"-->
             <button (click)="buscar()" class="mx-2 btn btn-light"><i class="fas fa-search"></i></button>
-            <!--(click)="buscarImagen()"-->
         </form>
     </div>
     <table class="table table-striped">
@@ -36,8 +34,6 @@
                 <td>{{cuidado.apellido}}</td>
                 <td>
                     {{cuidado.fechaDeContratacion}}
-                    <!-- {{fecha2}} -->
-                    <!-- {{cuidado.fechaDeContratacion.toDate().getDate()}}/{{cuidado.fechaDeContratacion.toDate().getMonth()+1}}/{{cuidado.fechaDeContratacion.toDate().getFullYear()}} -->
                 </td>
                 <td>
                     <button type="button" class="btn btn-outline-warning mx-3" data-bs-toggle="modal"
@@ -74,7 +70,6 @@
                             #NombreCuidador="ngModel" pattern="[A-Za-z]{3,20}" required
                              [(ngModel)]="campos.nombre" placeholder="Añade el nombre del cuidador">
                              <span class="alert alert-danger d-block mt-2" *ngIf="NombreCuidador.touched &&!NombreCuidador.valid">No puedes dejar este campo vacio</span>
-                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                     </div>
                     <div class="mb-3">
                         <label for="apellido" class="form-label">Apellido</label>
@@ -93,13 +88,8 @@
                         <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" [disabled]="!formularioAnyadir.form.valid">Añadir</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
-
-                    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
                 </form>
             </div>
-            <!-- <div class="modal-footer"> -->
-
-            <!-- </div> -->
         </div>
     </div>
 </div>
@@ -120,7 +110,6 @@
                             #NombreCuidador="ngModel" pattern="[A-Za-z]{3,20}" required
                              [(ngModel)]="campos.nombre" placeholder="Añade el nombre del cuidador">
                              <span class="alert alert-danger d-block mt-2" *ngIf="NombreCuidador.touched &&!NombreCuidador.valid">No puedes dejar este campo vacio</span>
-                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                     </div>
                     <div class="mb-3">
                         <label for="apellido" class="form-label">Apellido</label>

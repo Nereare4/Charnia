@@ -1,7 +1,5 @@
 <!-- LOGIN -->
-
 <section id="login" class="loginRegistro" style="background-color: #F8BB75;">
-    <!-- style="background-color: #F8BB75" -->
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col col-xl-10">
@@ -37,13 +35,11 @@
                                     </div>
                                     <h5 class="fw-normal mb-3 pb-3 tex" style="letter-spacing: 1px;">Iniciar Sesión</h5>
                                     <div class="form-outline mb-4">
-                                        <!-- <label class="form-label" for="form2Example17">Usuario</label> -->
                                         <input type="email" id="form2Example17" class="form-control form-control-lg"
                                             placeholder="Correo electrónico" #usuCorreo required />
                                     </div>
                                     <div class="error" [innerHTML]="autentifService.errorCorreo"></div>
                                     <div class="form-outline mb-4">
-                                        <!-- <label class="form-label" for="form2Example27">Contraseña</label> -->
                                         <input type="password" id="form2Example27" class="form-control form-control-lg"
                                             placeholder="Contraseña" #usuClave required />
                                     </div>
@@ -63,7 +59,6 @@
                                         </button>
                                     </div>
                                     <div class="error" [innerHTML]="autentifService.errorGenerico"></div>
-                                    <!-- <a class="small text-muted" href="#!">Forgot password?</a> -->
                                     <p class="mb-2 pb-lg-2" style="color: #393f81;">
                                         ¿No tiene una cuenta?
                                         <span class="redirect" routerLink="/registro"

@@ -6,9 +6,7 @@
         <form id="form">
             <label class="mx-2">Buscar:</label>
             <input type="text" id="buscar" name="buscar">
-            <!--(onkeyup)="hola()"-->
             <button (click)="buscar()" class="mx-2 btn btn-light"><i class="fas fa-search"></i></button>
-            <!--(click)="buscarImagen()"-->
         </form>
     </div>
     <table class="table table-striped">
@@ -68,7 +66,6 @@
                             #LimpiadoPor="ngModel" pattern="[A-Za-z0-9]{2,}" required 
                             placeholder="Introduzca el id del cuiador" [(ngModel)]="campos.limpiadoPor">
                             <span class="alert alert-danger d-block mt-2" *ngIf="LimpiadoPor.touched &&!LimpiadoPor.valid">No puedes dejar este campo vacio</span>
-                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                     </div>
                     <div class="mb-3">
                         <label for="tamanyo" class="form-label">Tamaño</label>
@@ -104,7 +101,6 @@
                             #LimpiadoPor="ngModel" pattern="[A-Za-z0-9]{2,}" required 
                             placeholder="Introduzca el id del cuiador" [(ngModel)]="campos.limpiadoPor">
                             <span class="alert alert-danger d-block mt-2" *ngIf="LimpiadoPor.touched &&!LimpiadoPor.valid">No puedes dejar este campo vacio</span>
-                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                     </div>
                     <div class="mb-3">
                         <label for="tamanyo" class="form-label">Tamaño</label>

@@ -28,18 +28,5 @@ export class VentaEntradasComponent implements OnInit {
     this.carritoService.fotoEntrada = "";
     this.carritoService.fotoAnimal = "";
   }
-  // pagar(){
-  //   this.total = (
-  //   (this.carritoService.adulto * 20) + 
-  //   (this.carritoService.infantil * 15.5) + 
-  //   (this.carritoService.senior * 17) + 
-  //   (this.carritoService.todoIncluidoAdulto * 20) + 
-  //   (this.carritoService.todoIncluidoInfantil * 15) +
-  //   (this.carritoService.menu * 15) + 
-  //   (this.carritoService.menuInfantil * 10) + 
-  //   (this.carritoService.fotoEntrada * 5) + 
-  //   (this.carritoService.fotoAnimal * 12) );
-
-  // }
 
 }

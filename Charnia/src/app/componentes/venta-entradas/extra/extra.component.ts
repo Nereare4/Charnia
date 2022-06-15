@@ -42,22 +42,4 @@ export class ExtraComponent implements OnInit {
   abrirFotoAnimal(){
     this.dialog.open(FotoAnimalComponent);
   }
-
-
-
-
-
-  // aumentar(i : number) {
-  //   this.cantidad = parseInt(document.forms[i]["valor"].value);
-  //   this.cantidad = this.cantidad + 1;
-  //   document.forms[i]["valor"].value = this.cantidad;
-  // }
-
-  // disminuir(i : number) {
-  //   if (parseInt(document.forms[i]["valor"].value) > 0) {
-  //     this.cantidad = parseInt(document.forms[i]["valor"].value);
-  //     this.cantidad = this.cantidad - 1;
-  //     document.forms[i]["valor"].value = this.cantidad;
-  //   }
-  // }
 }
