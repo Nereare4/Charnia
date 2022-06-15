@@ -1,3 +1,9 @@
+#picnic{
+    width: 6%;
+    height: auto;
+    position: relative;
+    margin-bottom: 5px;
+}
 .mapa{
     width: 80%;
     height: 80%;
