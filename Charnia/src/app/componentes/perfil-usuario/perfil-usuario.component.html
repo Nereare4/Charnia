@@ -1,41 +1,27 @@
 <!-- Sidebar navigation -->
 <div class="container-fluid mb-5">
     <div class="row">
-        <nav class="col-md-2 d-md-block bg-light sidebar">
-            <div class="sidebar-sticky">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active">
-                            <i class="fas fa-user"></i>User Profile
-                        </a>
-                    </li>
-                    <!-- Calling SignOut() Api from AuthService -->
-                    <li class="nav-item">
-                        <a class="nav-link" (click)="autentifService.cerrarSesion()">
-                            <i class="fas fa-sign-out-alt"></i>Log out
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
         <!-- Main content -->
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <div class="inner-adjust">
                 <div class="pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">User Profile</h1>
+                    <h1 class="h2">Perfil de usuario:</h1>
                 </div>
                 <!-- Show user data when logged in -->
-                <div class="row" *ngIf="autentifService.usuDatos as usuario">
-                    <div class="col-md-12">
-                        <div class="media">
-                            <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{usuario.photoURL}}"
-                                alt="{{usuario.displayName}}">
-                            <div class="media-body">
-                                <h1><strong>{{(usuario.displayName) ? usuario.displayName : 'User'}}</strong></h1>
-                                <p>Correo: <strong>{{usuario.email}}</strong></p>
-                            </div>
-                        </div>
+                <div *ngIf="autentifService.usuDatos as usuario">
+                    <div style="width: 10%; height: auto; float: left; margin-right: 10px;">
+                        <img class="img-thumbnail rounded-circle" style="width: 100%; height: 100%;" src="{{(usuario.photoURL) ? usuario.photoURL : '../../../../../assets/logo/OSO.png'}}"
+                            alt="{{usuario.displayName}}">
                     </div>
+                    <div class="alig-self-start">
+                        <h1><strong>{{(usuario.displayName) ? usuario.displayName : 'User'}}</strong></h1>
+                        <p>Correo: <strong>{{usuario.email}}</strong></p>
+                    </div>
+                    
+                    <a class="" (click)="autentifService.cerrarSesion()">
+                        <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                    </a>
+                    
                 </div>
             </div>
         </main>

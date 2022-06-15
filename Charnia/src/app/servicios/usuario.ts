@@ -1,7 +1,7 @@
 export interface Usuario {
-    //usuId: string;
+    usuId: string;
     correo: string;
     contrasenya: string;
-    //nombre: string;
+    nombre: string;
     //correoVerif: boolean;
 }

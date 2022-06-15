@@ -4,6 +4,7 @@ import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreDocument, } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { UsuarioService } from "../componentes/mostrar-datos/usuario/usuario.service";
 
 @Injectable({
   providedIn: 'root'
@@ -13,16 +14,33 @@ export class AutentifService {
   errorCorreo: string;
   errorClave: string;
   errorGenerico: string;
+  errorNombre : string;
+  camposUsu : any = {
+    contrasenya: '',
+    correo: '',
+    nombre: '',
+    apellidos:'',
+    tipo: '',
+  };
 
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public afAutentif: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
+    public UsuarioServicio: UsuarioService ,
     public ngZone: NgZone // NgZone service to remove outside scope warning
   ) {
     this.errorCorreo = "";
     this.errorClave = "";
     this.errorGenerico = "";
+    this.errorNombre = "";
+    this.camposUsu = {
+      contrasenya: '',
+      correo: '',
+      nombre: '',
+      apellidos:'',
+      tipo: '',
+    };
 
     /* Guardar los datos del usuario en localstorage cuando haya iniciado sesión y cambiar esos datos a null cuando cierre sesión */
     this.afAutentif.authState.subscribe((usuario) => {
@@ -53,12 +71,13 @@ export class AutentifService {
   }
 
   /* Registrarse con correo y contraseña */
-  registrarse(correo: string, contrasenya: string) {
+  registrarse(correo: string, contrasenya: string, nombre: any) {
     return this.afAutentif
       .createUserWithEmailAndPassword(correo, contrasenya)
       .then((result) => {
         /* Llama a enviarCorreoVerif() cuando un nuevo usuario se registra y devuelve una promesa */
         this.enviarCorreoVerif();
+        //this.crearTablaUsuario(nombre);
         this.establecerDatosUsu(result.user);
       })
       .catch((error) => {
@@ -117,21 +136,34 @@ export class AutentifService {
       });
   }
 
-  /* Establecer los datos del usuario cuando inicia sesión con nombre y contraseña, cuando se registre con usuario y contraseña y cuando inicie sesión con google */
+  /* Establecer los datos del usuario cuando inicia sesión con nombre y contraseña y cuando inicie sesión con google */
   establecerDatosUsu(usuario: any) {
-    const usuarioRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${usuario.usuId}`);
+    const usuarioRef: AngularFirestoreDocument<any> = this.afs.doc(`usuario/${usuario.usuId}`);
     const usuDatos: Usuario = {
-      //usuId: usuario.usuId,
+      usuId: usuario.usuId,
       correo: usuario.correo,
-      contrasenya: usuario.contrasenya
-      //nombre: usuario.nombre,
+      contrasenya: usuario.contrasenya,
+      nombre: usuario.nombre
       //correoVerif: usuario.correoVerif,
     };
-    return usuarioRef/*.set(usuDatos, {
+    return usuarioRef.set(usuDatos, {
       merge: true,
-    });*/
+    });
   }
 
+  /* Establecer los datos del usuario cuando inicia sesión con nombre y contraseña, cuando se registre con usuario y contraseña y cuando inicie sesión con google */
+  /*establecerDatosUsuRegistro(usuario: any, nombre: any) {
+    const usuarioRef: AngularFirestoreDocument<any> = this.afs.doc(`usuario/${usuario.usuId}`);
+    if(nombre != null) {
+      this.camposUsu.nombre = nombre;
+    } else {
+      this.camposUsu.nombre = usuario.name;
+    }
+    this.camposUsu.
+    
+    this.UsuarioServicio.agregarUsuario(this.camposUsu);
+    return usuarioRef;
+  }*/
 
   /*
   FirebaseError: [code=invalid-argument]: Function DocumentReference.set() called with invalid data.
@@ -150,51 +182,51 @@ export class AutentifService {
   manejarErrores(errorId: string) {
     switch (errorId) {
       case "auth/email-already-exists":
-        this.errorCorreo = "El correo ya está en uso";
+        this.errorCorreo = "<div class='alert alert-danger text-center'>El correo ya está en uso</div>";
         //alert("El correo ya existe");
         break;
       case "auth/id-token-expired":
-        this.errorGenerico = "El token de sesión ha expirado";
+        this.errorGenerico = "<div class='alert alert-danger text-center'>El token de sesión ha expirado</div>";
         //alert("El token de sesión ha expirado");
         break;
       case "auth/id-token-revoked":
-        this.errorGenerico = "El token de sesión se ha revocado";
+        this.errorGenerico = "<div class='alert alert-danger text-center'>El token de sesión se ha revocado</div>";
         //alert("El token de sesión se ha revocado");
         break;
       case "auth/insufficient-permission":
-        this.errorGenerico = "No tienes suficientes permisos";
+        this.errorGenerico = "<div class='alert alert-danger text-center'>No tienes suficientes permisos</div>";
         //alert("No tienes suficientes permisos");
         break;
       case "auth/internal-error":
-        this.errorGenerico = "Error interno";
+        this.errorGenerico = "<div class='alert alert-danger text-center'>Error interno</div>";
         //alert("Error interno");
         break;
       case "auth/invalid-argument":
-        this.errorGenerico = "Argumento invalido";
+        this.errorGenerico = "<div class='alert alert-danger text-center'>Argumento invalido</div>";
         //alert("Argumento invalido");
         break;
       case "auth/invalid-continue-uri":
-        this.errorGenerico = "URL de continuación invalida";
+        this.errorGenerico = "<div class='alert alert-danger text-center'>URL de continuación invalida</div>";
         //alert("URL de continuación invalida");
         break;
       case "auth/invalid-email":
-        this.errorGenerico = "Correo o contraseña invalidos";
+        this.errorGenerico = "<div class='alert alert-danger text-center'>Correo o contraseña invalidos</div>";
         //alert("Correo o contraseña invalidos");
         break;
       case "auth/invalid-password":
-        this.errorGenerico = "Correo o contraseña invalidos";
+        this.errorGenerico = "<div class='alert alert-danger text-center'>Correo o contraseña invalidos</div>";
         //alert("Correo o contraseña invalidos");
         break;
       case "auth/operation-not-allowed":
-        this.errorGenerico = "El proveedor de acceso no está habilitado";
+        this.errorGenerico = "<div class='alert alert-danger text-center'>El proveedor de acceso no está habilitado</div>";
         //alert("El proveedor de acceso no está habilitado");
         break;
       case "auth/weak-password":
-        this.errorClave = "La contraseña es debil";
+        this.errorClave = "<div class='alert alert-danger text-center'>La contraseña es débil</div>";
         //alert("La contraseña es debil");
         break;
       case "auth/already-initialized":
-        this.errorGenerico = "Ya has iniciado sesión";
+        this.errorGenerico = "<div class='alert alert-danger text-center'>Ya has iniciado sesión</div>";
         //alert("Ya has iniciado sesión");
         break;
     }

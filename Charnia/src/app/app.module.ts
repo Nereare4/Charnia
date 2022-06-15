@@ -32,13 +32,14 @@ import {MatInputModule} from '@angular/material/input';
 //SERVICE
 import { AutentifService } from "./servicios/autentif.service";
 import { ConexionService } from './servicios/conexion.service';
+import { UsuarioService } from "./componentes/mostrar-datos/usuario/usuario.service";
 
 //COMPONENTES
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { MostrarDATOSComponent } from './componentes/mostrar-datos/mostrar-datos.component';
-import { InicioComponent } from './componentes/inicio/inicio.component'
+import { InicioComponent } from './componentes/inicio/inicio.component';
 import { ActividadesComponent } from './componentes/actividades/actividades.component';
 import { ActividadesIndividualComponent } from './componentes/actividades-individual/actividades-individual.component';
 import { DescubrezooComponent } from './componentes/descubrezoo/descubrezoo.component';
@@ -142,7 +143,7 @@ import { ConservacionComponent } from './componentes/mostrar-datos/conservacion/
     NbToastrModule.forRoot(),
     NbChatModule.forRoot({ messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',}),
   ],
-  providers: [ConexionService, AutentifService],
+  providers: [ConexionService, AutentifService, UsuarioService],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA],
 })
